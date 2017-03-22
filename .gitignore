@@ -1,0 +1,14 @@
+# Created by https://www.gitignore.io/api/xcode
+
+### Xcode ###
+build
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno
+DerivedData/
+
+# End of https://www.gitignore.io/api/xcode
+
+# MacOS
+.DS_Store
