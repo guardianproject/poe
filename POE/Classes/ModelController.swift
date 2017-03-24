@@ -30,14 +30,14 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         pageData = dateFormatter.monthSymbols
     }
 
-    func viewControllerAtIndex(_ index: Int, storyboard: UIStoryboard) -> DataViewController? {
+    func viewControllerAtIndex(_ index: Int) -> DataViewController? {
         // Return the data view controller for the given index.
         if (self.pageData.count == 0) || (index >= self.pageData.count) {
             return nil
         }
 
         // Create a new view controller and pass suitable data.
-        let dataViewController = storyboard.instantiateViewController(withIdentifier: "DataViewController") as! DataViewController
+        let dataViewController = DataViewController()
         dataViewController.dataObject = self.pageData[index]
         return dataViewController
     }
@@ -57,7 +57,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         }
         
         index -= 1
-        return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
+        return self.viewControllerAtIndex(index)
     }
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -70,7 +70,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         if index == self.pageData.count {
             return nil
         }
-        return self.viewControllerAtIndex(index, storyboard: viewController.storyboard!)
+        return self.viewControllerAtIndex(index)
     }
 
 }
