@@ -38,12 +38,8 @@ public class RootViewController: XibViewController, UIPageViewControllerDelegate
 
         self.pageViewController!.didMove(toParentViewController: self)
 
-//        for family: String in UIFont.familyNames {
-//            print("\(family)")
-//            for names: String in UIFont.fontNames(forFamilyName: family) {
-//                print("== \(names)")
-//            }
-//        }
+        // Replace standard font with our corporate design font: Roboto
+        robotoIt()
     }
 
     override public func didReceiveMemoryWarning() {
