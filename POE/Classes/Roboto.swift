@@ -189,11 +189,11 @@ func robotoIt() {
     UITextView.appearance().substituteFont = true
     UITextField.appearance().substituteFont = true
 
-    // Debug: Print list of font families and their fonts.
-    for family: String in UIFont.familyNames {
-        print("\(family)")
-        for names: String in UIFont.fontNames(forFamilyName: family) {
-            print("== \(names)")
-        }
-    }
+//    // Debug: Print list of font families and their fonts.
+//    for family: String in UIFont.familyNames {
+//        print("\(family)")
+//        for names: String in UIFont.fontNames(forFamilyName: family) {
+//            print("== \(names)")
+//        }
+//    }
 }
