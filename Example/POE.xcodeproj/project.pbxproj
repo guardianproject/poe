@@ -40,6 +40,20 @@
 		7CD4E8F303929E8FCB4CA503 /* Pods_POE_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POE_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		822AA595C26CB35EBC029E67 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9A4F898708680C16230B7B2A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.1_Welcome.png; sourceTree = "<group>"; };
+		A08C6CBE1E93BCEB00CE980D /* 00_Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00_Loading.png; sourceTree = "<group>"; };
+		A08C6CBF1E93BCEB00CE980D /* 01_Intro-NoTrack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01_Intro-NoTrack.png"; sourceTree = "<group>"; };
+		A08C6CC01E93BCEB00CE980D /* 02_Intro-Access.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "02_Intro-Access.png"; sourceTree = "<group>"; };
+		A08C6CC11E93BCEB00CE980D /* 04_Intro-Bridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_Intro-Bridge.png"; sourceTree = "<group>"; };
+		A08C6CC21E93BCEB00CE980D /* 05_Connectingv1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_Connectingv1.0.png; sourceTree = "<group>"; };
+		A08C6CC31E93BCEB00CE980D /* 05_Connectingv1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_Connectingv1.1.png; sourceTree = "<group>"; };
+		A08C6CC41E93BCEB00CE980D /* 05_Connectingv1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_Connectingv1.2.png; sourceTree = "<group>"; };
+		A08C6CC51E93BCEB00CE980D /* 05_Connectingv1.3-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05_Connectingv1.3-error.png"; sourceTree = "<group>"; };
+		A08C6CC61E93BCEB00CE980D /* 05_Connectingv1.4-connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05_Connectingv1.4-connected.png"; sourceTree = "<group>"; };
+		A08C6CC71E93BCEB00CE980D /* 05_Connectingv1.5-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05_Connectingv1.5-error.png"; sourceTree = "<group>"; };
+		A08C6CC81E93BCEB00CE980D /* 06_Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 06_Home.png; sourceTree = "<group>"; };
+		A08C6CC91E93BCEB00CE980D /* UX Demo Video */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UX Demo Video"; sourceTree = "<group>"; };
+		A08C6CCA1E93BCEB00CE980D /* style-guide */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "style-guide"; sourceTree = "<group>"; };
 		B2467B5525C28DA7713AC006 /* Pods_POE_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POE_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2BDDC37F26F308779B2F48 /* Pods-POE_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POE_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-POE_Example/Pods-POE_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F9FE60D3588C8652D803C492 /* Pods-POE_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POE_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-POE_Tests/Pods-POE_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +88,7 @@
 				607FACD11AFB9204008FA782 /* Products */,
 				C302BAFBA4B069A611E7622A /* Pods */,
 				6F0DB0B9FA57D5ED88A77B6F /* Frameworks */,
+				A08C6CBC1E93BCEB00CE980D /* UI-Mockups */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +155,28 @@
 				7CD4E8F303929E8FCB4CA503 /* Pods_POE_Tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A08C6CBC1E93BCEB00CE980D /* UI-Mockups */ = {
+			isa = PBXGroup;
+			children = (
+				A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */,
+				A08C6CBE1E93BCEB00CE980D /* 00_Loading.png */,
+				A08C6CBF1E93BCEB00CE980D /* 01_Intro-NoTrack.png */,
+				A08C6CC01E93BCEB00CE980D /* 02_Intro-Access.png */,
+				A08C6CC11E93BCEB00CE980D /* 04_Intro-Bridge.png */,
+				A08C6CC21E93BCEB00CE980D /* 05_Connectingv1.0.png */,
+				A08C6CC31E93BCEB00CE980D /* 05_Connectingv1.1.png */,
+				A08C6CC41E93BCEB00CE980D /* 05_Connectingv1.2.png */,
+				A08C6CC51E93BCEB00CE980D /* 05_Connectingv1.3-error.png */,
+				A08C6CC61E93BCEB00CE980D /* 05_Connectingv1.4-connected.png */,
+				A08C6CC71E93BCEB00CE980D /* 05_Connectingv1.5-error.png */,
+				A08C6CC81E93BCEB00CE980D /* 06_Home.png */,
+				A08C6CC91E93BCEB00CE980D /* UX Demo Video */,
+				A08C6CCA1E93BCEB00CE980D /* style-guide */,
+			);
+			name = "UI-Mockups";
+			path = "../UI-Mockups";
 			sourceTree = "<group>";
 		};
 		C302BAFBA4B069A611E7622A /* Pods */ = {
@@ -214,6 +251,7 @@
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
@@ -480,12 +518,14 @@
 			baseConfigurationReference = 616A5B4D3B7A31F64E12A776 /* Pods-POE_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = POE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "info.guardianproject.POE-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -494,12 +534,14 @@
 			baseConfigurationReference = ED2BDDC37F26F308779B2F48 /* Pods-POE_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = POE/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "info.guardianproject.POE-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -507,6 +549,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F9FE60D3588C8652D803C492 /* Pods-POE_Tests.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -519,6 +563,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -527,6 +572,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 279091ACAC336AE9B7D8E6E0 /* Pods-POE_Tests.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -535,6 +582,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
