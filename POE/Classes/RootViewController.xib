@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController" customModule="POE" customModuleProvider="target">
             <connections>
-                <outlet property="pageControl" destination="O6p-SZ-fyO" id="7il-do-DB0"/>
+                <outlet property="pageControl" destination="gir-r7-tLx" id="phO-7P-PI6"/>
                 <outlet property="view" destination="iN0-l3-epB" id="2J5-Yy-8wy"/>
             </connections>
         </placeholder>
@@ -20,37 +20,37 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vNe-bX-po5">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFJ-iZ-yhb">
                     <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                     <subviews>
-                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="O6p-SZ-fyO">
-                            <rect key="frame" x="168" y="7" width="39" height="37"/>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gir-r7-tLx">
+                            <rect key="frame" x="168" y="6.5" width="39" height="37"/>
                         </pageControl>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVP-Vw-8EG">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4Q-eG-Eiq">
                             <rect key="frame" x="337" y="8" width="30" height="34"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                             <state key="normal" title="&gt;"/>
                             <connections>
-                                <action selector="nextPage" destination="-1" eventType="touchUpInside" id="Z72-Yh-Y2E"/>
+                                <action selector="nextPage" destination="-1" eventType="touchUpInside" id="Jnm-DD-1UP"/>
                             </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.20784313730000001" green="0.12941176469999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="O6p-SZ-fyO" firstAttribute="centerX" secondItem="vNe-bX-po5" secondAttribute="centerX" id="7Cf-G4-vik"/>
-                        <constraint firstAttribute="height" constant="50" id="D2e-4O-ZBZ"/>
-                        <constraint firstAttribute="trailing" secondItem="uVP-Vw-8EG" secondAttribute="trailing" constant="8" id="Vr6-rm-FKa"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="XkU-Hx-aID"/>
-                        <constraint firstItem="O6p-SZ-fyO" firstAttribute="centerY" secondItem="vNe-bX-po5" secondAttribute="centerY" id="baW-vK-gv3"/>
-                        <constraint firstItem="uVP-Vw-8EG" firstAttribute="centerY" secondItem="vNe-bX-po5" secondAttribute="centerY" id="jAk-41-3B5"/>
+                        <constraint firstItem="gir-r7-tLx" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="8LC-oR-OrL"/>
+                        <constraint firstItem="q4Q-eG-Eiq" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="GWY-UD-h0a"/>
+                        <constraint firstAttribute="trailing" secondItem="q4Q-eG-Eiq" secondAttribute="trailing" constant="8" id="P1w-Ki-nGl"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fvH-kE-azr"/>
+                        <constraint firstAttribute="height" constant="50" id="iSf-KF-MXg"/>
+                        <constraint firstItem="gir-r7-tLx" firstAttribute="centerX" secondItem="NFJ-iZ-yhb" secondAttribute="centerX" id="rjh-Mg-ic6"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vNe-bX-po5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="13L-44-F5J"/>
-                <constraint firstAttribute="bottom" secondItem="vNe-bX-po5" secondAttribute="bottom" id="2zy-Ma-A62"/>
-                <constraint firstAttribute="trailing" secondItem="vNe-bX-po5" secondAttribute="trailing" id="U4e-uG-3Jg"/>
+                <constraint firstAttribute="trailing" secondItem="NFJ-iZ-yhb" secondAttribute="trailing" id="lj5-DU-fG8"/>
+                <constraint firstItem="NFJ-iZ-yhb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="umO-oQ-LkM"/>
+                <constraint firstAttribute="bottom" secondItem="NFJ-iZ-yhb" secondAttribute="bottom" id="zKp-6d-pi7"/>
             </constraints>
         </view>
     </objects>
