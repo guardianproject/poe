@@ -21,22 +21,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-LI-ONS">
-                    <rect key="frame" x="16" y="190" width="343" height="58"/>
+                    <rect key="frame" x="16" y="160" width="343" height="58"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="77K-2U-Zfb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="48"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tor on mobile." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpc-Tm-qx8">
+                    <rect key="frame" x="16" y="226" width="343" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="sms-Tg-FrK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="Wpc-Tm-qx8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="66i-Fl-zSO"/>
                 <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="16" id="PTJ-H9-k5A"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="190" id="YaH-dX-dk4"/>
+                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="YaH-dX-dk4"/>
+                <constraint firstAttribute="trailing" secondItem="Wpc-Tm-qx8" secondAttribute="trailing" constant="16" id="dYe-V6-dxs"/>
+                <constraint firstItem="Wpc-Tm-qx8" firstAttribute="top" secondItem="M4t-LI-ONS" secondAttribute="bottom" constant="8" id="fC5-0h-h7y"/>
                 <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="tlM-pm-9SZ"/>
             </constraints>
-            <point key="canvasLocation" x="24.5" y="52.5"/>
+            <point key="canvasLocation" x="23.5" y="51.5"/>
         </view>
     </objects>
 </document>

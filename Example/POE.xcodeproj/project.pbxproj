@@ -160,8 +160,8 @@
 		A08C6CBC1E93BCEB00CE980D /* UI-Mockups */ = {
 			isa = PBXGroup;
 			children = (
-				A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */,
 				A08C6CBE1E93BCEB00CE980D /* 00_Loading.png */,
+				A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */,
 				A08C6CBF1E93BCEB00CE980D /* 01_Intro-NoTrack.png */,
 				A08C6CC01E93BCEB00CE980D /* 02_Intro-Access.png */,
 				A08C6CC11E93BCEB00CE980D /* 04_Intro-Bridge.png */,
