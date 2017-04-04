@@ -10,3 +10,5 @@ button Roboto Bold, 13 px uppercase, character spacing .56
 COLORS
 background (dark purple): #3F2B4F
 intro progress bar background (darker purple): #352144
+red error view background: #FB5427
+green connected indicator line: #CCE640
