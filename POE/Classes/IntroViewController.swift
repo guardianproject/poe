@@ -51,27 +51,13 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
     var _modelController: ModelController? = nil
 
     @IBAction func nextPage() {
-        var nextIndex = 0
-
-        if let viewController = pageViewController?.viewControllers?[0] {
-            let index = modelController.indexOfViewController(viewController)
-
-            if index == NSNotFound || index >= modelController.pages.count - 1 {
-                nextIndex = 0
-            }
-            else {
-                nextIndex = index + 1
-            }
-        }
-
-        let pendingViewControllers = [modelController.viewControllerAtIndex(nextIndex)!]
-
-        pageViewController(pageViewController!, willTransitionTo: pendingViewControllers)
-
-        pageViewController?.setViewControllers(pendingViewControllers, direction: .forward,
-                                               animated: true, completion: nil)
+        jumpToView(pageControl.currentPage + 1)
     }
     
+    @IBAction func pageChanged() {
+        jumpToView(pageControl.currentPage)
+    }
+
     // MARK: - UIPageViewController delegate methods
 
     public func pageViewController(_ pageViewController: UIPageViewController,
@@ -91,5 +77,37 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
         self.pageViewController!.isDoubleSided = false
         return .min
+    }
+
+    // MARK: - private methods
+
+    /**
+        Jump to a ViewController of a given index.
+     
+        Fetches the proper ViewController, calculates the animation direction.
+     */
+    private func jumpToView(_ index: Int) {
+        var current :Int = 0
+
+        if let viewController = pageViewController?.viewControllers?[0] {
+            current = modelController.indexOfViewController(viewController)
+
+            if current == NSNotFound {
+                current = 0
+            }
+        }
+
+        if let next = modelController.viewControllerAtIndex(index) {
+            pageViewController(pageViewController!, willTransitionTo: [next])
+
+            let direction = current < index
+                ? UIPageViewControllerNavigationDirection.forward
+                : UIPageViewControllerNavigationDirection.reverse
+
+            pageViewController?.setViewControllers([next],
+                                                   direction: direction,
+                                                   animated: true,
+                                                   completion: nil)
+        }
     }
 }
