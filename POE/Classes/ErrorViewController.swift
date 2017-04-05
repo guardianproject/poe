@@ -9,11 +9,4 @@
 import UIKit
 
 public class ErrorViewController: XibViewController {
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Replace standard font with our corporate design font: Roboto
-        robotoIt()
-    }
 }

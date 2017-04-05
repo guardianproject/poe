@@ -41,7 +41,7 @@ enum Roboto {
  
     Inspired by [Using custom font for entire iOS app swift](http://stackoverflow.com/questions/28180449/using-custom-font-for-entire-ios-app-swift).
  */
-func replaceFont(_ oldFont: UIFont?) -> UIFont? {
+private func replaceFont(_ oldFont: UIFont?) -> UIFont? {
     let oldName = oldFont?.fontName.lowercased() ?? ""
     var name :String
 
@@ -144,7 +144,7 @@ private func registerFont(from url: URL) throws {
 private func fontURLs() -> [URL] {
     var urls = [URL]()
 
-    let bundle = Bundle(for: RootViewController.classForCoder())
+    let bundle = Bundle(for: XibViewController.classForCoder())
 
     // Fortunately, file and font names are identical with the Roboto font family.
     let fileNames = [
@@ -170,6 +170,12 @@ private func fontURLs() -> [URL] {
 }
 
 /**
+    #robotoIt() needs to be called only once.
+    This flag tracks that.
+ */
+private var robotoed = false
+
+/**
     Loads and injects the Roboto font family dynamically into the app.
  
     Replaces the normal font of UILabels, UITextViews and UITextFields with proper styles of the 
@@ -179,21 +185,25 @@ private func fontURLs() -> [URL] {
     properly!
  */
 func robotoIt() {
-    do {
-        try fontURLs().forEach({ try registerFont(from: $0) })
-    } catch {
-        print(error)
-    }
+    if (!robotoed) {
+        do {
+            try fontURLs().forEach({ try registerFont(from: $0) })
+        } catch {
+            print(error)
+        }
 
-    UILabel.appearance().substituteFont = true
-    UITextView.appearance().substituteFont = true
-    UITextField.appearance().substituteFont = true
+        UILabel.appearance().substituteFont = true
+        UITextView.appearance().substituteFont = true
+        UITextField.appearance().substituteFont = true
 
-//    // Debug: Print list of font families and their fonts.
-//    for family: String in UIFont.familyNames {
-//        print("\(family)")
-//        for names: String in UIFont.fontNames(forFamilyName: family) {
-//            print("== \(names)")
+        robotoed = true
+
+//        // Debug: Print list of font families and their fonts.
+//        for family: String in UIFont.familyNames {
+//            print("\(family)")
+//            for names: String in UIFont.fontNames(forFamilyName: family) {
+//                print("== \(names)")
+//            }
 //        }
-//    }
+    }
 }

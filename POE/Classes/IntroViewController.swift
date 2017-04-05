@@ -1,5 +1,5 @@
 //
-//  RootViewController.swift
+//  IntroViewController.swift
 //  POE
 //
 //  Created by Benjamin Erhart on 22.03.17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class RootViewController: XibViewController, UIPageViewControllerDelegate {
+public class IntroViewController: XibViewController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController?
 
@@ -37,9 +37,6 @@ public class RootViewController: XibViewController, UIPageViewControllerDelegate
             .insetBy(dx: 0, dy: 25).offsetBy(dx: 0, dy: -25)
 
         pageViewController!.didMove(toParentViewController: self)
-
-        // Replace standard font with our corporate design font: Roboto
-        robotoIt()
     }
 
     var modelController: ModelController {

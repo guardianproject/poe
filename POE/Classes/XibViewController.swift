@@ -25,4 +25,11 @@ public class XibViewController: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Replace standard font with our corporate design font: Roboto
+        robotoIt()
+    }
 }
