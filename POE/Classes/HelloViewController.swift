@@ -12,12 +12,7 @@ class HelloViewController: XibViewController {
     
     @IBOutlet weak var changeLangBt: UIButton!
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        changeLangBt.isHidden = true
-    }
-
     @IBAction func changeLang() {
+        print("'Change language' button pressed!")
     }
 }

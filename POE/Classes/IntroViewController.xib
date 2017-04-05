@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="POE" customModuleProvider="target">
             <connections>
+                <outlet property="continueWithoutBt" destination="Np8-PE-elu" id="3dt-J5-rpx"/>
+                <outlet property="nextPageBt" destination="q4Q-eG-Eiq" id="nr2-gY-Cq1"/>
                 <outlet property="pageControl" destination="gir-r7-tLx" id="phO-7P-PI6"/>
+                <outlet property="useABridgeBt" destination="lq3-m5-wRi" id="hDW-ws-2Tt"/>
                 <outlet property="view" destination="iN0-l3-epB" id="2J5-Yy-8wy"/>
             </connections>
         </placeholder>
@@ -37,15 +40,43 @@
                                 <action selector="nextPage" destination="-1" eventType="touchUpInside" id="Jnm-DD-1UP"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-m5-wRi">
+                            <rect key="frame" x="24" y="11" width="160" height="28"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <state key="normal" title="USE A BRIDGE">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="finish:" destination="-1" eventType="touchUpInside" id="PFu-U0-rkb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Np8-PE-elu">
+                            <rect key="frame" x="191" y="11" width="160" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="FnT-aq-yHq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <state key="normal" title="CONTINUE WITHOUT">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="finish:" destination="-1" eventType="touchUpInside" id="8zb-lK-eAc"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.20784313730000001" green="0.12941176469999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="gir-r7-tLx" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="8LC-oR-OrL"/>
                         <constraint firstItem="q4Q-eG-Eiq" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="GWY-UD-h0a"/>
                         <constraint firstAttribute="trailing" secondItem="q4Q-eG-Eiq" secondAttribute="trailing" constant="8" id="P1w-Ki-nGl"/>
+                        <constraint firstItem="lq3-m5-wRi" firstAttribute="leading" secondItem="NFJ-iZ-yhb" secondAttribute="leading" constant="24" id="PRo-8v-BGC"/>
+                        <constraint firstAttribute="trailing" secondItem="Np8-PE-elu" secondAttribute="trailing" constant="24" id="cuA-yQ-QPu"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fvH-kE-azr"/>
+                        <constraint firstItem="lq3-m5-wRi" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="htt-81-u0U"/>
                         <constraint firstAttribute="height" constant="50" id="iSf-KF-MXg"/>
+                        <constraint firstItem="Np8-PE-elu" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="rFc-JR-M4R"/>
                         <constraint firstItem="gir-r7-tLx" firstAttribute="centerX" secondItem="NFJ-iZ-yhb" secondAttribute="centerX" id="rjh-Mg-ic6"/>
+                        <constraint firstItem="Np8-PE-elu" firstAttribute="width" secondItem="lq3-m5-wRi" secondAttribute="width" id="y7H-JO-9No"/>
                     </constraints>
                 </view>
             </subviews>
@@ -55,6 +86,7 @@
                 <constraint firstItem="NFJ-iZ-yhb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="umO-oQ-LkM"/>
                 <constraint firstAttribute="bottom" secondItem="NFJ-iZ-yhb" secondAttribute="bottom" id="zKp-6d-pi7"/>
             </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
 </document>

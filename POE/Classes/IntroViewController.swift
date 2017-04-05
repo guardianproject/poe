@@ -13,6 +13,10 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
     var pageViewController: UIPageViewController?
 
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var nextPageBt: UIButton!
+    @IBOutlet weak var useABridgeBt: UIButton!
+    @IBOutlet weak var continueWithoutBt: UIButton!
+
 
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +26,7 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
                                                   navigationOrientation: .horizontal, options: nil)
         pageViewController!.delegate = self
 
-        let startingViewController = modelController.viewControllerAtIndex(0)!
-        pageViewController!.setViewControllers([startingViewController], direction: .forward,
-                                               animated: false, completion: {done in })
+        jumpToPage(0)
 
         pageViewController!.dataSource = modelController
 
@@ -50,12 +52,29 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
     var _modelController: ModelController? = nil
 
+    // MARK: - Actions
+
+    /**
+        Callback for the "next page" (right chevron) button.
+     */
     @IBAction func nextPage() {
-        jumpToView(pageControl.currentPage + 1)
+        jumpToPage(pageControl.currentPage + 1)
     }
-    
+
+    /**
+        Callback for a tap on the UIPageControl element.
+     */
     @IBAction func pageChanged() {
-        jumpToView(pageControl.currentPage)
+        jumpToPage(pageControl.currentPage)
+    }
+
+    /**
+        Callback for the "Use a Bridge" and "Continue Without" buttons.
+     */
+    @IBAction func finish(_ sender: UIButton) {
+        let useBridge = sender == useABridgeBt
+
+        print("'" + (useBridge ? "Use a Bridge" : "Continue Without") + "' button pressed!")
     }
 
     // MARK: - UIPageViewController delegate methods
@@ -63,7 +82,16 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    willTransitionTo pendingViewControllers: [UIViewController]) {
 
-        pageControl.currentPage = modelController.indexOfViewController(pendingViewControllers[0])
+        let index = modelController.indexOfViewController(pendingViewControllers[0])
+
+        pageControl.currentPage = index
+
+        let isBridgePage = index > 2
+
+        pageControl.isHidden = isBridgePage
+        nextPageBt.isHidden = isBridgePage
+        useABridgeBt.isHidden = !isBridgePage
+        continueWithoutBt.isHidden = !isBridgePage
     }
 
 
@@ -86,14 +114,16 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
      
         Fetches the proper ViewController, calculates the animation direction.
      */
-    private func jumpToView(_ index: Int) {
+    private func jumpToPage(_ index: Int) {
         var current :Int = 0
 
-        if let viewController = pageViewController?.viewControllers?[0] {
-            current = modelController.indexOfViewController(viewController)
+        if let viewControllers = pageViewController?.viewControllers {
+            if viewControllers.count > 0 {
+                current = modelController.indexOfViewController(viewControllers[0])
 
-            if current == NSNotFound {
-                current = 0
+                if current == NSNotFound {
+                    current = 0
+                }
             }
         }
 

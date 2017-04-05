@@ -24,6 +24,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
         HelloViewController(),
         NotrackViewController(),
         AccessViewController(),
+        BridgeViewController(),
     ]
 
 
