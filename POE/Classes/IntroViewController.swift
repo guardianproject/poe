@@ -72,9 +72,9 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
         Callback for the "Use a Bridge" and "Continue Without" buttons.
      */
     @IBAction func finish(_ sender: UIButton) {
-        let useBridge = sender == useABridgeBt
-
-        print("'" + (useBridge ? "Use a Bridge" : "Continue Without") + "' button pressed!")
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.introFinished(sender == useABridgeBt)
+        }
     }
 
     // MARK: - UIPageViewController delegate methods
