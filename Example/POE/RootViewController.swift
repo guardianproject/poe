@@ -27,13 +27,14 @@ class RootViewController: UIViewController, POEDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         present(nextVC ?? introVC, animated: animated, completion: nil)
 
         if nextVC == conctVC {
             DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
                 self.conctVC.done()
             })
-
         }
     }
 

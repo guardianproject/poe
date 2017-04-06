@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol POEDelegate: NSObjectProtocol {
+@objc public protocol POEDelegate: NSObjectProtocol {
 
     /**
         Receive this callback, after the user finished the intro and selected, if she wants to
