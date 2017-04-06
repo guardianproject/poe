@@ -50,7 +50,6 @@
 		A08C6CC21E93BCEB00CE980D /* 05_Connectingv1.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_Connectingv1.0.png; sourceTree = "<group>"; };
 		A08C6CC31E93BCEB00CE980D /* 05_Connectingv1.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_Connectingv1.1.png; sourceTree = "<group>"; };
 		A08C6CC41E93BCEB00CE980D /* 05_Connectingv1.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 05_Connectingv1.2.png; sourceTree = "<group>"; };
-		A08C6CC51E93BCEB00CE980D /* 05_Connectingv1.3-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05_Connectingv1.3-error.png"; sourceTree = "<group>"; };
 		A08C6CC61E93BCEB00CE980D /* 05_Connectingv1.4-connected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05_Connectingv1.4-connected.png"; sourceTree = "<group>"; };
 		A08C6CC71E93BCEB00CE980D /* 05_Connectingv1.5-error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "05_Connectingv1.5-error.png"; sourceTree = "<group>"; };
 		A08C6CC81E93BCEB00CE980D /* 06_Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 06_Home.png; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 				A08C6CC21E93BCEB00CE980D /* 05_Connectingv1.0.png */,
 				A08C6CC31E93BCEB00CE980D /* 05_Connectingv1.1.png */,
 				A08C6CC41E93BCEB00CE980D /* 05_Connectingv1.2.png */,
-				A08C6CC51E93BCEB00CE980D /* 05_Connectingv1.3-error.png */,
 				A08C6CC61E93BCEB00CE980D /* 05_Connectingv1.4-connected.png */,
 				A08C6CC71E93BCEB00CE980D /* 05_Connectingv1.5-error.png */,
 				A08C6CC81E93BCEB00CE980D /* 06_Home.png */,
