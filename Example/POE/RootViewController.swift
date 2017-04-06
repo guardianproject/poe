@@ -12,6 +12,7 @@ import POE
 class RootViewController: UIViewController, POEDelegate {
 
     let introVC = IntroViewController()
+    let conctVC = ConnectingViewController()
     let errorVC = ErrorViewController()
 
     var nextVC: UIViewController?
@@ -27,9 +28,22 @@ class RootViewController: UIViewController, POEDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         present(nextVC ?? introVC, animated: animated, completion: nil)
+
+        if nextVC == conctVC {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
+                self.conctVC.done()
+            })
+
+        }
     }
 
     func introFinished(_ useBridge: Bool) {
+        nextVC = conctVC
+
+        dismiss(animated: true, completion: nil)
+    }
+
+    func connectingFinished() {
         nextVC = errorVC
 
         dismiss(animated: true, completion: nil)

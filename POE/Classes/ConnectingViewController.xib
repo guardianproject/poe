@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ConnectingViewController" customModule="POE" customModuleProvider="target">
+            <connections>
+                <outlet property="activityIndicator" destination="T6Z-7t-cV3" id="2au-kc-4hO"/>
+                <outlet property="claimLb" destination="M4t-LI-ONS" id="hCb-jb-Qmf"/>
+                <outlet property="figureBt1" destination="uUh-ul-xnc" id="q2p-lx-AUb"/>
+                <outlet property="figureBt2" destination="gan-Jn-wae" id="ig1-a5-lf5"/>
+                <outlet property="infoLb" destination="7CD-vG-4SV" id="f9K-f7-BaT"/>
+                <outlet property="startBrowsingBt" destination="nsT-H2-oIL" id="VcU-w1-rGQ"/>
+                <outlet property="view" destination="iN0-l3-epB" id="jgl-7L-kvi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're connecting you." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CD-vG-4SV">
+                    <rect key="frame" x="16" y="119" width="343" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="T6Z-7t-cV3">
+                    <rect key="frame" x="169" y="111" width="37" height="37"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our diverse community is what makes Tor great!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-LI-ONS">
+                    <rect key="frame" x="16" y="160" width="343" height="67"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsT-H2-oIL">
+                    <rect key="frame" x="107.5" y="178" width="160" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="A5T-on-muS"/>
+                        <constraint firstAttribute="height" constant="40" id="WpC-HA-Ssg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                    <state key="normal" title="START BROWSING">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startBrowsing" destination="-1" eventType="touchUpInside" id="IFD-3n-WGZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUh-ul-xnc">
+                    <rect key="frame" x="58" y="554" width="32" height="30"/>
+                    <state key="normal" title="(*-*)">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showClaim:" destination="-1" eventType="touchUpInside" id="mm1-cl-IFk"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gan-Jn-wae">
+                    <rect key="frame" x="293" y="498" width="32" height="30"/>
+                    <state key="normal" title="(*-*)">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showClaim:" destination="-1" eventType="touchUpInside" id="RAe-gb-iLy"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.61741691827774048" green="0.23399114608764648" blue="0.55008697509765625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="T6Z-7t-cV3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3RC-37-iVO"/>
+                <constraint firstItem="7CD-vG-4SV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Bzv-n5-Mfc"/>
+                <constraint firstAttribute="bottom" secondItem="gan-Jn-wae" secondAttribute="bottom" constant="139" id="OCA-OD-L0G"/>
+                <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="16" id="PTJ-H9-k5A"/>
+                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="YaH-dX-dk4"/>
+                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="7CD-vG-4SV" secondAttribute="bottom" constant="20" id="Zi1-4f-965"/>
+                <constraint firstItem="nsT-H2-oIL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dh1-jV-39P"/>
+                <constraint firstAttribute="trailing" secondItem="gan-Jn-wae" secondAttribute="trailing" constant="50" id="fv4-zw-JsU"/>
+                <constraint firstItem="uUh-ul-xnc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="58" id="gRZ-Pj-LQB"/>
+                <constraint firstAttribute="bottom" secondItem="uUh-ul-xnc" secondAttribute="bottom" constant="83" id="iGo-6W-qBK"/>
+                <constraint firstAttribute="trailing" secondItem="7CD-vG-4SV" secondAttribute="trailing" constant="16" id="ivJ-SB-Tw6"/>
+                <constraint firstItem="nsT-H2-oIL" firstAttribute="top" secondItem="T6Z-7t-cV3" secondAttribute="bottom" constant="30" id="kBs-Sc-vSB"/>
+                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="T6Z-7t-cV3" secondAttribute="bottom" constant="12" id="oF7-pV-8WQ"/>
+                <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="tlM-pm-9SZ"/>
+            </constraints>
+            <point key="canvasLocation" x="23.5" y="51.5"/>
+        </view>
+    </objects>
+</document>

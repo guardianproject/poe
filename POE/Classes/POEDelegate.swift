@@ -10,5 +10,16 @@ import UIKit
 
 public protocol POEDelegate: NSObjectProtocol {
 
+    /**
+        Receive this callback, after the user finished the intro and selected, if she wants to
+        use a bridge or not.
+     
+        - parameter useBridge: true, if user selected to use a bridge, false, if not.
+     */
     func introFinished(_ useBridge: Bool)
+
+    /**
+        Receive this callback, after the user pressed the "Start Browsing" button.
+     */
+    func connectingFinished()
 }
