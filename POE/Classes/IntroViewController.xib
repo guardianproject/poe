@@ -33,9 +33,9 @@
                             </connections>
                         </pageControl>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4Q-eG-Eiq">
-                            <rect key="frame" x="337" y="8" width="30" height="34"/>
+                            <rect key="frame" x="343" y="14" width="8" height="22"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                            <state key="normal" title="&gt;"/>
+                            <state key="normal" image="chevron-right"/>
                             <connections>
                                 <action selector="nextPage" destination="-1" eventType="touchUpInside" id="Jnm-DD-1UP"/>
                             </connections>
@@ -68,7 +68,7 @@
                     <constraints>
                         <constraint firstItem="gir-r7-tLx" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="8LC-oR-OrL"/>
                         <constraint firstItem="q4Q-eG-Eiq" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="GWY-UD-h0a"/>
-                        <constraint firstAttribute="trailing" secondItem="q4Q-eG-Eiq" secondAttribute="trailing" constant="8" id="P1w-Ki-nGl"/>
+                        <constraint firstAttribute="trailing" secondItem="q4Q-eG-Eiq" secondAttribute="trailing" constant="24" id="P1w-Ki-nGl"/>
                         <constraint firstItem="lq3-m5-wRi" firstAttribute="leading" secondItem="NFJ-iZ-yhb" secondAttribute="leading" constant="24" id="PRo-8v-BGC"/>
                         <constraint firstAttribute="trailing" secondItem="Np8-PE-elu" secondAttribute="trailing" constant="24" id="cuA-yQ-QPu"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fvH-kE-azr"/>
@@ -89,4 +89,7 @@
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="chevron-right" width="8" height="13"/>
+    </resources>
 </document>
