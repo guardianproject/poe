@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by Benjamin Erhart on 20.04.17.
+
+*/
+
+// AccessViewController.xib
+"Access anything you want online." = "Access anything you want online.";
+
+
+// BridgeViewController.xib
+"Sometimes you need a bridge to get to Tor." = "Sometimes you need a bridge to get to Tor.";
+"TELL ME MORE" = "TELL ME MORE";
+
+
+// ConnectingViewController.swift
+"Citizen journalists in China use Tor to write about local events to encourage social change and political reform." = "Citizen journalists in China use Tor to write about local events to encourage social change and political reform.";
+"Connected!" = "Connected!";
+"Normal people use Tor to protect their privacy from unscrupulous marketers and identity theives." = "Normal people use Tor to protect their privacy from unscrupulous marketers and identity theives.";
+
+
+// ConnectingViewController.xib
+"We're connecting you." = "We're connecting you.";
+"Our diverse community is what makes Tor great!" = "Our diverse community is what makes Tor great!";
+"START BROWSING" = "START BROWSING";
+
+
+// ErrorViewController.xib
+"Looks like we got stuck! Quit. Then restart the app." = "Looks like we got stuck! Quit. Then restart the app.";
+
+
+// HelloViewController.xib
+"Hello" = "Hello";
+"Welcome to Tor on mobile." = "Welcome to Tor on mobile.";
+"CHANGE LANGUAGE" = "CHANGE LANGUAGE";
+
+
+// IntroViewController.xib
+"CONTINUE WITHOUT" = "CONTINUE WITHOUT";
+"USE A BRIDGE" = "USE A BRIDGE";
+
+
+// NotrackViewController.xib
+"Use the internet without beeing tracked." = "Use the internet without beeing tracked.";

@@ -45,6 +45,7 @@
 		A003C59D1E9691080007E7CE /* POE_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POE_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		A003C59E1E9691080007E7CE /* OCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRootViewController.h; sourceTree = "<group>"; };
 		A003C59F1E9691080007E7CE /* OCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRootViewController.m; sourceTree = "<group>"; };
+		A0132E891E97CC6E00640F92 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A07FBBDA1E952B8000469503 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.1_Welcome.png; sourceTree = "<group>"; };
 		A08C6CBE1E93BCEB00CE980D /* 00_Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00_Loading.png; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			productRefGroup = 607FACD11AFB9204008FA782 /* Products */;
@@ -429,6 +431,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDF1AFB9204008FA782 /* Base */,
+				A0132E891E97CC6E00640F92 /* de */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -488,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

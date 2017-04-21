@@ -1,0 +1,46 @@
+/* 
+  Localizable.strings
+  Pods
+
+  Created by Benjamin Erhart on 20.04.17.
+
+*/
+
+// AccessViewController.xib
+"Access anything you want online." = "Greife online auf alles zu, was Du willst.";
+
+
+// BridgeViewController.xib
+"Sometimes you need a bridge to get to Tor." = "Manchmal braucht man eine Bridge um zu Tor zu gelangen.";
+"TELL ME MORE" = "MEHR INFO";
+
+
+// ConnectingViewController.swift
+"Citizen journalists in China use Tor to write about local events to encourage social change and political reform." = "Bürgerjournalisten in China benutzen Tor um über lokale Ereignisse zu berichten und damit sozialen Wandel und politische Reformen zu unterstützen.";
+"Connected!" = "Verbunden!";
+"Normal people use Tor to protect their privacy from unscrupulous marketers and identity theives." = "Normale Menschen benutzen Tor um ihre Privatsphäre vor skrupellosen Datenhändlern und Indentitätsdiebstahl zu schützen.";
+
+
+// ConnectingViewController.xib
+"We're connecting you." = "Wier verbinden Dich.";
+"Our diverse community is what makes Tor great!" = "Unsere vielfältige Gemeinschaft macht Tor großartig!";
+"START BROWSING" = "LOSSURFEN";
+
+
+// ErrorViewController.xib
+"Looks like we got stuck! Quit. Then restart the app." = "Sieht aus, als ob wir hängengeblieben sind! Schließ die App und starte sie neu.";
+
+
+// HelloViewController.xib
+"Hello" = "Hallo";
+"Welcome to Tor on mobile." = "Willkommen bei Tor Mobil.";
+"CHANGE LANGUAGE" = "SPRACHE ÄNDERN";
+
+
+// IntroViewController.xib
+"CONTINUE WITHOUT" = "OHNE BRIDGE";
+"USE A BRIDGE" = "MIT BRIDGE";
+
+
+// NotrackViewController.xib
+"Use the internet without beeing tracked." = "Benutze das Internet unbeobachtet.";
