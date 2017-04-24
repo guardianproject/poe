@@ -16,14 +16,14 @@
 
 
 // ConnectingViewController.swift
-"Citizen journalists in China use Tor to write about local events to encourage social change and political reform." = "Bürgerjournalisten in China benutzen Tor um über lokale Ereignisse zu berichten und damit sozialen Wandel und politische Reformen zu unterstützen.";
 "Connected!" = "Verbunden!";
-"Normal people use Tor to protect their privacy from unscrupulous marketers and identity theives." = "Normale Menschen benutzen Tor um ihre Privatsphäre vor skrupellosen Datenhändlern und Indentitätsdiebstahl zu schützen.";
+"__CLAIM_1__" = "Unsere vielfältige Gemeinschaft macht Tor großartig!";
+"__CLAIM_2__" = "Bürgerjournalisten in China benutzen Tor um über lokale Ereignisse zu berichten und damit sozialen Wandel und politische Reformen zu unterstützen.";
+"__CLAIM_3__" = "Normale Menschen benutzen Tor um ihre Privatsphäre vor skrupellosen Datenhändlern und Indentitätsdiebstahl zu schützen.";
 
 
 // ConnectingViewController.xib
-"We're connecting you." = "Wier verbinden Dich.";
-"Our diverse community is what makes Tor great!" = "Unsere vielfältige Gemeinschaft macht Tor großartig!";
+"We're connecting you." = "Wir verbinden Dich.";
 "START BROWSING" = "LOSSURFEN";
 
 
@@ -35,6 +35,8 @@
 "Hello" = "Hallo";
 "Welcome to Tor on mobile." = "Willkommen bei Tor Mobil.";
 "CHANGE LANGUAGE" = "SPRACHE ÄNDERN";
+"Change Language" = "Sprache ändern";
+"Cancel" = "Abbrechen";
 
 
 // IntroViewController.xib

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Localize
 
 /**
     Base class which initializes by default with a XIB/NIB of the same name as the child class.
@@ -18,8 +19,12 @@ import UIKit
 public class XibViewController: UIViewController {
 
     public init() {
-        super.init(nibName: String(describing: type(of: self)),
-                   bundle: Bundle(for: XibViewController.classForCoder()))
+        let bundle = Bundle(for: XibViewController.classForCoder())
+
+        Localize.update(bundle: bundle)
+        Localize.update(fileName: "Localizable")
+
+        super.init(nibName: String(describing: type(of: self)), bundle: bundle)
     }
     
     required public init?(coder aDecoder: NSCoder) {

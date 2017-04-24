@@ -18,8 +18,9 @@ public class ConnectingViewController: XibViewController {
     @IBOutlet weak var figureBt2: UIButton!
 
     private static let claims = [
-        NSLocalizedString("Normal people use Tor to protect their privacy from unscrupulous marketers and identity theives.", comment: ""),
-        NSLocalizedString("Citizen journalists in China use Tor to write about local events to encourage social change and political reform.", comment: ""),
+        "__CLAIM_1__".localize(),
+        "__CLAIM_2__".localize(),
+        "__CLAIM_3__".localize(),
     ]
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,8 @@ public class ConnectingViewController: XibViewController {
         startBrowsingBt.layer.borderWidth = 1
         startBrowsingBt.layer.borderColor = UIColor.white.cgColor
         startBrowsingBt.layer.cornerRadius = 20
+
+        showClaim(nil)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             self.showBusy()
@@ -42,7 +45,7 @@ public class ConnectingViewController: XibViewController {
      */
     public func done() {
         self.activityIndicator.isHidden = true
-        self.infoLb.text = NSLocalizedString("Connected!", comment: "")
+        self.infoLb.text = "Connected!".localize()
         self.infoLb.isHidden = false
         self.claimLb.isHidden = true
         self.startBrowsingBt.isHidden = false
@@ -50,14 +53,16 @@ public class ConnectingViewController: XibViewController {
 
     // MARK: - Action methods
 
-    @IBAction func showClaim(_ sender: UIButton) {
-        var text: String
+    @IBAction func showClaim(_ sender: UIButton?) {
+        var text = ConnectingViewController.claims[0]
 
-        switch sender {
-        case figureBt1:
-            text = ConnectingViewController.claims[0]
-        default:
-            text = ConnectingViewController.claims[1]
+        if let figure = sender {
+            switch figure {
+            case figureBt1:
+                text = ConnectingViewController.claims[1]
+            default:
+                text = ConnectingViewController.claims[2]
+            }
         }
 
         claimLb.text = text
