@@ -70,7 +70,7 @@ public class ConnectingViewController: XibViewController {
     
     @IBAction func startBrowsing() {
         if let presenter = presentingViewController as? POEDelegate {
-            presenter.connectingFinished()
+            presenter.userFinishedConnecting()
         }
     }
 

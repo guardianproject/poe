@@ -21,5 +21,5 @@ import UIKit
     /**
         Receive this callback, after the user pressed the "Start Browsing" button.
      */
-    func connectingFinished()
+    func userFinishedConnecting()
 }

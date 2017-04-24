@@ -38,13 +38,24 @@ class RootViewController: UIViewController, POEDelegate {
         }
     }
 
+    // MARK: - POEDelegate
+
+    /**
+         Callback, after the user finished the intro and selected, if she wants to
+         use a bridge or not.
+
+         - parameter useBridge: true, if user selected to use a bridge, false, if not.
+     */
     func introFinished(_ useBridge: Bool) {
         nextVC = conctVC
 
         dismiss(animated: true, completion: nil)
     }
 
-    func connectingFinished() {
+    /**
+        Callback, after the user pressed the "Start Browsing" button.
+     */
+    func userFinishedConnecting() {
         nextVC = errorVC
 
         dismiss(animated: true, completion: nil)

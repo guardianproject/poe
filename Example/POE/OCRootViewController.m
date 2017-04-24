@@ -41,6 +41,14 @@
     }
 }
 
+// MARK: - POEDelegate
+
+/**
+     Callback, after the user finished the intro and selected, if she wants to
+     use a bridge or not.
+
+     - parameter useBridge: true, if user selected to use a bridge, false, if not.
+ */
 - (void)introFinished:(BOOL)useBridge
 {
     self.nextVC = self.conctVC;
@@ -48,7 +56,10 @@
     [self dismissViewControllerAnimated: true completion: nil];
 }
 
-- (void)connectingFinished
+/**
+    Callback, after the user pressed the "Start Browsing" button.
+ */
+- (void)userFinishedConnecting
 {
     self.nextVC = self.errorVC;
 
