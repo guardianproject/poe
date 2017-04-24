@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're connecting you." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CD-vG-4SV">
-                    <rect key="frame" x="16" y="119" width="343" height="21"/>
+                    <rect key="frame" x="16" y="120" width="343" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsT-H2-oIL">
-                    <rect key="frame" x="107.5" y="178" width="160" height="40"/>
+                    <rect key="frame" x="107.5" y="179" width="160" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="160" id="A5T-on-muS"/>
                         <constraint firstAttribute="height" constant="40" id="WpC-HA-Ssg"/>
@@ -70,7 +70,7 @@
                     </connections>
                 </button>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fpN-6T-aNY">
-                    <rect key="frame" x="112" y="128" width="150" height="2"/>
+                    <rect key="frame" x="112" y="129" width="150" height="2"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="150" id="5Sx-fA-Z1d"/>
                     </constraints>
@@ -85,14 +85,14 @@
                 <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="16" id="PTJ-H9-k5A"/>
                 <constraint firstItem="nsT-H2-oIL" firstAttribute="top" secondItem="7CD-vG-4SV" secondAttribute="bottom" constant="38" id="Tab-um-7v3"/>
                 <constraint firstItem="fpN-6T-aNY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UZW-lk-eNU"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="YaH-dX-dk4"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="7CD-vG-4SV" secondAttribute="bottom" constant="20" id="Zi1-4f-965"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="fpN-6T-aNY" secondAttribute="bottom" constant="30" id="aA0-db-SCI"/>
+                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="7CD-vG-4SV" secondAttribute="bottom" constant="19" id="Zi1-4f-965"/>
                 <constraint firstItem="nsT-H2-oIL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dh1-jV-39P"/>
+                <constraint firstItem="7CD-vG-4SV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="120" id="eE0-4d-SS9"/>
                 <constraint firstAttribute="trailing" secondItem="gan-Jn-wae" secondAttribute="trailing" constant="50" id="fv4-zw-JsU"/>
                 <constraint firstItem="uUh-ul-xnc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="58" id="gRZ-Pj-LQB"/>
                 <constraint firstAttribute="bottom" secondItem="uUh-ul-xnc" secondAttribute="bottom" constant="83" id="iGo-6W-qBK"/>
                 <constraint firstAttribute="trailing" secondItem="7CD-vG-4SV" secondAttribute="trailing" constant="16" id="ivJ-SB-Tw6"/>
+                <constraint firstItem="fpN-6T-aNY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="129" id="qyn-WQ-InC"/>
                 <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="tlM-pm-9SZ"/>
             </constraints>
             <point key="canvasLocation" x="23.5" y="51.5"/>

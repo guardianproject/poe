@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ErrorViewController" customModule="POE" customModuleProvider="target">
             <connections>
+                <outlet property="progressView" destination="nxQ-a4-O6e" id="LTU-0B-oBn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,9 +20,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="6Gi-YF-dIr">
-                    <rect key="frame" x="169" y="80" width="37" height="37"/>
-                </activityIndicatorView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="nxQ-a4-O6e">
+                    <rect key="frame" x="112" y="129" width="150" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="c2P-UX-doI"/>
+                    </constraints>
+                    <color key="progressTintColor" red="0.20784313730000001" green="0.12941176469999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="trackTintColor" red="0.98431372549999996" green="0.3294117647" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Looks like we got stuck! Quit. Then restart the app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7j-Ip-uRI">
                     <rect key="frame" x="16" y="160" width="343" height="57.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -31,10 +37,10 @@
             </subviews>
             <color key="backgroundColor" red="0.98431372549999996" green="0.3294117647" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6Gi-YF-dIr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="MHs-Fc-WDm"/>
-                <constraint firstItem="z7j-Ip-uRI" firstAttribute="top" secondItem="6Gi-YF-dIr" secondAttribute="bottom" constant="43" id="UjD-hS-6WT"/>
-                <constraint firstItem="6Gi-YF-dIr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="VOu-6T-AqF"/>
                 <constraint firstAttribute="trailing" secondItem="z7j-Ip-uRI" secondAttribute="trailing" constant="16" id="VcB-lB-Tib"/>
+                <constraint firstItem="z7j-Ip-uRI" firstAttribute="top" secondItem="nxQ-a4-O6e" secondAttribute="bottom" constant="29" id="efO-tj-JRx"/>
+                <constraint firstItem="nxQ-a4-O6e" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="foj-zN-I7O"/>
+                <constraint firstItem="nxQ-a4-O6e" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="129" id="hYc-Jh-9Cn"/>
                 <constraint firstItem="z7j-Ip-uRI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="hmW-ep-iJH"/>
             </constraints>
             <point key="canvasLocation" x="24.5" y="51.5"/>
