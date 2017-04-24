@@ -15,11 +15,13 @@ class RootViewController: UIViewController, POEDelegate {
     let conctVC = ConnectingViewController()
     let errorVC = ErrorViewController()
 
-    var nextVC: UIViewController?
-
     public init() {
         super.init(nibName: "LaunchScreen",
                    bundle: Bundle(for: RootViewController.classForCoder()))
+
+        introVC.modalTransitionStyle = .crossDissolve
+        conctVC.modalTransitionStyle = .crossDissolve
+        errorVC.modalTransitionStyle = .crossDissolve
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -29,33 +31,7 @@ class RootViewController: UIViewController, POEDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        present(nextVC ?? introVC, animated: animated, completion: nil)
-
-        if nextVC == conctVC {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-                self.conctVC.connectingStarted()
-            })
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-                self.conctVC.updateProgress(0.25)
-            })
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                self.conctVC.updateProgress(0.5)
-            })
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
-                self.conctVC.updateProgress(0.75)
-            })
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-                self.conctVC.updateProgress(1)
-            })
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
-                self.conctVC.connectingFinished()
-            })
-        }
+        present(introVC, animated: animated, completion: nil)
     }
 
     // MARK: - POEDelegate
@@ -67,17 +43,37 @@ class RootViewController: UIViewController, POEDelegate {
          - parameter useBridge: true, if user selected to use a bridge, false, if not.
      */
     func introFinished(_ useBridge: Bool) {
-        nextVC = conctVC
+        introVC.present(conctVC, animated: true, completion: nil)
 
-        dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            self.conctVC.connectingStarted()
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            self.conctVC.updateProgress(0.25)
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+            self.conctVC.updateProgress(0.5)
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
+            self.conctVC.updateProgress(0.75)
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+            self.conctVC.updateProgress(1)
+        })
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
+            self.conctVC.connectingFinished()
+        })
     }
 
     /**
         Callback, after the user pressed the "Start Browsing" button.
      */
     func userFinishedConnecting() {
-        nextVC = errorVC
-
-        dismiss(animated: true, completion: nil)
+        conctVC.present(errorVC, animated: true, completion: nil)
     }
 }

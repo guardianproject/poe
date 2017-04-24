@@ -15,8 +15,11 @@
     if (self = [super initWithNibName: @"LaunchScreen" bundle: [NSBundle bundleForClass: [OCRootViewController classForCoder]]])
     {
         self.introVC = [[IntroViewController alloc] init];
+        self.introVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.conctVC = [[ConnectingViewController alloc] init];
+        self.conctVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.errorVC = [[ErrorViewController alloc] init];
+        self.errorVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     }
 
     return self;
@@ -26,39 +29,7 @@
 {
     [super viewDidAppear: animated];
 
-    if (!self.nextVC)
-    {
-        self.nextVC = self.introVC;
-    }
-
-    [self presentViewController: self.nextVC animated: animated completion: nil];
-    
-    if (self.nextVC == self.conctVC)
-    {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.conctVC connectingStarted];
-        });
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.conctVC updateProgress:0.25];
-        });
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.conctVC updateProgress:0.5];
-        });
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.conctVC updateProgress:0.75];
-        });
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.conctVC updateProgress:1];
-        });
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.conctVC connectingFinished];
-        });
-    }
+    [self presentViewController: self.introVC animated: animated completion: nil];
 }
 
 // MARK: - POEDelegate
@@ -71,9 +42,31 @@
  */
 - (void)introFinished:(BOOL)useBridge
 {
-    self.nextVC = self.conctVC;
+    [self.introVC presentViewController:self.conctVC animated:YES completion:nil];
 
-    [self dismissViewControllerAnimated: true completion: nil];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.conctVC connectingStarted];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.conctVC updateProgress:0.25];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.conctVC updateProgress:0.5];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.conctVC updateProgress:0.75];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.conctVC updateProgress:1];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.conctVC connectingFinished];
+    });
 }
 
 /**
@@ -81,9 +74,7 @@
  */
 - (void)userFinishedConnecting
 {
-    self.nextVC = self.errorVC;
-
-    [self dismissViewControllerAnimated: true completion: nil];
+    [self.conctVC presentViewController:self.errorVC animated:YES completion:nil];
 }
 
 @end
