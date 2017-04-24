@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HelloViewController" customModule="POE" customModuleProvider="target">
             <connections>
+                <outlet property="changeLangBt" destination="q5K-4U-5TJ" id="aoA-u3-xdt"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jgl-7L-kvi"/>
             </connections>
         </placeholder>
@@ -32,7 +33,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5K-4U-5TJ">
-                    <rect key="frame" x="97" y="619" width="180" height="28"/>
+                    <rect key="frame" x="97.5" y="619" width="180" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="jIG-vO-hIE"/>
                     </constraints>

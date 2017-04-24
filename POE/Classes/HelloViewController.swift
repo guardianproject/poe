@@ -11,6 +11,8 @@ import Localize
 
 class HelloViewController: XibViewController {
     
+    @IBOutlet weak var changeLangBt: UIButton!
+    
     @IBAction func changeLang() {
         let actionSheet = UIAlertController(title: "Change Language".localize(),
                                                  message: nil, preferredStyle: .actionSheet)
@@ -28,6 +30,9 @@ class HelloViewController: XibViewController {
 
         actionSheet.addAction(
             UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: nil))
+
+        actionSheet.popoverPresentationController?.sourceView = changeLangBt
+        actionSheet.popoverPresentationController?.sourceRect = changeLangBt.bounds
 
         present(actionSheet, animated: true, completion: nil)
     }
