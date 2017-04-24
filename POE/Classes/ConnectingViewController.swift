@@ -11,7 +11,7 @@ import UIKit
 public class ConnectingViewController: XibViewController {
 
     @IBOutlet weak var infoLb: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var claimLb: UILabel!
     @IBOutlet weak var startBrowsingBt: UIButton!
     @IBOutlet weak var figureBt1: UIButton!
@@ -26,29 +26,54 @@ public class ConnectingViewController: XibViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        activityIndicator.isHidden = true
+        progressView.isHidden = true
+
         startBrowsingBt.isHidden = true
         startBrowsingBt.layer.borderWidth = 1
         startBrowsingBt.layer.borderColor = UIColor.white.cgColor
         startBrowsingBt.layer.cornerRadius = 20
 
         showClaim(nil)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            self.showBusy()
-        })
     }
 
     /**
-        This will hide the activity indicator and instead show a label
+        Hide the info label, the "Start Browsing" button, update the progress view with 0
+        progress and show the claims.
+     */
+    public func connectingStarted() {
+        updateProgress(0)
+    }
+
+    /**
+        Hide the info label, the "Start Browsing" button, update the progress view with the given
+        progress and show the claims.
+     
+        - parameter progress: The new progress value. See [UIProgressView#setProgress(_:animated:)](https://developer.apple.com/reference/uikit/uiprogressview/1619846-setprogress)
+     */
+    public func updateProgress(_ progress: Float) {
+        infoLb.isHidden = true
+
+        progressView.setProgress(progress, animated: true)
+        progressView.isHidden = false
+
+        startBrowsingBt.isHidden = true
+
+        claimLb.isHidden = false
+    }
+
+    /**
+        Hide the progress view and the claims and instead show a label
         "Connected!" and a button "Start Browsing".
      */
-    public func done() {
-        self.activityIndicator.isHidden = true
-        self.infoLb.text = "Connected!".localize()
-        self.infoLb.isHidden = false
-        self.claimLb.isHidden = true
-        self.startBrowsingBt.isHidden = false
+    public func connectingFinished() {
+        progressView.isHidden = true
+
+        infoLb.text = "Connected!".localize()
+        infoLb.isHidden = false
+
+        claimLb.isHidden = true
+
+        startBrowsingBt.isHidden = false
     }
 
     // MARK: - Action methods
@@ -72,12 +97,5 @@ public class ConnectingViewController: XibViewController {
         if let presenter = presentingViewController as? POEDelegate {
             presenter.userFinishedConnecting()
         }
-    }
-
-    // MARK: - Private methods
-
-    private func showBusy() {
-        self.infoLb.isHidden = true
-        self.activityIndicator.isHidden = false
     }
 }

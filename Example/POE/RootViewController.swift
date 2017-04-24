@@ -32,8 +32,28 @@ class RootViewController: UIViewController, POEDelegate {
         present(nextVC ?? introVC, animated: animated, completion: nil)
 
         if nextVC == conctVC {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                self.conctVC.connectingStarted()
+            })
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                self.conctVC.updateProgress(0.25)
+            })
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
+                self.conctVC.updateProgress(0.5)
+            })
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
+                self.conctVC.updateProgress(0.75)
+            })
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                self.conctVC.updateProgress(1)
+            })
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
-                self.conctVC.done()
+                self.conctVC.connectingFinished()
             })
         }
     }
