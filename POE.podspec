@@ -34,8 +34,10 @@ TODO: Add long description of the pod here.
   
   s.resource_bundles = {
     'POE' => [
-      'POE/Assets/*.*',
-      'POE/Classes/*.xib'
+      'POE/Assets/roboto/*.*',
+      'POE/Assets/Media.xcassets',
+      'POE/Assets/en.lproj/Localizable.strings',
+      'POE/Assets/de.lproj/Localizable.strings',
     ]
   }
 
