@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ConnectingViewController: XibViewController {
+public class ConnectingViewController: XibViewController, POEDelegate {
 
     @IBOutlet weak var infoLb: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
@@ -94,6 +94,20 @@ public class ConnectingViewController: XibViewController {
     }
     
     @IBAction func startBrowsing() {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.userFinishedConnecting()
+        }
+    }
+
+    // MARK: - POEDelegate pass-through
+
+    public func introFinished(_ useBridge: Bool) {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.introFinished(useBridge)
+        }
+    }
+
+    public func userFinishedConnecting() {
         if let presenter = presentingViewController as? POEDelegate {
             presenter.userFinishedConnecting()
         }
