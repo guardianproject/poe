@@ -7,12 +7,28 @@
 //
 
 import UIKit
+import Localize
 
 class HelloViewController: XibViewController {
     
-    @IBOutlet weak var changeLangBt: UIButton!
-
     @IBAction func changeLang() {
-        print("'Change language' button pressed!")
+        let actionSheet = UIAlertController(title: "Change Language".localize(),
+                                                 message: nil, preferredStyle: .actionSheet)
+
+        for localeId in Localize.availableLanguages() {
+            let locale = NSLocale(localeIdentifier: localeId)
+
+            actionSheet.addAction(UIAlertAction(
+                title: locale.displayName(forKey: .identifier, value: localeId),
+                style: .default,
+                handler: { (action: UIAlertAction) in
+                    Localize.update(language: localeId)
+                }))
+        }
+
+        actionSheet.addAction(
+            UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: nil))
+
+        present(actionSheet, animated: true, completion: nil)
     }
 }
