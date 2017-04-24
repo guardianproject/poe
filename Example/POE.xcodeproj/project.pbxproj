@@ -45,7 +45,6 @@
 		A003C59D1E9691080007E7CE /* POE_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POE_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		A003C59E1E9691080007E7CE /* OCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRootViewController.h; sourceTree = "<group>"; };
 		A003C59F1E9691080007E7CE /* OCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRootViewController.m; sourceTree = "<group>"; };
-		A0132E891E97CC6E00640F92 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A07FBBDA1E952B8000469503 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.1_Welcome.png; sourceTree = "<group>"; };
 		A08C6CBE1E93BCEB00CE980D /* 00_Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00_Loading.png; sourceTree = "<group>"; };
@@ -431,7 +430,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDF1AFB9204008FA782 /* Base */,
-				A0132E891E97CC6E00640F92 /* de */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
