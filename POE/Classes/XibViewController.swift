@@ -16,9 +16,26 @@ import Localize
     - [Load assets from bundle resources in Cocoapods](https://the-nerd.be/2015/08/07/load-assets-from-bundle-resources-in-cocoapods/)
     - [Get ClassName without referencing self](http://stackoverflow.com/questions/31735429/get-classname-without-referencing-self)
  */
-public class XibViewController: UIViewController {
+public class XibViewController: UIViewController, POEDelegate {
+
+    // MARK: - Static
 
     private static var bundle: Bundle?
+
+    public static func getBundle() -> Bundle {
+        if bundle == nil {
+            let frameworkBundle = Bundle(for: XibViewController.classForCoder())
+
+            // CocoaPods manages to move all resources into a bundle inside the framework's bundle,
+            // which we pick here.
+            bundle = Bundle(url: (frameworkBundle.url(forResource: "POE", withExtension: "bundle"))!)
+        }
+
+        return bundle!
+    }
+
+
+    // MARK: - UIViewController
 
     public init() {
         let bundle = XibViewController.getBundle()
@@ -40,15 +57,18 @@ public class XibViewController: UIViewController {
         robotoIt()
     }
 
-    public static func getBundle() -> Bundle {
-        if bundle == nil {
-            let frameworkBundle = Bundle(for: XibViewController.classForCoder())
 
-            // CocoaPods manages to move all resources into a bundle inside the framework's bundle,
-            // which we pick here.
-            bundle = Bundle(url: (frameworkBundle.url(forResource: "POE", withExtension: "bundle"))!)
+    // MARK: - POEDelegate pass-through
+
+    public func introFinished(_ useBridge: Bool) {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.introFinished(useBridge)
         }
+    }
 
-        return bundle!
+    public func userFinishedConnecting() {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.userFinishedConnecting()
+        }
     }
 }

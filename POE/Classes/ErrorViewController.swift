@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class ErrorViewController: XibViewController, POEDelegate {
+public class ErrorViewController: XibViewController {
 
     @IBOutlet weak var progressView: UIProgressView!
 
@@ -21,19 +21,5 @@ public class ErrorViewController: XibViewController, POEDelegate {
      */
     public func updateProgress(_ progress: Float) {
         progressView.setProgress(progress, animated: false)
-    }
-
-    // MARK: - POEDelegate pass-through
-
-    public func introFinished(_ useBridge: Bool) {
-        if let presenter = presentingViewController as? POEDelegate {
-            presenter.introFinished(useBridge)
-        }
-    }
-
-    public func userFinishedConnecting() {
-        if let presenter = presentingViewController as? POEDelegate {
-            presenter.userFinishedConnecting()
-        }
     }
 }

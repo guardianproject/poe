@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class IntroViewController: XibViewController, UIPageViewControllerDelegate, POEDelegate {
+public class IntroViewController: XibViewController, UIPageViewControllerDelegate {
 
     var pageViewController: UIPageViewController?
 
@@ -105,20 +105,6 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
         self.pageViewController!.isDoubleSided = false
         return .min
-    }
-
-    // MARK: - POEDelegate pass-through
-
-    public func introFinished(_ useBridge: Bool) {
-        if let presenter = presentingViewController as? POEDelegate {
-            presenter.introFinished(useBridge)
-        }
-    }
-
-    public func userFinishedConnecting() {
-        if let presenter = presentingViewController as? POEDelegate {
-            presenter.userFinishedConnecting()
-        }
     }
 
     // MARK: - private methods
