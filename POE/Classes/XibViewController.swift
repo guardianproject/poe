@@ -18,13 +18,15 @@ import Localize
  */
 public class XibViewController: UIViewController {
 
-    public init() {
-        let bundle = Bundle(for: XibViewController.classForCoder())
+    private static var bundles: [Bundle] = []
 
-        Localize.update(bundle: bundle)
+    public init() {
+        let bundles = XibViewController.getBundles()
+
+        Localize.update(bundle: bundles[1])
         Localize.update(fileName: "Localizable")
 
-        super.init(nibName: String(describing: type(of: self)), bundle: bundle)
+        super.init(nibName: String(describing: type(of: self)), bundle: bundles[0])
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -36,5 +38,19 @@ public class XibViewController: UIViewController {
 
         // Replace standard font with our corporate design font: Roboto
         robotoIt()
+    }
+
+    public static func getBundles() -> [Bundle] {
+        if bundles.count < 1 {
+            let bundle = Bundle(for: XibViewController.classForCoder())
+
+            // CocoaPods manages to move all resources into a bundle inside the framework's bundle,
+            // which we pick here.
+            let subBundle = Bundle(url: (bundle.url(forResource: "POE", withExtension: "bundle"))!)
+
+            bundles = [bundle, subBundle!]
+        }
+
+        return bundles
     }
 }

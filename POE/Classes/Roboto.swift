@@ -144,8 +144,6 @@ private func registerFont(from url: URL) throws {
 private func fontURLs() -> [URL] {
     var urls = [URL]()
 
-    let bundle = Bundle(for: XibViewController.classForCoder())
-
     // Fortunately, file and font names are identical with the Roboto font family.
     let fileNames = [
         Roboto.black, Roboto.blackItalic,
@@ -160,8 +158,10 @@ private func fontURLs() -> [URL] {
         Roboto.condensedLight, Roboto.condensedLightItalic,
         Roboto.condensed]
 
+    let bundles = XibViewController.getBundles()
+
     fileNames.forEach({
-        if let url = bundle.url(forResource: $0, withExtension: "ttf") {
+        if let url = bundles[1].url(forResource: $0, withExtension: "ttf") {
             urls.append(url)
         }
     })
