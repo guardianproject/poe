@@ -18,15 +18,15 @@ import Localize
  */
 public class XibViewController: UIViewController {
 
-    private static var bundles: [Bundle] = []
+    private static var bundle: Bundle?
 
     public init() {
-        let bundles = XibViewController.getBundles()
+        let bundle = XibViewController.getBundle()
 
-        Localize.update(bundle: bundles[1])
+        Localize.update(bundle: bundle)
         Localize.update(fileName: "Localizable")
 
-        super.init(nibName: String(describing: type(of: self)), bundle: bundles[0])
+        super.init(nibName: String(describing: type(of: self)), bundle: bundle)
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -40,17 +40,15 @@ public class XibViewController: UIViewController {
         robotoIt()
     }
 
-    public static func getBundles() -> [Bundle] {
-        if bundles.count < 1 {
-            let bundle = Bundle(for: XibViewController.classForCoder())
+    public static func getBundle() -> Bundle {
+        if bundle == nil {
+            let frameworkBundle = Bundle(for: XibViewController.classForCoder())
 
             // CocoaPods manages to move all resources into a bundle inside the framework's bundle,
             // which we pick here.
-            let subBundle = Bundle(url: (bundle.url(forResource: "POE", withExtension: "bundle"))!)
-
-            bundles = [bundle, subBundle!]
+            bundle = Bundle(url: (frameworkBundle.url(forResource: "POE", withExtension: "bundle"))!)
         }
 
-        return bundles
+        return bundle!
     }
 }

@@ -158,10 +158,8 @@ private func fontURLs() -> [URL] {
         Roboto.condensedLight, Roboto.condensedLightItalic,
         Roboto.condensed]
 
-    let bundles = XibViewController.getBundles()
-
     fileNames.forEach({
-        if let url = bundles[1].url(forResource: $0, withExtension: "ttf") {
+        if let url = XibViewController.getBundle().url(forResource: $0, withExtension: "ttf") {
             urls.append(url)
         }
     })

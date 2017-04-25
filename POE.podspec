@@ -30,14 +30,15 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'POE/Classes/**/*'
+  s.source_files = 'POE/Classes/**/*.swift'
   
   s.resource_bundles = {
     'POE' => [
+      'POE/Classes/*.xib',
+      'POE/Assets/*.xcassets',
       'POE/Assets/roboto/*.*',
-      'POE/Assets/Media.xcassets',
-      'POE/Assets/en.lproj/Localizable.strings',
-      'POE/Assets/de.lproj/Localizable.strings',
+      'POE/Assets/en.lproj/*.*',
+      'POE/Assets/de.lproj/*.*',
     ]
   }
 
