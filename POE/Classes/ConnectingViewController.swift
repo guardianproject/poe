@@ -17,6 +17,8 @@ public class ConnectingViewController: XibViewController {
     @IBOutlet weak var figureBt1: UIButton!
     @IBOutlet weak var figureBt2: UIButton!
 
+    private var firstClaim = 0
+
     private static let claims = [
         "__CLAIM_1__".localize(),
         "__CLAIM_2__".localize(),
@@ -79,15 +81,19 @@ public class ConnectingViewController: XibViewController {
     // MARK: - Action methods
 
     @IBAction func showClaim(_ sender: UIButton?) {
-        var text = ConnectingViewController.claims[0]
+        var text: String
 
         if let figure = sender {
             switch figure {
             case figureBt1:
-                text = ConnectingViewController.claims[1]
+                text = ConnectingViewController.claims[firstClaim == 1 ? 0 : 1]
             default:
-                text = ConnectingViewController.claims[2]
+                text = ConnectingViewController.claims[firstClaim == 2 ? 0 : 2]
             }
+        }
+        else {
+            firstClaim = Int(arc4random_uniform(UInt32(ConnectingViewController.claims.count)))
+            text = ConnectingViewController.claims[firstClaim]
         }
 
         claimLb.text = text
