@@ -17,6 +17,8 @@ public class ConnectingViewController: XibViewController {
     @IBOutlet weak var figureBt1: UIButton!
     @IBOutlet weak var figureBt2: UIButton!
 
+    public var autoClose = false
+
     private var firstClaim = 0
 
     private static let claims = [
@@ -66,8 +68,17 @@ public class ConnectingViewController: XibViewController {
     /**
         Hide the progress view and the claims and instead show a label
         "Connected!" and a button "Start Browsing".
+     
+        If `autoClose` is enabled and `presenter` implements `POEDelegate`, send 
+        `userFinishedConnecting` immediately.
      */
     public func connectingFinished() {
+        if autoClose && (presentingViewController as? POEDelegate) != nil {
+            startBrowsing()
+
+            return
+        }
+
         progressView.isHidden = true
 
         infoLb.text = "Connected!".localize()

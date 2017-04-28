@@ -28,10 +28,25 @@ class RootViewController: UIViewController, POEDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let language = UserDefaults.standard.object(forKey: "language") as? String {
+            print("Language: \(language)")
+        }
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        present(introVC, animated: animated, completion: nil)
+        if UserDefaults.standard.bool(forKey: "did_intro") {
+            conctVC.autoClose = true
+            present(conctVC, animated: animated, completion: nil)
+            connect(UserDefaults.standard.bool(forKey: "use_bridge"))
+        }
+        else {
+            present(introVC, animated: animated, completion: nil)
+        }
     }
 
     // MARK: - POEDelegate
@@ -43,8 +58,25 @@ class RootViewController: UIViewController, POEDelegate {
          - parameter useBridge: true, if user selected to use a bridge, false, if not.
      */
     func introFinished(_ useBridge: Bool) {
+        UserDefaults.standard.set(true, forKey: "did_intro")
+        UserDefaults.standard.set(useBridge, forKey: "use_bridge")
+
         introVC.present(conctVC, animated: true, completion: nil)
 
+        connect(useBridge)
+    }
+
+    /**
+        Callback, after the user pressed the "Start Browsing" button.
+     */
+    func userFinishedConnecting() {
+        errorVC.updateProgress(1)
+        conctVC.present(errorVC, animated: true, completion: nil)
+    }
+
+    // MARK: - Private
+
+    private func connect(_ useBridge: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.conctVC.connectingStarted()
         })
@@ -68,12 +100,5 @@ class RootViewController: UIViewController, POEDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
             self.conctVC.connectingFinished()
         })
-    }
-
-    /**
-        Callback, after the user pressed the "Start Browsing" button.
-     */
-    func userFinishedConnecting() {
-        conctVC.present(errorVC, animated: true, completion: nil)
     }
 }

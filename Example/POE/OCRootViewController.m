@@ -29,7 +29,14 @@
 {
     [super viewDidAppear: animated];
 
-    [self presentViewController: self.introVC animated: animated completion: nil];
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
+        self.conctVC.autoClose = YES;
+        [self presentViewController: self.conctVC animated: animated completion: nil];
+        [self connect:[NSUserDefaults.standardUserDefaults boolForKey:@"use_bridge"]];
+    }
+    else {
+        [self presentViewController: self.introVC animated: animated completion: nil];
+    }
 }
 
 // MARK: - POEDelegate
@@ -42,8 +49,27 @@
  */
 - (void)introFinished:(BOOL)useBridge
 {
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"did_intro"];
+    [NSUserDefaults.standardUserDefaults setBool:useBridge forKey:@"use_bridge"];
+
     [self.introVC presentViewController:self.conctVC animated:YES completion:nil];
 
+    [self connect:useBridge];
+}
+
+/**
+    Callback, after the user pressed the "Start Browsing" button.
+ */
+- (void)userFinishedConnecting
+{
+    [self.errorVC updateProgress:1];
+    [self.conctVC presentViewController:self.errorVC animated:YES completion:nil];
+}
+
+// MARK: - Private
+
+- (void)connect:(BOOL)useBridge
+{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.conctVC connectingStarted];
     });
@@ -67,14 +93,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.conctVC connectingFinished];
     });
-}
-
-/**
-    Callback, after the user pressed the "Start Browsing" button.
- */
-- (void)userFinishedConnecting
-{
-    [self.conctVC presentViewController:self.errorVC animated:YES completion:nil];
 }
 
 @end
