@@ -22,18 +22,18 @@ class RootViewController: UIViewController, POEDelegate {
         introVC.modalTransitionStyle = .crossDissolve
         conctVC.modalTransitionStyle = .crossDissolve
         errorVC.modalTransitionStyle = .crossDissolve
+
+        let currentId = Locale.current.identifier
+
+        if let localeId = UserDefaults.standard.object(forKey: "locale") as? String {
+            if currentId != localeId {
+                print("Change locale in your app from '\(currentId)' to '\(localeId)'!")
+            }
+        }
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        if let language = UserDefaults.standard.object(forKey: "language") as? String {
-            print("Language: \(language)")
-        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +72,13 @@ class RootViewController: UIViewController, POEDelegate {
     func userFinishedConnecting() {
         errorVC.updateProgress(1)
         conctVC.present(errorVC, animated: true, completion: nil)
+    }
+
+    /**
+        Callback, when the user changed the locale.
+     */
+    func localeUpdated(_ localeId: String) {
+        UserDefaults.standard.set(localeId, forKey:"locale")
     }
 
     // MARK: - Private

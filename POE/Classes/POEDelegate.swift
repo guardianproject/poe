@@ -22,4 +22,9 @@ import UIKit
         Receive this callback, after the user pressed the "Start Browsing" button.
      */
     func userFinishedConnecting()
+
+    /**
+        Receive this callback, when the user changed the locale.
+     */
+    func localeUpdated(_ localeId: String)
 }

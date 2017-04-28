@@ -25,6 +25,10 @@ class HelloViewController: XibViewController {
                 style: .default,
                 handler: { (action: UIAlertAction) in
                     Localize.update(language: localeId)
+
+                    if let presenter = self.presentingViewController as? POEDelegate {
+                        presenter.localeUpdated(localeId)
+                    }
                 }))
         }
 
