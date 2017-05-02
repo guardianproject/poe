@@ -12,3 +12,5 @@ background (dark purple): #3F2B4F
 intro progress bar background (darker purple): #352144
 red error view background: #FB5427
 green connected indicator line: #CCE640
+
+background for connecting view (light Tor purple): #A577BB
