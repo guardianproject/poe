@@ -23,7 +23,6 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     var pages: [UIViewController] = [
         HelloViewController(),
         NotrackViewController(),
-        AccessViewController(),
         BridgeViewController(),
     ]
 

@@ -6,10 +6,6 @@
 
 */
 
-// AccessViewController.xib
-"Access anything you want online." = "Access anything you want online.";
-
-
 // BridgeViewController.xib
 "Sometimes you need a bridge to get to Tor." = "Sometimes you need a bridge to get to Tor.";
 "TELL ME MORE" = "TELL ME MORE";
@@ -50,4 +46,5 @@
 
 
 // NotrackViewController.xib
-"Use the internet without beeing tracked." = "Use the internet without beeing tracked.";
+"Browse the internet how you expect you should." = "Browse the internet how you expect you should.";
+"No tracking. No censorship." = "No tracking. No censorship.";

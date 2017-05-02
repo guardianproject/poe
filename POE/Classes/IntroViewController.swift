@@ -86,7 +86,7 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
         pageControl.currentPage = index
 
-        let isBridgePage = index > 2
+        let isBridgePage = index > 1
 
         pageControl.isHidden = isBridgePage
         nextPageBt.isHidden = isBridgePage

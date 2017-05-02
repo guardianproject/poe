@@ -78,7 +78,7 @@
                     <color key="trackTintColor" red="0.61741691830000001" green="0.23399114609999999" blue="0.55008697510000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </progressView>
             </subviews>
-            <color key="backgroundColor" red="0.61741691827774048" green="0.23399114608764648" blue="0.55008697509765625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.6470588235294118" green="0.46666666666666667" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="7CD-vG-4SV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="Bzv-n5-Mfc"/>
                 <constraint firstAttribute="bottom" secondItem="gan-Jn-wae" secondAttribute="bottom" constant="139" id="OCA-OD-L0G"/>
