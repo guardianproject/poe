@@ -16,6 +16,12 @@ public class ConnectingViewController: XibViewController {
     @IBOutlet weak var startBrowsingBt: UIButton!
     @IBOutlet weak var figureBt1: UIButton!
     @IBOutlet weak var figureBt2: UIButton!
+    @IBOutlet weak var figureBt3: UIButton!
+    @IBOutlet weak var figureBt4: UIButton!
+    @IBOutlet weak var figureBt5: UIButton!
+    @IBOutlet weak var figureBt6: UIButton!
+    @IBOutlet weak var figureBt7: UIButton!
+    @IBOutlet weak var figureBt8: UIButton!
 
     public var autoClose = false
 
@@ -25,6 +31,11 @@ public class ConnectingViewController: XibViewController {
         "__CLAIM_1__".localize(),
         "__CLAIM_2__".localize(),
         "__CLAIM_3__".localize(),
+        "__CLAIM_4__".localize(),
+        "__CLAIM_5__".localize(),
+        "__CLAIM_6__".localize(),
+        "__CLAIM_7__".localize(),
+        "__CLAIM_8__".localize(),
     ]
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -98,8 +109,20 @@ public class ConnectingViewController: XibViewController {
             switch figure {
             case figureBt1:
                 text = ConnectingViewController.claims[firstClaim == 1 ? 0 : 1]
-            default:
+            case figureBt2:
                 text = ConnectingViewController.claims[firstClaim == 2 ? 0 : 2]
+            case figureBt3:
+                text = ConnectingViewController.claims[firstClaim == 3 ? 0 : 3]
+            case figureBt4:
+                text = ConnectingViewController.claims[firstClaim == 4 ? 0 : 4]
+            case figureBt5:
+                text = ConnectingViewController.claims[firstClaim == 5 ? 0 : 5]
+            case figureBt6:
+                text = ConnectingViewController.claims[firstClaim == 6 ? 0 : 6]
+            case figureBt7:
+                text = ConnectingViewController.claims[firstClaim == 7 ? 0 : 7]
+            default:
+                text = ConnectingViewController.claims[firstClaim == 8 ? 0 : 8]
             }
         }
         else {

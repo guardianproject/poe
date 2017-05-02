@@ -18,8 +18,13 @@
 // ConnectingViewController.swift
 "Connected!" = "Connected!";
 "__CLAIM_1__" = "Our diverse community is what makes Tor great!";
-"__CLAIM_2__" = "Citizen journalists in China use Tor to write about local events to encourage social change and political reform.";
-"__CLAIM_3__" = "Normal people use Tor to protect their privacy from unscrupulous marketers and identity theives.";
+"__CLAIM_2__" = "Everyday people use Tor to avoid being followed by marketing ads.";
+"__CLAIM_3__" = "When Facebook is blocked, people use Tor to connect to their friends and family.";
+"__CLAIM_4__" = "Activists use Tor to freely tweet their opinions and beliefs.";
+"__CLAIM_5__" = "Bloggers use Tor to rally people toward social reform.";
+"__CLAIM_6__" = "Journalists use Tor to securely investigate stories they are reporting on.";
+"__CLAIM_7__" = "Business people use Tor to keep their company strategies private.";
+"__CLAIM_8__" = "Workers use Tor to fight for justice without fear of losing their job.";
 
 
 // ConnectingViewController.xib
