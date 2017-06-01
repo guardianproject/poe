@@ -37,8 +37,7 @@ TODO: Add long description of the pod here.
       'POE/Classes/*.xib',
       'POE/Assets/*.xcassets',
       'POE/Assets/roboto/*.*',
-      'POE/Assets/en.lproj/*.*',
-      'POE/Assets/de.lproj/*.*',
+      'POE/Assets/*.lproj/*.*',
     ]
   }
 
