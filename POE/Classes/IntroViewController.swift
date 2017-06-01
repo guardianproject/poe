@@ -39,6 +39,13 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
             .insetBy(dx: 0, dy: 25).offsetBy(dx: 0, dy: -25)
 
         pageViewController!.didMove(toParentViewController: self)
+
+        // Unfortunately, this has to be done programatically.
+        if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
+            nextPageBt.contentHorizontalAlignment = .left
+            useABridgeBt.contentHorizontalAlignment = .right
+            continueWithoutBt.contentHorizontalAlignment = .left
+        }
     }
 
     var modelController: ModelController {

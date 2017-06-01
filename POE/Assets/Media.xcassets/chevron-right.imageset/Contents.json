@@ -2,7 +2,8 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ic_navigate_next@1x.pdf"
+      "filename" : "ic_navigate_next@1x.pdf",
+      "language-direction" : "left-to-right"
     }
   ],
   "info" : {
