@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   Localize:
-    :commit: e3670927c1892d085d64b106404a0ead51ddfce8
+    :commit: c45d994cae9b3b75db488b5a5302b7273520a12b
     :git: https://github.com/tladesignz/Localize.git
 
 SPEC CHECKSUMS:

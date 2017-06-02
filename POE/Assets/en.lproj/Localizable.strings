@@ -6,6 +6,18 @@
 
 */
 
+// BridgeSelectViewController.swift
+"__BRIDGES_EXPLANATION__" = "Bridges are Tor relays that help circumvent censorship. You can try bridges if Tor is blocked by your ISP; each type of bridge uses a different method to avoid censorship: if one type does not work, try using a different one.\n\nYou may use the provided bridges below or obtain bridges at %.";
+"No Bridges: Directly Connect to Tor" = "No Bridges: Directly Connect to Tor";
+"Provided Bridges: %" = "Provided Bridges: %";
+"Custom Bridges" = "Custom Bridges";
+
+
+// BridgeSelectViewController.xib
+"Bridge Configuration" = "Bridge Configuration";
+"Done" = "Done";
+
+
 // BridgeViewController.xib
 "Sometimes you need a bridge to get to Tor." = "Sometimes you need a bridge to get to Tor.";
 "TELL ME MORE" = "TELL ME MORE";

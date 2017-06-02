@@ -16,6 +16,12 @@
     {
         self.introVC = [[IntroViewController alloc] init];
         self.introVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        self.bridgeVC = [[BridgeSelectViewController alloc]
+                         initWithCurrentId: 0
+                         noBridgeId: @0
+                         providedBridges: @{@1: @"obfs4", @2: @"meek-amazon", @3: @"meek-azure"}
+                         customBridgeId: @99];
+
         self.conctVC = [[ConnectingViewController alloc] init];
         self.conctVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.errorVC = [[ErrorViewController alloc] init];
@@ -57,6 +63,12 @@
  */
 - (void)introFinished:(BOOL)useBridge
 {
+    if (useBridge)
+    {
+        [self.introVC presentViewController:self.bridgeVC animated:YES completion:nil];
+        return;
+    }
+
     [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"did_intro"];
     [NSUserDefaults.standardUserDefaults setBool:useBridge forKey:@"use_bridge"];
 

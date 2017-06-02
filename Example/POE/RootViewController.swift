@@ -12,6 +12,11 @@ import POE
 class RootViewController: UIViewController, POEDelegate {
 
     let introVC = IntroViewController()
+    let bridgeVC = BridgeSelectViewController(
+        currentId: 0,
+        noBridgeId: 0,
+        providedBridges: [1: "obfs4", 2: "meek-amazon", 3: "meek-azure"],
+        customBridgeId: 99)
     let conctVC = ConnectingViewController()
     let errorVC = ErrorViewController()
 
@@ -58,10 +63,15 @@ class RootViewController: UIViewController, POEDelegate {
          - parameter useBridge: true, if user selected to use a bridge, false, if not.
      */
     func introFinished(_ useBridge: Bool) {
+        if useBridge {
+            introVC.present(bridgeVC, animated: true)
+            return
+        }
+
         UserDefaults.standard.set(true, forKey: "did_intro")
         UserDefaults.standard.set(useBridge, forKey: "use_bridge")
 
-        introVC.present(conctVC, animated: true, completion: nil)
+        introVC.present(conctVC, animated: true)
 
         connect(useBridge)
     }
@@ -71,7 +81,7 @@ class RootViewController: UIViewController, POEDelegate {
      */
     func userFinishedConnecting() {
         errorVC.updateProgress(1)
-        conctVC.present(errorVC, animated: true, completion: nil)
+        conctVC.present(errorVC, animated: true)
     }
 
     /**
