@@ -40,6 +40,12 @@
 "START BROWSING" = "START BROWSING";
 
 
+// CustomBridgeViewController.swift
+"__CUSTOM_BRIDGE_EXPLANATION_1__" = "In another browser, visit % and pick 'Get Bridges'. Use the 'Advanced Options' section; 'obfs4' Pluggable Transports are recommended. (Do not select IPv6.)";
+"__CUSTOM_BRIDGE_EXPLANATION_2__" = "\n\nYou can tap the 'camera' icon to use the QR code from the website, or manually copy-and-paste the 'bridge lines' here:";
+"__CUSTOM_BRIDGE_EXPLANATION_3__" = " Then copy-and-paste the \"bridge lines\" here:";
+
+
 // ErrorViewController.xib
 "Looks like we got stuck! Quit. Then restart the app." = "Looks like we got stuck! Quit. Then restart the app.";
 

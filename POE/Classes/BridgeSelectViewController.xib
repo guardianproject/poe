@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BridgeSelectViewController" customModule="POE" customModuleProvider="target">
             <connections>
-                <outlet property="explanation" destination="t6i-8J-Y87" id="msv-Sn-4nk"/>
+                <outlet property="explanationTV" destination="t6i-8J-Y87" id="t5U-Zi-Tek"/>
                 <outlet property="tableView" destination="Oy7-4D-DeM" id="XOc-KC-DXb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

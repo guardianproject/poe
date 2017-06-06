@@ -10,7 +10,7 @@ import UIKit
 
 public class BridgeSelectViewController: XibViewController, UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate {
 
-    @IBOutlet weak var explanation: UITextView!
+    @IBOutlet weak var explanationTV: UITextView!
     @IBOutlet weak var tableView: UITableView!
 
     private var currentId: Int
@@ -22,8 +22,12 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
     private var labels = [String]()
 
-    public init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?, customBridgeId: NSNumber?) {
+    private let customBridgeVC = CustomBridgeViewController()
+
+    public init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
+                customBridgeId: NSNumber?, customBridges: [String]?) {
         self.currentId = currentId
+
         self.noBridgeId = noBridgeId?.intValue
 
         if providedBridges != nil {
@@ -44,7 +48,26 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
             ids.append(self.customBridgeId!)
         }
 
+        customBridgeVC.bridges = customBridges ?? []
+        customBridgeVC.modalTransitionStyle = .crossDissolve
+
         super.init()
+    }
+
+    public convenience init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
+                            customBridgeId: NSNumber?) {
+        self.init(currentId: currentId, noBridgeId: noBridgeId, providedBridges: providedBridges,
+                  customBridgeId: customBridgeId, customBridges: nil)
+    }
+    
+    public convenience init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?) {
+        self.init(currentId: currentId, noBridgeId: noBridgeId, providedBridges: providedBridges,
+                  customBridgeId: nil, customBridges: nil)
+    }
+
+    public convenience init(currentId: Int, providedBridges: [Int : String]?) {
+        self.init(currentId: currentId, noBridgeId: nil, providedBridges: providedBridges,
+                  customBridgeId: nil, customBridges: nil)
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -61,7 +84,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         Need to do localization here, so if user goes back and changes it, the change will propagate.
      */
     public override func viewWillAppear(_ animated: Bool) {
-        explanation.text = "__BRIDGES_EXPLANATION__".localize(value: "bridges.torproject.org")
+        explanationTV.text = "__BRIDGES_EXPLANATION__".localize(value: "bridges.torproject.org")
 
         labels.removeAll()
 
@@ -77,6 +100,10 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
             labels.append("Custom Bridges".localize())
         }
 
+        if customBridgeVC.isEdited {
+            currentId = customBridgeVC.bridges.count < 1 ? ids[0] : customBridgeId!
+        }
+
         tableView.reloadData()
 
         super.viewWillAppear(animated)
@@ -86,6 +113,10 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
     @IBAction func changedBridge(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.bridgeConfigured(currentId, customBridges: customBridgeVC.bridges)
+        }
     }
 
     // MARK: - UITableViewDataSource
@@ -106,16 +137,21 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
     // MARK: - UITableViewDelegate
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let old = tableView.cellForRow(at:
-            IndexPath(row: ids.index(of: currentId)!, section: indexPath.section))
-        old?.accessoryType = .none
+        if ids[indexPath.row] == self.customBridgeId {
+            present(customBridgeVC, animated: true)
+        }
+        else {
+            let old = tableView.cellForRow(at:
+                IndexPath(row: ids.index(of: currentId)!, section: indexPath.section))
+            old?.accessoryType = .none
 
-        currentId = ids[indexPath.row]
+            currentId = ids[indexPath.row]
 
-        let new = tableView.cellForRow(at: indexPath)
-        new?.accessoryType = .checkmark
+            let new = tableView.cellForRow(at: indexPath)
+            new?.accessoryType = .checkmark
 
-        tableView.deselectRow(at: indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 
     // MARK: - UINavigationBarDelegate

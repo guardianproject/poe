@@ -17,11 +17,11 @@
         self.introVC = [[IntroViewController alloc] init];
         self.introVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.bridgeVC = [[BridgeSelectViewController alloc]
-                         initWithCurrentId: 0
+                         initWithCurrentId: [NSUserDefaults.standardUserDefaults integerForKey:@"use_bridges"]
                          noBridgeId: @0
                          providedBridges: @{@1: @"obfs4", @2: @"meek-amazon", @3: @"meek-azure"}
-                         customBridgeId: @99];
-
+                         customBridgeId: @99
+                         customBridges: [NSUserDefaults.standardUserDefaults stringArrayForKey:@"custom_bridges"]];
         self.conctVC = [[ConnectingViewController alloc] init];
         self.conctVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.errorVC = [[ErrorViewController alloc] init];
@@ -43,14 +43,14 @@
 {
     [super viewDidAppear: animated];
 
-    if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
-        self.conctVC.autoClose = YES;
-        [self presentViewController: self.conctVC animated: animated completion: nil];
-        [self connect:[NSUserDefaults.standardUserDefaults boolForKey:@"use_bridge"]];
-    }
-    else {
+//    if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
+//        self.conctVC.autoClose = YES;
+//        [self presentViewController: self.conctVC animated: animated completion: nil];
+//        [self connect];
+//    }
+//    else {
         [self presentViewController: self.introVC animated: animated completion: nil];
-    }
+//    }
 }
 
 // MARK: - POEDelegate
@@ -59,22 +59,41 @@
      Callback, after the user finished the intro and selected, if she wants to
      use a bridge or not.
 
-     - parameter useBridge: true, if user selected to use a bridge, false, if not.
+     - parameter useBridge: true, if user selected to use a bridge, false, if not. You should
+     show the BridgeSelectViewController then.
  */
 - (void)introFinished:(BOOL)useBridge
 {
+    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"did_intro"];
+
     if (useBridge)
     {
         [self.introVC presentViewController:self.bridgeVC animated:YES completion:nil];
         return;
     }
 
-    [NSUserDefaults.standardUserDefaults setBool:YES forKey:@"did_intro"];
-    [NSUserDefaults.standardUserDefaults setBool:useBridge forKey:@"use_bridge"];
+    [NSUserDefaults.standardUserDefaults setInteger:0 forKey:@"use_bridges"];
 
     [self.introVC presentViewController:self.conctVC animated:YES completion:nil];
 
-    [self connect:useBridge];
+    [self connect];
+}
+
+/**
+     Receive this callback, after the user finished the bridges configuration.
+
+     - parameter bridgesId: the selected ID of the list you gave in the constructor of
+     BridgeSelectViewController.
+     - parameter customBridges: the list of custom bridges the user configured.
+ */
+- (void)bridgeConfigured:(NSInteger)bridgesId customBridges:(NSArray *)customBridges
+{
+    [NSUserDefaults.standardUserDefaults setInteger:bridgesId forKey:@"use_bridges"];
+    [NSUserDefaults.standardUserDefaults setObject:customBridges forKey:@"custom_bridges"];
+
+    [self.introVC presentViewController:self.conctVC animated:YES completion:nil];
+
+    [self connect];
 }
 
 /**
@@ -96,7 +115,7 @@
 
 // MARK: - Private
 
-- (void)connect:(BOOL)useBridge
+- (void)connect
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.conctVC connectingStarted];

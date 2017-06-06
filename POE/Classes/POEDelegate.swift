@@ -14,9 +14,19 @@ import UIKit
         Receive this callback, after the user finished the intro and selected, if she wants to
         use a bridge or not.
      
-        - parameter useBridge: true, if user selected to use a bridge, false, if not.
+        - parameter useBridge: true, if user selected to use a bridge, false, if not. You should 
+          show the BridgeSelectViewController then.
      */
     func introFinished(_ useBridge: Bool)
+
+    /**
+        Receive this callback, after the user finished the bridges configuration in the BridgeSelectViewController.
+ 
+        - parameter bridgesId: the selected ID of the list you gave in the constructor of 
+          BridgeSelectViewController.
+        - parameter customBridges: the list of custom bridges the user configured.
+     */
+    func bridgeConfigured(_ bridgesId: Int, customBridges: [String])
 
     /**
         Receive this callback, after the user pressed the "Start Browsing" button.

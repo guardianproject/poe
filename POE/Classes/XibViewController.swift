@@ -66,6 +66,12 @@ public class XibViewController: UIViewController, POEDelegate {
         }
     }
 
+    public func bridgeConfigured(_ bridgesId: Int, customBridges: [String]) {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.bridgeConfigured(bridgesId, customBridges: customBridges)
+        }
+    }
+
     public func userFinishedConnecting() {
         if let presenter = presentingViewController as? POEDelegate {
             presenter.userFinishedConnecting()

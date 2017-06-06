@@ -13,10 +13,11 @@ class RootViewController: UIViewController, POEDelegate {
 
     let introVC = IntroViewController()
     let bridgeVC = BridgeSelectViewController(
-        currentId: 0,
+        currentId: UserDefaults.standard.integer(forKey: "use_bridges"),
         noBridgeId: 0,
         providedBridges: [1: "obfs4", 2: "meek-amazon", 3: "meek-azure"],
-        customBridgeId: 99)
+        customBridgeId: 99,
+        customBridges: UserDefaults.standard.stringArray(forKey: "custom_bridges"))
     let conctVC = ConnectingViewController()
     let errorVC = ErrorViewController()
 
@@ -47,7 +48,7 @@ class RootViewController: UIViewController, POEDelegate {
         if UserDefaults.standard.bool(forKey: "did_intro") {
             conctVC.autoClose = true
             present(conctVC, animated: animated, completion: nil)
-            connect(UserDefaults.standard.bool(forKey: "use_bridge"))
+            connect()
         }
         else {
             present(introVC, animated: animated, completion: nil)
@@ -63,17 +64,34 @@ class RootViewController: UIViewController, POEDelegate {
          - parameter useBridge: true, if user selected to use a bridge, false, if not.
      */
     func introFinished(_ useBridge: Bool) {
+        UserDefaults.standard.set(true, forKey: "did_intro")
+
         if useBridge {
             introVC.present(bridgeVC, animated: true)
             return
         }
 
-        UserDefaults.standard.set(true, forKey: "did_intro")
-        UserDefaults.standard.set(useBridge, forKey: "use_bridge")
+        UserDefaults.standard.set(0, forKey: "use_bridge")
 
         introVC.present(conctVC, animated: true)
 
-        connect(useBridge)
+        connect()
+    }
+
+    /**
+         Receive this callback, after the user finished the bridges configuration.
+
+         - parameter bridgesId: the selected ID of the list you gave in the constructor of
+         BridgeSelectViewController.
+         - parameter customBridges: the list of custom bridges the user configured.
+     */
+    func bridgeConfigured(_ bridgesId: Int, customBridges: [String]) {
+        UserDefaults.standard.set(bridgesId, forKey: "use_bridges")
+        UserDefaults.standard.set(customBridges, forKey: "custom_bridges")
+
+        introVC.present(conctVC, animated: true)
+
+        connect()
     }
 
     /**
@@ -93,7 +111,7 @@ class RootViewController: UIViewController, POEDelegate {
 
     // MARK: - Private
 
-    private func connect(_ useBridge: Bool) {
+    private func connect() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             self.conctVC.connectingStarted()
         })
