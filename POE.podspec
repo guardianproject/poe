@@ -45,4 +45,5 @@ TODO: Add long description of the pod here.
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'Localize', '~> 1.3'
   s.dependency 'KMPlaceholderTextView', '~> 1.3'
+  s.dependency 'QRCodeReader.swift', '~> 7.4'
 end

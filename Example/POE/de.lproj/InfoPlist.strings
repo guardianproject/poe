@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  POE
+
+  Created by Benjamin Erhart on 06.06.17.
+  Copyright © 2017 CocoaPods. All rights reserved.
+*/
+"NSCameraUsageDescription" = "Benötigt um Brücken via QR Code zu importieren. Optional.";

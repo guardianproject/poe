@@ -13,6 +13,7 @@
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		94AAECF7CC68913E55BF82B4 /* Pods_POE_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2467B5525C28DA7713AC006 /* Pods_POE_Example.framework */; };
 		A003C5A01E9691080007E7CE /* OCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A003C59F1E9691080007E7CE /* OCRootViewController.m */; };
+		A009ACE41EE6CF7A00BA22FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A009ACE61EE6CF7A00BA22FE /* InfoPlist.strings */; };
 		A07FBBDB1E952B8000469503 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FBBDA1E952B8000469503 /* RootViewController.swift */; };
 		A08F6E3B1EB893E6007074ED /* 01-alt_Intro-Expect.png in Resources */ = {isa = PBXBuildFile; fileRef = A08F6E391EB893E6007074ED /* 01-alt_Intro-Expect.png */; };
 		A08F6E3C1EB893E6007074ED /* copy in Resources */ = {isa = PBXBuildFile; fileRef = A08F6E3A1EB893E6007074ED /* copy */; };
@@ -47,6 +48,7 @@
 		A003C59D1E9691080007E7CE /* POE_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "POE_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		A003C59E1E9691080007E7CE /* OCRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRootViewController.h; sourceTree = "<group>"; };
 		A003C59F1E9691080007E7CE /* OCRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRootViewController.m; sourceTree = "<group>"; };
+		A009ACE51EE6CF7A00BA22FE /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A07FBBDA1E952B8000469503 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A08C6CBD1E93BCEB00CE980D /* 00.1_Welcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.1_Welcome.png; sourceTree = "<group>"; };
 		A08C6CBE1E93BCEB00CE980D /* 00_Loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00_Loading.png; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				A003C59E1E9691080007E7CE /* OCRootViewController.h */,
 				A003C59F1E9691080007E7CE /* OCRootViewController.m */,
 				A003C59D1E9691080007E7CE /* POE_Example-Bridging-Header.h */,
+				A009ACE61EE6CF7A00BA22FE /* InfoPlist.strings */,
 			);
 			name = "Example for POE";
 			path = POE;
@@ -299,6 +302,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 				A08F6E3C1EB893E6007074ED /* copy in Resources */,
+				A009ACE41EE6CF7A00BA22FE /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +446,14 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		A009ACE61EE6CF7A00BA22FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A009ACE51EE6CF7A00BA22FE /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -578,7 +590,7 @@
 			baseConfigurationReference = F9FE60D3588C8652D803C492 /* Pods-POE_Tests.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = S57Z428H2Z;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

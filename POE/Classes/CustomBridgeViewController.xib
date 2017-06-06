@@ -37,6 +37,9 @@
                             </barButtonItem>
                         </navigationItem>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="wD3-ob-fRR"/>
+                    </connections>
                 </navigationBar>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="yoP-xd-Za8">
                     <rect key="frame" x="0.0" y="64" width="320" height="248"/>

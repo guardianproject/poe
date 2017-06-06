@@ -78,6 +78,8 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         super.viewDidLoad()
 
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "bridgeCell")
+
+        // TODO needs fix for on-screen keyboard!
     }
 
     /**
