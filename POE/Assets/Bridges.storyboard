@@ -190,15 +190,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uac-eO-t4x">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rMT-qH-w04" firstAttribute="top" secondItem="uac-eO-t4x" secondAttribute="bottom" id="0KG-lP-jIY"/>
-                            <constraint firstItem="uac-eO-t4x" firstAttribute="top" secondItem="knJ-Hy-qHY" secondAttribute="bottom" id="5HM-Zo-bn9"/>
+                            <constraint firstAttribute="trailing" secondItem="uac-eO-t4x" secondAttribute="trailing" id="4ao-Ar-dLW"/>
                             <constraint firstItem="uac-eO-t4x" firstAttribute="leading" secondItem="mdF-Sn-8Ql" secondAttribute="leading" id="9Eq-Uc-c0f"/>
-                            <constraint firstAttribute="trailing" secondItem="uac-eO-t4x" secondAttribute="trailing" id="C6K-bu-5lJ"/>
+                            <constraint firstItem="uac-eO-t4x" firstAttribute="top" secondItem="knJ-Hy-qHY" secondAttribute="bottom" id="faB-ba-7AC"/>
+                            <constraint firstItem="rMT-qH-w04" firstAttribute="top" secondItem="uac-eO-t4x" secondAttribute="bottom" id="zEy-t4-eTt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Scan QR Code" id="uFE-Jo-BnH"/>
