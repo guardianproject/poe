@@ -8,28 +8,18 @@
 
 import UIKit
 import KMPlaceholderTextView
-import QRCodeReader
-import AVFoundation
 
-class CustomBridgeViewController: XibViewController, UINavigationBarDelegate, QRCodeReaderViewControllerDelegate {
+class CustomBridgeViewController: XibViewController {
 
     @IBOutlet weak var explanationTV: UITextView!
 
     @IBOutlet weak var bridgesTV: KMPlaceholderTextView!
 
-    var isEdited = false
-
     var bridges = [String]()
 
-    private var viaQrCode = false
-
-    lazy var readerVC: QRCodeReaderViewController = {
-        let builder = QRCodeReaderViewControllerBuilder {
-            $0.reader = QRCodeReader(metadataObjectTypes: [AVMetadataObjectTypeQRCode], captureDevicePosition: .back)
-        }
-
-        return QRCodeReaderViewController(builder: builder)
-    }()
+    override func viewDidLoad() {
+        super.viewDidLoad(view.subviews[0] as! UIScrollView)
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         explanationTV.text =
@@ -39,89 +29,22 @@ class CustomBridgeViewController: XibViewController, UINavigationBarDelegate, QR
 
         bridgesTV.text = bridges.joined(separator: "\n")
 
-        // If we aquired these via a QR code, the isEdited check will fail in #back, if we don't
-        // change the bridges variable here. Ugly design, but hard to do it in another way.
-        if viaQrCode {
-            viaQrCode = false
-            bridges = [String]()
-        }
-
         super.viewWillAppear(animated)
     }
 
-    // MARK: - Actions
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
-    @IBAction func back(_ sender: Any) {
-        let oldBridges = bridges
+        if let vc = navigationController?.viewControllers,
+            let bridgeVC = vc[(vc.count) - 1] as? BridgeSelectViewController {
 
-        bridges = bridgesTV.text
-            .components(separatedBy: "\n")
-            .map({ bridge in bridge.trimmingCharacters(in: .whitespacesAndNewlines) })
-            .filter({ (bridge) in !bridge.isEmpty && !bridge.hasPrefix("//") && !bridge.hasPrefix("#") })
+            bridges = bridgesTV.text
+                .components(separatedBy: "\n")
+                .map({ bridge in bridge.trimmingCharacters(in: .whitespacesAndNewlines) })
+                .filter({ (bridge) in !bridge.isEmpty && !bridge.hasPrefix("//") && !bridge.hasPrefix("#") })
 
-        isEdited = oldBridges != bridges
-
-        dismiss(animated: true, completion: nil)
-    }
-
-    @IBAction func scanQr(_ sender: Any) {
-        let supportsQr = try? QRCodeReader.supportsMetadataObjectTypes([AVMetadataObjectTypeQRCode])
-        
-        if supportsQr ?? false && QRCodeReader.isAvailable() {
-            readerVC.delegate = self
-
-            readerVC.modalPresentationStyle = .formSheet
-            present(readerVC, animated: true, completion: nil)
+            bridgeVC.currentId = bridges.count > 0 ? bridgeVC.customBridgeId! : bridgeVC.ids[0]
+            bridgeVC.customBridges = bridges
         }
-        else {
-            alert("Camera access was not granted or QRCode scanning is not supported by your device.".localize())
-        }
-    }
-
-    // MARK: - UINavigationBarDelegate
-
-    /**
-     Needed, so the UINavigationBar has proper height of 64px instead of 44px, even without a
-     UINavigationController.
-     */
-    public func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
-    }
-
-    // MARK: - QRCodeReaderViewControllerDelegate
-
-    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
-        reader.stopScanning()
-
-        dismiss(animated: true, completion: nil)
-
-        // They really had to use JSON for content encoding but with illegal single quotes instead
-        // of double quotes as per JSON standard. Srly?
-        if let data = result.value.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
-            let newBridgesOpt = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
-            let newBridges = newBridgesOpt {
-                bridges = newBridges
-                viaQrCode = true
-        }
-        else {
-            alert("QR Code could not be decoded! Are you sure, you scanned a QR code from bridges.torproject.org?".localize())
-        }
-    }
-
-    func readerDidCancel(_ reader: QRCodeReaderViewController) {
-        reader.stopScanning()
-
-        dismiss(animated: true, completion: nil)
-    }
-
-    // MARK: - Internal methods
-
-    private func alert(_ message: String) {
-        let alert = UIAlertController(
-            title: "Error".localize(),
-            message: message,
-            preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
     }
 }

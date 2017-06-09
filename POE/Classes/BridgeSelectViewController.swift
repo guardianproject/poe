@@ -8,78 +8,60 @@
 
 import UIKit
 
-public class BridgeSelectViewController: XibViewController, UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate {
+public class BridgeSelectViewController: XibViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var explanationTV: UITextView!
     @IBOutlet weak var tableView: UITableView!
 
-    private var currentId: Int
+    var currentId: Int = 0
     private var noBridgeId: Int?
     private var providedBridges = [Int : String]()
-    private var customBridgeId: Int?
+    var customBridgeId: Int?
 
-    private var ids = [Int]()
+    var ids = [Int]()
 
     private var labels = [String]()
 
-    private let customBridgeVC = CustomBridgeViewController()
+    var customBridges = [String]()
 
-    public init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
-                customBridgeId: NSNumber?, customBridges: [String]?) {
-        self.currentId = currentId
+    public static func `init`(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
+                customBridgeId: NSNumber?, customBridges: [String]?) -> UINavigationController {
 
-        self.noBridgeId = noBridgeId?.intValue
+        let storyboard = UIStoryboard.init(name: "Bridges", bundle: XibViewController.getBundle())
+        let navC = storyboard.instantiateInitialViewController() as! UINavigationController
+        let bridgeVC = navC.topViewController as! BridgeSelectViewController
+
+        bridgeVC.currentId = currentId
+
+        bridgeVC.noBridgeId = noBridgeId?.intValue
 
         if providedBridges != nil {
-            self.providedBridges = providedBridges!
+            bridgeVC.providedBridges = providedBridges!
         }
 
-        self.customBridgeId = customBridgeId?.intValue
+        bridgeVC.customBridgeId = customBridgeId?.intValue
 
-        if self.noBridgeId != nil {
-            ids.append(self.noBridgeId!)
+        if bridgeVC.noBridgeId != nil {
+            bridgeVC.ids.append(bridgeVC.noBridgeId!)
         }
 
-        for bridge in self.providedBridges {
-            ids.append(bridge.key)
+        for bridge in bridgeVC.providedBridges {
+            bridgeVC.ids.append(bridge.key)
         }
 
-        if self.customBridgeId != nil {
-            ids.append(self.customBridgeId!)
+        if bridgeVC.customBridgeId != nil {
+            bridgeVC.ids.append(bridgeVC.customBridgeId!)
         }
 
-        customBridgeVC.bridges = customBridges ?? []
-        customBridgeVC.modalTransitionStyle = .crossDissolve
+        if customBridges != nil {
+            bridgeVC.customBridges = customBridges!
+        }
 
-        super.init()
-    }
-
-    public convenience init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
-                            customBridgeId: NSNumber?) {
-        self.init(currentId: currentId, noBridgeId: noBridgeId, providedBridges: providedBridges,
-                  customBridgeId: customBridgeId, customBridges: nil)
-    }
-    
-    public convenience init(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?) {
-        self.init(currentId: currentId, noBridgeId: noBridgeId, providedBridges: providedBridges,
-                  customBridgeId: nil, customBridges: nil)
-    }
-
-    public convenience init(currentId: Int, providedBridges: [Int : String]?) {
-        self.init(currentId: currentId, noBridgeId: nil, providedBridges: providedBridges,
-                  customBridgeId: nil, customBridges: nil)
+        return navC
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "bridgeCell")
-
-        // TODO needs fix for on-screen keyboard!
+        super.init(coder: aDecoder)
     }
 
     /**
@@ -102,13 +84,15 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
             labels.append("Custom Bridges".localize())
         }
 
-        if customBridgeVC.isEdited {
-            currentId = customBridgeVC.bridges.count < 1 ? ids[0] : customBridgeId!
-        }
-
         tableView.reloadData()
 
         super.viewWillAppear(animated)
+    }
+
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let customVC = segue.destination as? CustomBridgeViewController {
+            customVC.bridges = customBridges
+        }
     }
 
     // MARK: - Action methods
@@ -117,7 +101,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         dismiss(animated: true, completion: nil)
 
         if let presenter = presentingViewController as? POEDelegate {
-            presenter.bridgeConfigured(currentId, customBridges: customBridgeVC.bridges)
+            presenter.bridgeConfigured(currentId, customBridges: customBridges)
         }
     }
 
@@ -140,7 +124,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if ids[indexPath.row] == self.customBridgeId {
-            present(customBridgeVC, animated: true)
+            performSegue(withIdentifier: "customBridgesSegue", sender: self)
         }
         else {
             let old = tableView.cellForRow(at:
@@ -154,15 +138,5 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
             tableView.deselectRow(at: indexPath, animated: true)
         }
-    }
-
-    // MARK: - UINavigationBarDelegate
-
-    /**
-        Needed, so the UINavigationBar has proper height of 64px instead of 44px, even without a 
-        UINavigationController.
-     */
-    public func position(for bar: UIBarPositioning) -> UIBarPosition {
-        return .topAttached
     }
 }

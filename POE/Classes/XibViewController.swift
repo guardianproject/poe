@@ -22,6 +22,9 @@ public class XibViewController: UIViewController, POEDelegate {
 
     private static var bundle: Bundle?
 
+    private var autoKeyboardHandling = false
+    private var scrollView: UIScrollView?
+
     public static func getBundle() -> Bundle {
         if bundle == nil {
             let frameworkBundle = Bundle(for: XibViewController.classForCoder())
@@ -47,7 +50,7 @@ public class XibViewController: UIViewController, POEDelegate {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
 
     override public func viewDidLoad() {
@@ -55,6 +58,82 @@ public class XibViewController: UIViewController, POEDelegate {
 
         // Replace standard font with our corporate design font: Roboto
         robotoIt()
+    }
+
+    /**
+         Add handling of keyboard: Close keyboard, when user taps outside the currently focused field.
+
+         Resize content, when keyboard shows, so input fields aren't hidden by keyboard.
+
+         Use this instead of `super.viewDidLoad()`!
+
+         - parameter scrollView: The UIScrollView which' insets shall be resized above the keyboard.
+     */
+    func viewDidLoad(_ scrollView: UIScrollView) {
+        super.viewDidLoad()
+
+        // Replace standard font with our corporate design font: Roboto
+        robotoIt()
+
+        view.addGestureRecognizer(UITapGestureRecognizer(
+            target: self, action: #selector(dismissKeyboard)))
+
+        autoKeyboardHandling = true
+        self.scrollView = scrollView
+    }
+
+    override public func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if autoKeyboardHandling {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: .UIKeyboardDidShow, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardHidden), name: .UIKeyboardWillHide, object: nil)
+        }
+    }
+
+    override public func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+    }
+
+
+    // MARK: - Keyboard helper methods
+
+    /**
+        Selector as target to dismiss keyboard on outside taps.
+    */
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    func keyboardShown(_ notification: Notification) {
+        var kbRect = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+
+        if let scrollView = self.scrollView {
+            kbRect = scrollView.convert(kbRect, from: nil)
+
+            var insets = scrollView.contentInset
+            insets.bottom = kbRect.size.height
+            scrollView.contentInset = insets
+
+            insets = scrollView.scrollIndicatorInsets
+            insets.bottom = kbRect.size.height
+            scrollView.scrollIndicatorInsets = insets
+        }
+    }
+
+    func keyboardHidden(_ notification: Notification) {
+        if let scrollView = self.scrollView {
+            var insets = scrollView.contentInset
+            insets.bottom = 0
+            scrollView.contentInset = insets
+
+            insets = scrollView.scrollIndicatorInsets
+            insets.bottom = 0
+            scrollView.scrollIndicatorInsets = insets
+        }
     }
 
 

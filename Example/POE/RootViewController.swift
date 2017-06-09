@@ -12,7 +12,7 @@ import POE
 class RootViewController: UIViewController, POEDelegate {
 
     let introVC = IntroViewController()
-    let bridgeVC = BridgeSelectViewController(
+    let bridgeVC = BridgeSelectViewController.init(
         currentId: UserDefaults.standard.integer(forKey: "use_bridges"),
         noBridgeId: 0,
         providedBridges: [1: "obfs4", 2: "meek-amazon", 3: "meek-azure"],

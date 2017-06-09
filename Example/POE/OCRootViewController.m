@@ -16,12 +16,14 @@
     {
         self.introVC = [[IntroViewController alloc] init];
         self.introVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        self.bridgeVC = [[BridgeSelectViewController alloc]
-                         initWithCurrentId: [NSUserDefaults.standardUserDefaults integerForKey:@"use_bridges"]
-                         noBridgeId: @0
-                         providedBridges: @{@1: @"obfs4", @2: @"meek-amazon", @3: @"meek-azure"}
-                         customBridgeId: @99
-                         customBridges: [NSUserDefaults.standardUserDefaults stringArrayForKey:@"custom_bridges"]];
+
+        self.bridgeVC = [BridgeSelectViewController
+         initWithCurrentId:[NSUserDefaults.standardUserDefaults integerForKey:@"use_bridges"]
+         noBridgeId:@0
+         providedBridges:@{@1: @"obfs4", @2: @"meek-amazon", @3: @"meek-azure"}
+         customBridgeId:@99
+         customBridges:[NSUserDefaults.standardUserDefaults stringArrayForKey:@"custom_bridges"]];
+
         self.conctVC = [[ConnectingViewController alloc] init];
         self.conctVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.errorVC = [[ErrorViewController alloc] init];

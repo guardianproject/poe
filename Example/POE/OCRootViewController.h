@@ -12,7 +12,7 @@
 @interface OCRootViewController : UIViewController <POEDelegate>
 
 @property IntroViewController *introVC;
-@property BridgeSelectViewController *bridgeVC;
+@property UINavigationController *bridgeVC;
 @property ConnectingViewController *conctVC;
 @property ErrorViewController *errorVC;
 
