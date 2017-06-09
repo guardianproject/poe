@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,17 +39,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xCq-5d-C6X">
-                                <rect key="frame" x="8" y="0.0" width="304" height="314"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="314" id="npC-MS-r2o"/>
-                                </constraints>
+                                <rect key="frame" x="8" y="0.0" width="304" height="280"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2lh-dN-jPd">
-                                <rect key="frame" x="0.0" y="322" width="320" height="246"/>
+                                <rect key="frame" x="0.0" y="288" width="320" height="280"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bridgeCell" id="oMm-Bp-I4O">
@@ -89,6 +85,7 @@
                             <constraint firstItem="Lnp-vG-HFw" firstAttribute="top" secondItem="2lh-dN-jPd" secondAttribute="bottom" id="BKx-5F-vwm"/>
                             <constraint firstItem="xCq-5d-C6X" firstAttribute="leading" secondItem="TMb-Oq-Srl" secondAttribute="leading" constant="8" id="F9X-Hr-dpF"/>
                             <constraint firstAttribute="trailing" secondItem="2lh-dN-jPd" secondAttribute="trailing" id="NQm-sa-Da7"/>
+                            <constraint firstItem="2lh-dN-jPd" firstAttribute="height" secondItem="xCq-5d-C6X" secondAttribute="height" id="nJ5-yv-iXC"/>
                             <constraint firstItem="2lh-dN-jPd" firstAttribute="leading" secondItem="TMb-Oq-Srl" secondAttribute="leading" id="xOD-1V-dbz"/>
                             <constraint firstItem="2lh-dN-jPd" firstAttribute="top" secondItem="xCq-5d-C6X" secondAttribute="bottom" constant="8" id="yrA-Av-bzE"/>
                         </constraints>
@@ -122,69 +119,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rOq-hc-IFZ">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcQ-0c-e1H">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gxp-JV-aaf">
-                                        <rect key="frame" x="0.0" y="-64" width="320" height="488"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibz-cm-di1">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
-                                                <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-Jc-SpH">
-                                                        <rect key="frame" x="8" y="0.0" width="304" height="250"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
-                                                    </textView>
-                                                </subviews>
-                                                <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="eY1-Jc-SpH" secondAttribute="bottom" id="3fI-Q9-3mu"/>
-                                                    <constraint firstItem="eY1-Jc-SpH" firstAttribute="leading" secondItem="Ibz-cm-di1" secondAttribute="leading" constant="8" id="EFG-Ru-zCA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="eY1-Jc-SpH" secondAttribute="trailing" constant="8" id="TLe-LZ-OdJ"/>
-                                                    <constraint firstAttribute="height" constant="250" id="oVU-QS-8sp"/>
-                                                    <constraint firstItem="eY1-Jc-SpH" firstAttribute="top" secondItem="Ibz-cm-di1" secondAttribute="top" id="u0c-M7-5Le"/>
-                                                </constraints>
-                                            </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WEk-Dy-ddL" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
-                                                <rect key="frame" x="0.0" y="258" width="320" height="230"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="230" id="xqU-vN-eBR"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                            </textView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstItem="Ibz-cm-di1" firstAttribute="leading" secondItem="gxp-JV-aaf" secondAttribute="leading" id="I4k-4U-NuD"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ibz-cm-di1" secondAttribute="trailing" id="aBi-jS-umX"/>
-                                            <constraint firstAttribute="bottom" secondItem="WEk-Dy-ddL" secondAttribute="bottom" id="acd-LN-BaJ"/>
-                                            <constraint firstItem="WEk-Dy-ddL" firstAttribute="top" secondItem="Ibz-cm-di1" secondAttribute="bottom" constant="8" id="iUh-fv-jFS"/>
-                                            <constraint firstAttribute="trailing" secondItem="WEk-Dy-ddL" secondAttribute="trailing" id="ihq-fQ-wXF"/>
-                                            <constraint firstItem="WEk-Dy-ddL" firstAttribute="leading" secondItem="gxp-JV-aaf" secondAttribute="leading" id="rO0-EP-shU"/>
-                                            <constraint firstItem="Ibz-cm-di1" firstAttribute="top" secondItem="gxp-JV-aaf" secondAttribute="top" id="wdU-u9-zMN"/>
-                                        </constraints>
-                                    </view>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-Jc-SpH">
+                                        <rect key="frame" x="8" y="0.0" width="304" height="280"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WEk-Dy-ddL" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
+                                        <rect key="frame" x="0.0" y="288" width="320" height="280"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="gxp-JV-aaf" secondAttribute="bottom" id="O15-9X-lrG"/>
-                                    <constraint firstAttribute="trailing" secondItem="gxp-JV-aaf" secondAttribute="trailing" id="UcV-ZN-ahQ"/>
-                                    <constraint firstItem="gxp-JV-aaf" firstAttribute="top" secondItem="rOq-hc-IFZ" secondAttribute="top" constant="-64" id="Wlg-wJ-ry7"/>
-                                    <constraint firstItem="gxp-JV-aaf" firstAttribute="leading" secondItem="rOq-hc-IFZ" secondAttribute="leading" id="fiv-h2-zD2"/>
+                                    <constraint firstItem="eY1-Jc-SpH" firstAttribute="top" secondItem="GcQ-0c-e1H" secondAttribute="top" id="2jI-5S-efe"/>
+                                    <constraint firstItem="WEk-Dy-ddL" firstAttribute="leading" secondItem="GcQ-0c-e1H" secondAttribute="leading" id="88s-1G-atJ"/>
+                                    <constraint firstItem="WEk-Dy-ddL" firstAttribute="top" secondItem="eY1-Jc-SpH" secondAttribute="bottom" constant="8" id="IgA-5G-7zy"/>
+                                    <constraint firstAttribute="bottom" secondItem="WEk-Dy-ddL" secondAttribute="bottom" id="UCK-co-5Cr"/>
+                                    <constraint firstAttribute="trailing" secondItem="WEk-Dy-ddL" secondAttribute="trailing" id="e95-1A-w4q"/>
+                                    <constraint firstItem="WEk-Dy-ddL" firstAttribute="height" secondItem="eY1-Jc-SpH" secondAttribute="height" id="kj5-VH-5UL"/>
+                                    <constraint firstItem="eY1-Jc-SpH" firstAttribute="leading" secondItem="GcQ-0c-e1H" secondAttribute="leading" constant="8" id="qgt-xr-Lh7"/>
+                                    <constraint firstAttribute="trailing" secondItem="eY1-Jc-SpH" secondAttribute="trailing" constant="8" id="u4h-J7-EOy"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.64705882349999999" green="0.46666666670000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="gxp-JV-aaf" firstAttribute="width" secondItem="dFk-py-Btj" secondAttribute="width" id="10Y-x5-gRE"/>
-                            <constraint firstItem="EnN-gK-9ho" firstAttribute="top" secondItem="rOq-hc-IFZ" secondAttribute="bottom" id="LQs-PB-bS4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rOq-hc-IFZ" secondAttribute="trailing" constant="-16" id="SHB-wz-BkB"/>
-                            <constraint firstItem="rOq-hc-IFZ" firstAttribute="top" secondItem="iku-wC-iM3" secondAttribute="bottom" id="Tdy-B5-i1A"/>
-                            <constraint firstItem="rOq-hc-IFZ" firstAttribute="leading" secondItem="dFk-py-Btj" secondAttribute="leadingMargin" constant="-16" id="Tr0-OB-9FV"/>
+                            <constraint firstItem="EnN-gK-9ho" firstAttribute="top" secondItem="GcQ-0c-e1H" secondAttribute="bottom" id="4gs-qT-fAx"/>
+                            <constraint firstItem="GcQ-0c-e1H" firstAttribute="leading" secondItem="dFk-py-Btj" secondAttribute="leading" id="Awk-8S-hXd"/>
+                            <constraint firstItem="GcQ-0c-e1H" firstAttribute="top" secondItem="dFk-py-Btj" secondAttribute="top" id="MDW-Pb-Hk9"/>
+                            <constraint firstAttribute="trailing" secondItem="GcQ-0c-e1H" secondAttribute="trailing" id="iKX-W7-nrT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Custom Bridges" id="ycD-2i-Jow">
@@ -195,7 +166,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottom" destination="4gs-qT-fAx" id="883-uH-LIA"/>
                         <outlet property="bridgesTV" destination="WEk-Dy-ddL" id="HyV-4K-vfO"/>
+                        <outlet property="containerView" destination="GcQ-0c-e1H" id="inf-UT-tYw"/>
                         <outlet property="explanationTV" destination="eY1-Jc-SpH" id="Lux-oE-g0c"/>
                     </connections>
                 </viewController>

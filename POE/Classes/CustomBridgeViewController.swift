@@ -15,10 +15,13 @@ class CustomBridgeViewController: XibViewController {
 
     @IBOutlet weak var bridgesTV: KMPlaceholderTextView!
 
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var bottom: NSLayoutConstraint!
+    
     var bridges = [String]()
 
     override func viewDidLoad() {
-        super.viewDidLoad(view.subviews[0] as! UIScrollView)
+        super.viewDidLoad(useKeyboardHandling: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,5 +49,33 @@ class CustomBridgeViewController: XibViewController {
             bridgeVC.currentId = bridges.count > 0 ? bridgeVC.customBridgeId! : bridgeVC.ids[0]
             bridgeVC.customBridges = bridges
         }
+    }
+
+    override func keyboardShown(_ notification: Notification) -> CGRect {
+        let kbRect = super.keyboardShown(notification)
+
+        view.layoutIfNeeded()
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.bottom.constant = kbRect.size.height
+
+            self.containerView.setNeedsUpdateConstraints()
+
+            self.view.layoutIfNeeded()
+        })
+
+        return kbRect
+    }
+
+    override func keyboardHidden(_ notification: Notification) {
+        view.layoutIfNeeded()
+
+        UIView.animate(withDuration: 0.5, animations: {
+            self.bottom.constant = 0
+            
+            self.containerView.setNeedsUpdateConstraints()
+
+            self.view.layoutIfNeeded()
+        })
     }
 }

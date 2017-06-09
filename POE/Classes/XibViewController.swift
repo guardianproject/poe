@@ -69,7 +69,7 @@ public class XibViewController: UIViewController, POEDelegate {
 
          - parameter scrollView: The UIScrollView which' insets shall be resized above the keyboard.
      */
-    func viewDidLoad(_ scrollView: UIScrollView) {
+    func viewDidLoad(useKeyboardHandling: UIScrollView?) {
         super.viewDidLoad()
 
         // Replace standard font with our corporate design font: Roboto
@@ -79,7 +79,7 @@ public class XibViewController: UIViewController, POEDelegate {
             target: self, action: #selector(dismissKeyboard)))
 
         autoKeyboardHandling = true
-        self.scrollView = scrollView
+        scrollView = useKeyboardHandling
     }
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -108,7 +108,7 @@ public class XibViewController: UIViewController, POEDelegate {
         view.endEditing(true)
     }
 
-    func keyboardShown(_ notification: Notification) {
+    func keyboardShown(_ notification: Notification) -> CGRect {
         var kbRect = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
 
         if let scrollView = self.scrollView {
@@ -122,6 +122,8 @@ public class XibViewController: UIViewController, POEDelegate {
             insets.bottom = kbRect.size.height
             scrollView.scrollIndicatorInsets = insets
         }
+
+        return kbRect
     }
 
     func keyboardHidden(_ notification: Notification) {
