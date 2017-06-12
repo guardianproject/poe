@@ -29,6 +29,15 @@ import UIKit
     func bridgeConfigured(_ bridgesId: Int, customBridges: [String])
 
     /**
+        Receive this callback, when the user pressed the gear icon in the ConnectingViewController.
+     
+        This probably means, the connection doesn't work and the user wants to configure bridges.
+     
+        Cancel the connection here and show the BridgeSelectViewController afterwards.
+    */
+    func changeSettings()
+
+    /**
         Receive this callback, after the user pressed the "Start Browsing" button.
      */
     func userFinishedConnecting()

@@ -16,4 +16,6 @@
 @property ConnectingViewController *conctVC;
 @property ErrorViewController *errorVC;
 
+@property NSArray *connectionSteps;
+
 @end

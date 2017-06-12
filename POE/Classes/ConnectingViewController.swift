@@ -102,6 +102,10 @@ public class ConnectingViewController: XibViewController {
 
     // MARK: - Action methods
 
+    @IBAction public override func changeSettings() {
+        super.changeSettings()
+    }
+
     @IBAction func showClaim(_ sender: UIButton?) {
         var text: String
 

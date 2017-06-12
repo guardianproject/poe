@@ -153,6 +153,12 @@ public class XibViewController: UIViewController, POEDelegate {
         }
     }
 
+    public func changeSettings() {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.changeSettings()
+        }
+    }
+
     public func userFinishedConnecting() {
         if let presenter = presentingViewController as? POEDelegate {
             presenter.userFinishedConnecting()

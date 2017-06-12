@@ -45,14 +45,14 @@
 {
     [super viewDidAppear: animated];
 
-//    if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
-//        self.conctVC.autoClose = YES;
-//        [self presentViewController: self.conctVC animated: animated completion: nil];
-//        [self connect];
-//    }
-//    else {
+    if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
+        self.conctVC.autoClose = YES;
+        [self presentViewController: self.conctVC animated: animated completion: nil];
+        [self connect];
+    }
+    else {
         [self presentViewController: self.introVC animated: animated completion: nil];
-//    }
+    }
 }
 
 // MARK: - POEDelegate
@@ -93,9 +93,30 @@
     [NSUserDefaults.standardUserDefaults setInteger:bridgesId forKey:@"use_bridges"];
     [NSUserDefaults.standardUserDefaults setObject:customBridges forKey:@"custom_bridges"];
 
-    [self.introVC presentViewController:self.conctVC animated:YES completion:nil];
+    if (self.conctVC.presentingViewController)
+    {
+        // Already showing - do connection again from beginning.
+        [self connect];
+    }
+    else {
+        // Not showing - present the ConnectingViewController and start connecting afterwards.
+        [self.introVC presentViewController:self.conctVC animated:YES completion:^{
+            [self connect];
+        }];
+    }
+}
 
-    [self connect];
+/**
+     Receive this callback, when the user pressed the gear icon in the ConnectingViewController.
+
+     This probably means, the connection doesn't work and the user wants to configure bridges.
+
+     Cancel the connection here and show the BridgeSelectViewController afterwards.
+ */
+- (void)changeSettings
+{
+    [self cancel];
+    [self.conctVC presentViewController:self.bridgeVC animated:YES completion:nil];
 }
 
 /**
@@ -119,29 +140,30 @@
 
 - (void)connect
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.conctVC connectingStarted];
-    });
+    [self.conctVC connectingStarted];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.conctVC updateProgress:0.25];
-    });
+    self.connectionSteps = @[
+                       dispatch_block_create(0, ^{ [self.conctVC updateProgress:0.25]; }),
+                        dispatch_block_create(0, ^{ [self.conctVC updateProgress:0.5]; }),
+                        dispatch_block_create(0, ^{ [self.conctVC updateProgress:0.75]; }),
+                        dispatch_block_create(0, ^{ [self.conctVC updateProgress:1]; }),
+                        dispatch_block_create(0, ^{ [self.conctVC connectingFinished]; }),
+                        ];
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.conctVC updateProgress:0.5];
-    });
+    NSInteger count = 0;
+    for (dispatch_block_t step in self.connectionSteps) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(++count * NSEC_PER_SEC)), dispatch_get_main_queue(), step);
+    }
+}
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.conctVC updateProgress:0.75];
-    });
+- (void) cancel
+{
+    for (dispatch_block_t step in self.connectionSteps)
+    {
+        dispatch_block_cancel(step);
+    }
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.conctVC updateProgress:1];
-    });
-
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.conctVC connectingFinished];
-    });
+    self.connectionSteps = nil;
 }
 
 @end

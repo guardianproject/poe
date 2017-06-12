@@ -21,6 +21,8 @@ class RootViewController: UIViewController, POEDelegate {
     let conctVC = ConnectingViewController()
     let errorVC = ErrorViewController()
 
+    var connectionSteps = [DispatchWorkItem]()
+
     public init() {
         super.init(nibName: "LaunchScreen",
                    bundle: Bundle(for: RootViewController.classForCoder()))
@@ -89,9 +91,28 @@ class RootViewController: UIViewController, POEDelegate {
         UserDefaults.standard.set(bridgesId, forKey: "use_bridges")
         UserDefaults.standard.set(customBridges, forKey: "custom_bridges")
 
-        introVC.present(conctVC, animated: true)
+        if conctVC.presentingViewController != nil {
+            // Already showing - do connection again from beginning.
+            connect()
+        }
+        else {
+            // Not showing - present the ConnectingViewController and start connecting afterwards.
+            introVC.present(conctVC, animated: true, completion: {
+                self.connect()
+            })
+        }
+    }
 
-        connect()
+    /**
+     Receive this callback, when the user pressed the gear icon in the ConnectingViewController.
+
+     This probably means, the connection doesn't work and the user wants to configure bridges.
+
+     Cancel the connection here and show the BridgeSelectViewController afterwards.
+     */
+    func changeSettings() {
+        cancel()
+        conctVC.present(bridgeVC, animated: true)
     }
 
     /**
@@ -112,28 +133,28 @@ class RootViewController: UIViewController, POEDelegate {
     // MARK: - Private
 
     private func connect() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.conctVC.connectingStarted()
-        })
+        conctVC.connectingStarted()
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            self.conctVC.updateProgress(0.25)
-        })
+        connectionSteps = [
+            DispatchWorkItem { self.conctVC.updateProgress(0.25) },
+            DispatchWorkItem { self.conctVC.updateProgress(0.5) },
+            DispatchWorkItem { self.conctVC.updateProgress(0.75) },
+            DispatchWorkItem { self.conctVC.updateProgress(1) },
+            DispatchWorkItem { self.conctVC.connectingFinished() },
+        ]
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-            self.conctVC.updateProgress(0.5)
-        })
+        var count = 0.0
+        for step in connectionSteps {
+            count += 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + count, execute: step)
+        }
+    }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4, execute: {
-            self.conctVC.updateProgress(0.75)
-        })
+    private func cancel() {
+        for step in connectionSteps {
+            step.cancel()
+        }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
-            self.conctVC.updateProgress(1)
-        })
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 6, execute: {
-            self.conctVC.connectingFinished()
-        })
+        connectionSteps = []
     }
 }

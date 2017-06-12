@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -77,6 +77,13 @@
                     <color key="progressTintColor" red="0.20784313730000001" green="0.12941176469999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="trackTintColor" red="0.61741691830000001" green="0.23399114609999999" blue="0.55008697510000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </progressView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNc-By-zTD">
+                    <rect key="frame" x="339" y="40" width="20" height="22"/>
+                    <state key="normal" image="gear"/>
+                    <connections>
+                        <action selector="changeSettings" destination="-1" eventType="touchUpInside" id="Kll-G3-9j0"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.6470588235294118" green="0.46666666666666667" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -86,16 +93,21 @@
                 <constraint firstItem="nsT-H2-oIL" firstAttribute="top" secondItem="7CD-vG-4SV" secondAttribute="bottom" constant="38" id="Tab-um-7v3"/>
                 <constraint firstItem="fpN-6T-aNY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UZW-lk-eNU"/>
                 <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="7CD-vG-4SV" secondAttribute="bottom" constant="19" id="Zi1-4f-965"/>
+                <constraint firstAttribute="trailing" secondItem="BNc-By-zTD" secondAttribute="trailing" constant="16" id="dF6-QX-kRH"/>
                 <constraint firstItem="nsT-H2-oIL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dh1-jV-39P"/>
                 <constraint firstItem="7CD-vG-4SV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="120" id="eE0-4d-SS9"/>
                 <constraint firstAttribute="trailing" secondItem="gan-Jn-wae" secondAttribute="trailing" constant="50" id="fv4-zw-JsU"/>
                 <constraint firstItem="uUh-ul-xnc" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="58" id="gRZ-Pj-LQB"/>
                 <constraint firstAttribute="bottom" secondItem="uUh-ul-xnc" secondAttribute="bottom" constant="83" id="iGo-6W-qBK"/>
                 <constraint firstAttribute="trailing" secondItem="7CD-vG-4SV" secondAttribute="trailing" constant="16" id="ivJ-SB-Tw6"/>
+                <constraint firstItem="BNc-By-zTD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="kSH-Et-RLS"/>
                 <constraint firstItem="fpN-6T-aNY" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="129" id="qyn-WQ-InC"/>
                 <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="tlM-pm-9SZ"/>
             </constraints>
             <point key="canvasLocation" x="23.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="gear" width="20" height="20"/>
+    </resources>
 </document>
