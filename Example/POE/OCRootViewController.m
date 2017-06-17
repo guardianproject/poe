@@ -124,7 +124,6 @@
  */
 - (void)userFinishedConnecting
 {
-    [self.errorVC updateProgress:1];
     [self.conctVC presentViewController:self.errorVC animated:YES completion:nil];
 }
 

@@ -119,7 +119,6 @@ class RootViewController: UIViewController, POEDelegate {
         Callback, after the user pressed the "Start Browsing" button.
      */
     func userFinishedConnecting() {
-        errorVC.updateProgress(1)
         conctVC.present(errorVC, animated: true)
     }
 
