@@ -10,8 +10,9 @@ import UIKit
 
 public class ConnectingViewController: XibViewController {
 
-    @IBOutlet weak var infoLb: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var settingsBt: UIButton!
+    @IBOutlet weak var infoLb: UILabel!
     @IBOutlet weak var claimLb: UILabel!
     @IBOutlet weak var startBrowsingBt: UIButton!
     @IBOutlet weak var figureBt1: UIButton!
@@ -43,6 +44,8 @@ public class ConnectingViewController: XibViewController {
 
         progressView.isHidden = true
 
+        settingsBt.isHidden = false
+
         startBrowsingBt.isHidden = true
         startBrowsingBt.layer.borderWidth = 1
         startBrowsingBt.layer.borderColor = UIColor.white.cgColor
@@ -71,6 +74,8 @@ public class ConnectingViewController: XibViewController {
         progressView.setProgress(progress, animated: true)
         progressView.isHidden = false
 
+        settingsBt.isHidden = false
+
         startBrowsingBt.isHidden = true
 
         claimLb.isHidden = false
@@ -91,6 +96,8 @@ public class ConnectingViewController: XibViewController {
         }
 
         progressView.isHidden = true
+
+        settingsBt.isHidden = true
 
         infoLb.text = "Connected!".localize()
         infoLb.isHidden = false

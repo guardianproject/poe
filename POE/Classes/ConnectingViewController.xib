@@ -16,6 +16,7 @@
                 <outlet property="figureBt2" destination="gan-Jn-wae" id="ig1-a5-lf5"/>
                 <outlet property="infoLb" destination="7CD-vG-4SV" id="f9K-f7-BaT"/>
                 <outlet property="progressView" destination="fpN-6T-aNY" id="lvm-S6-bNc"/>
+                <outlet property="settingsBt" destination="BNc-By-zTD" id="dKe-Fh-AZg"/>
                 <outlet property="startBrowsingBt" destination="nsT-H2-oIL" id="VcU-w1-rGQ"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jgl-7L-kvi"/>
             </connections>
