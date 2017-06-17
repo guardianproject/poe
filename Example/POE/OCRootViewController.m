@@ -45,6 +45,7 @@
 {
     [super viewDidAppear: animated];
 
+//    [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"did_intro"];
     if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
         self.conctVC.autoClose = YES;
         [self presentViewController: self.conctVC animated: animated completion: nil];

@@ -9,10 +9,4 @@
 import UIKit
 
 class BridgeViewController: XibViewController {
-    
-    @IBOutlet weak var tellMeMoreBt: UIButton!
-
-    @IBAction func tellMeMore() {
-        print("'Tell Me More' button pressed!")
-    }
 }
