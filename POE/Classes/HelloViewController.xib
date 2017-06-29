@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,23 +17,41 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-LI-ONS">
-                    <rect key="frame" x="16" y="160" width="343" height="58"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="48"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tor on mobile." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpc-Tm-qx8">
-                    <rect key="frame" x="16" y="226" width="343" height="17"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qn4-T4-DNj">
+                    <rect key="frame" x="0.0" y="204" width="320" height="160"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="24" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-LI-ONS">
+                            <rect key="frame" x="8" y="0.0" width="304" height="58"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="58" id="42A-wr-Z3g"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="48"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tor on mobile." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpc-Tm-qx8">
+                            <rect key="frame" x="8" y="66" width="304" height="17"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="qn4-T4-DNj" secondAttribute="leading" constant="8" id="723-aB-SLu"/>
+                        <constraint firstItem="Wpc-Tm-qx8" firstAttribute="top" secondItem="M4t-LI-ONS" secondAttribute="bottom" constant="8" id="D0b-lM-pjh"/>
+                        <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="8" id="MN3-k2-OEw"/>
+                        <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="qn4-T4-DNj" secondAttribute="top" id="SdD-ZF-zlV"/>
+                        <constraint firstAttribute="height" constant="160" id="T2n-sX-x4M"/>
+                        <constraint firstAttribute="trailing" secondItem="Wpc-Tm-qx8" secondAttribute="trailing" constant="8" id="l0w-54-skM"/>
+                        <constraint firstItem="Wpc-Tm-qx8" firstAttribute="leading" secondItem="qn4-T4-DNj" secondAttribute="leading" constant="8" id="zcR-bk-Y6d"/>
+                    </constraints>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q5K-4U-5TJ">
-                    <rect key="frame" x="97.5" y="619" width="180" height="28"/>
+                    <rect key="frame" x="70" y="520" width="180" height="28"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="180" id="jIG-vO-hIE"/>
                     </constraints>
@@ -48,16 +66,13 @@
             </subviews>
             <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Wpc-Tm-qx8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="66i-Fl-zSO"/>
+                <constraint firstAttribute="trailing" secondItem="qn4-T4-DNj" secondAttribute="trailing" id="AbA-sy-Iwm"/>
                 <constraint firstItem="q5K-4U-5TJ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="EZH-e8-I0x"/>
-                <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="16" id="PTJ-H9-k5A"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="YaH-dX-dk4"/>
-                <constraint firstAttribute="trailing" secondItem="Wpc-Tm-qx8" secondAttribute="trailing" constant="16" id="dYe-V6-dxs"/>
-                <constraint firstItem="Wpc-Tm-qx8" firstAttribute="top" secondItem="M4t-LI-ONS" secondAttribute="bottom" constant="8" id="fC5-0h-h7y"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="tlM-pm-9SZ"/>
+                <constraint firstItem="qn4-T4-DNj" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IA8-WM-c6R"/>
+                <constraint firstItem="qn4-T4-DNj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dr6-Rz-SmM"/>
                 <constraint firstAttribute="bottom" secondItem="q5K-4U-5TJ" secondAttribute="bottom" constant="20" id="zRI-sX-9Yf"/>
             </constraints>
-            <point key="canvasLocation" x="23.5" y="51.5"/>
+            <point key="canvasLocation" x="23" y="51"/>
         </view>
     </objects>
 </document>

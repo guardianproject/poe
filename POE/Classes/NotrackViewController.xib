@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,32 +16,47 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse the internet how you expect you should." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-LI-ONS">
-                    <rect key="frame" x="16" y="160" width="343" height="67"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tracking. No censorship." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxP-OL-GgL">
-                    <rect key="frame" x="16" y="235" width="343" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaU-Qd-ofA">
+                    <rect key="frame" x="0.0" y="160" width="320" height="160"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Browse the internet how you expect you should." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-LI-ONS">
+                            <rect key="frame" x="8" y="0.0" width="304" height="67"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="67" id="mfq-56-bHZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No tracking. No censorship." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxP-OL-GgL">
+                            <rect key="frame" x="8" y="75" width="304" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ZxP-OL-GgL" secondAttribute="trailing" constant="8" id="FMH-P5-5H9"/>
+                        <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="8" id="afH-KM-hi9"/>
+                        <constraint firstAttribute="height" constant="160" id="axS-gH-XcI"/>
+                        <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="kaU-Qd-ofA" secondAttribute="leading" constant="8" id="n3Q-bs-hU5"/>
+                        <constraint firstItem="ZxP-OL-GgL" firstAttribute="top" secondItem="M4t-LI-ONS" secondAttribute="bottom" constant="8" id="nn1-Yl-JuZ"/>
+                        <constraint firstItem="ZxP-OL-GgL" firstAttribute="leading" secondItem="kaU-Qd-ofA" secondAttribute="leading" constant="8" id="wrd-1P-FhZ"/>
+                        <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="kaU-Qd-ofA" secondAttribute="top" id="x41-qK-mlL"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="M4t-LI-ONS" secondAttribute="trailing" constant="16" id="PTJ-H9-k5A"/>
-                <constraint firstItem="ZxP-OL-GgL" firstAttribute="top" secondItem="M4t-LI-ONS" secondAttribute="bottom" constant="8" id="Woc-j7-1Lx"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="160" id="YaH-dX-dk4"/>
-                <constraint firstAttribute="trailing" secondItem="ZxP-OL-GgL" secondAttribute="trailing" constant="16" id="iFR-cM-2ek"/>
-                <constraint firstItem="M4t-LI-ONS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="tlM-pm-9SZ"/>
-                <constraint firstItem="ZxP-OL-GgL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="xrc-3F-E69"/>
+                <constraint firstItem="kaU-Qd-ofA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a8Y-33-Yi7"/>
+                <constraint firstItem="kaU-Qd-ofA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="tz5-zO-IOb"/>
+                <constraint firstAttribute="trailing" secondItem="kaU-Qd-ofA" secondAttribute="trailing" id="xuD-C5-gsU"/>
             </constraints>
-            <point key="canvasLocation" x="23.5" y="51.5"/>
+            <point key="canvasLocation" x="23" y="51"/>
         </view>
     </objects>
 </document>
