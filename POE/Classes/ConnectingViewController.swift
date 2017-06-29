@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIColor_HexRGB
 
 public class ConnectingViewController: XibViewController {
 
@@ -15,28 +16,55 @@ public class ConnectingViewController: XibViewController {
     @IBOutlet weak var infoLb: UILabel!
     @IBOutlet weak var claimLb: UILabel!
     @IBOutlet weak var startBrowsingBt: UIButton!
-    @IBOutlet weak var figureBt1: UIButton!
-    @IBOutlet weak var figureBt2: UIButton!
-    @IBOutlet weak var figureBt3: UIButton!
-    @IBOutlet weak var figureBt4: UIButton!
-    @IBOutlet weak var figureBt5: UIButton!
-    @IBOutlet weak var figureBt6: UIButton!
-    @IBOutlet weak var figureBt7: UIButton!
-    @IBOutlet weak var figureBt8: UIButton!
+    @IBOutlet weak var image: UIImageView!
 
     public var autoClose = false
 
-    private var firstClaim = 0
+    private var lastClaim: Int?
+
+    private var refresh: Timer?
 
     private static let claims = [
-        "__CLAIM_1__".localize(),
-        "__CLAIM_2__".localize(),
-        "__CLAIM_3__".localize(),
-        "__CLAIM_4__".localize(),
-        "__CLAIM_5__".localize(),
-        "__CLAIM_6__".localize(),
-        "__CLAIM_7__".localize(),
-        "__CLAIM_8__".localize(),
+        [
+            "text": "__CLAIM_1__".localize(),
+            "color": "7D4698",
+            "image": "group",
+        ],
+        [
+            "text": "__CLAIM_2__".localize(),
+            "color": "CDEA52",
+            "image": "people",
+        ],
+        [
+            "text": "__CLAIM_3__".localize(),
+            "color": "4A4A4A",
+            "image": "facebook",
+        ],
+        [
+            "text": "__CLAIM_4__".localize(),
+            "color": "2196F3",
+            "image": "activist",
+        ],
+        [
+            "text": "__CLAIM_5__".localize(),
+            "color": "EE8B3C",
+            "image": "blogger",
+        ],
+        [
+            "text": "__CLAIM_6__".localize(),
+            "color": "FFCFBF",
+            "image": "journalist",
+        ],
+        [
+            "text": "__CLAIM_7__".localize(),
+            "color": "FFDE2A",
+            "image": "business",
+        ],
+        [
+            "text": "__CLAIM_8__".localize(),
+            "color": "69D5A1",
+            "image": "worker",
+        ],
     ]
 
     override public func viewWillAppear(_ animated: Bool) {
@@ -52,6 +80,15 @@ public class ConnectingViewController: XibViewController {
         startBrowsingBt.layer.cornerRadius = 20
 
         showClaim(nil)
+        refresh = Timer.scheduledTimer(timeInterval: 3, target: self,
+                                       selector: #selector(showClaim), userInfo: nil, repeats: true)
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        refresh?.invalidate()
+        refresh = nil
     }
 
     /**
@@ -59,6 +96,8 @@ public class ConnectingViewController: XibViewController {
         progress and show the claims.
      */
     public func connectingStarted() {
+        infoLb.text = "We're connecting you.".localize()
+
         updateProgress(0)
     }
 
@@ -69,8 +108,6 @@ public class ConnectingViewController: XibViewController {
         - parameter progress: The new progress value. See [UIProgressView#setProgress(_:animated:)](https://developer.apple.com/reference/uikit/uiprogressview/1619846-setprogress)
      */
     public func updateProgress(_ progress: Float) {
-        infoLb.isHidden = true
-
         progressView.setProgress(progress, animated: true)
         progressView.isHidden = false
 
@@ -95,12 +132,13 @@ public class ConnectingViewController: XibViewController {
             return
         }
 
+        refresh?.invalidate()
+
         progressView.isHidden = true
 
         settingsBt.isHidden = true
 
         infoLb.text = "Connected!".localize()
-        infoLb.isHidden = false
 
         claimLb.isHidden = true
 
@@ -113,40 +151,37 @@ public class ConnectingViewController: XibViewController {
         super.changeSettings()
     }
 
-    @IBAction func showClaim(_ sender: UIButton?) {
-        var text: String
-
-        if let figure = sender {
-            switch figure {
-            case figureBt1:
-                text = ConnectingViewController.claims[firstClaim == 1 ? 0 : 1]
-            case figureBt2:
-                text = ConnectingViewController.claims[firstClaim == 2 ? 0 : 2]
-            case figureBt3:
-                text = ConnectingViewController.claims[firstClaim == 3 ? 0 : 3]
-            case figureBt4:
-                text = ConnectingViewController.claims[firstClaim == 4 ? 0 : 4]
-            case figureBt5:
-                text = ConnectingViewController.claims[firstClaim == 5 ? 0 : 5]
-            case figureBt6:
-                text = ConnectingViewController.claims[firstClaim == 6 ? 0 : 6]
-            case figureBt7:
-                text = ConnectingViewController.claims[firstClaim == 7 ? 0 : 7]
-            default:
-                text = ConnectingViewController.claims[firstClaim == 8 ? 0 : 8]
-            }
-        }
-        else {
-            firstClaim = Int(arc4random_uniform(UInt32(ConnectingViewController.claims.count)))
-            text = ConnectingViewController.claims[firstClaim]
-        }
-
-        claimLb.text = text
-    }
-    
     @IBAction func startBrowsing() {
         if let presenter = presentingViewController as? POEDelegate {
             presenter.userFinishedConnecting()
         }
+    }
+
+    // MARK: - Private methods
+
+    @objc private func showClaim(_ timer: Timer?) {
+        var nextClaim: Int
+
+// FOR DEBUGGING: Show all in a row.
+//
+//        if lastClaim == nil || lastClaim! >= ConnectingViewController.claims.count - 1 {
+//            nextClaim = 0
+//        }
+//        else {
+//            nextClaim = lastClaim! + 1
+//        }
+
+        repeat {
+            nextClaim = Int(arc4random_uniform(UInt32(ConnectingViewController.claims.count)))
+        } while nextClaim == lastClaim
+
+        lastClaim = nextClaim
+
+        let data = ConnectingViewController.claims[nextClaim]
+
+        self.claimLb.text = data["text"]
+        self.view.backgroundColor = UIColor.init(hex: data["color"])
+        self.image.image = UIImage.init(named: data["image"]!,
+                                        in: XibViewController.getBundle(), compatibleWith: nil)
     }
 }
