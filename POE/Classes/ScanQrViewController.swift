@@ -52,7 +52,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
                 }
                 else {
                     alert(
-                        "QR Code could not be decoded! Are you sure, you scanned a QR code from bridges.torproject.org?".localize(),
+                        "QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?".localize(),
                           handler: { UIAlertAction in
                             self.captureSession?.startRunning() })
                 }
