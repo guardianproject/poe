@@ -85,7 +85,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             captureSession?.startRunning()
         } catch {
             self.alert(
-                "Camera access was not granted or QRCode scanning is not supported by your device.".localize(),
+                "Camera access was not granted or QR Code scanning is not supported by your device.".localize(),
                 handler: { UIAlertAction in
                     self.navigationController?.popViewController(animated: true) })
         }
