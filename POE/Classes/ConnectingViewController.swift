@@ -27,42 +27,50 @@ public class ConnectingViewController: XibViewController {
     private static let claims = [
         [
             "text": "__CLAIM_1__".localize(),
-            "color": "7D4698",
+            "text_color": "FFFFFF",
+            "background_color": "7D4698",
             "image": "group",
         ],
         [
             "text": "__CLAIM_2__".localize(),
-            "color": "CDEA52",
+            "text_color": "000000",
+            "background_color": "CDEA52",
             "image": "people",
         ],
         [
             "text": "__CLAIM_3__".localize(),
-            "color": "4A4A4A",
+            "text_color": "FFFFFF",
+            "background_color": "4A4A4A",
             "image": "facebook",
         ],
         [
             "text": "__CLAIM_4__".localize(),
-            "color": "2196F3",
+            "text_color": "FFFFFF",
+            "background_color": "2196F3",
             "image": "activist",
         ],
         [
             "text": "__CLAIM_5__".localize(),
-            "color": "EE8B3C",
+            "text_color": "FFFFFF",
+            "background_color": "EE8B3C",
             "image": "blogger",
         ],
         [
             "text": "__CLAIM_6__".localize(),
-            "color": "FFCFBF",
+            "text_color": "000000",
+            "background_color": "FFCFBF",
             "image": "journalist",
         ],
         [
             "text": "__CLAIM_7__".localize(),
-            "color": "FFDE2A",
+            "text_color": "000000",
+            "background_color": "FFDE2A",
             "image": "business",
         ],
         [
             "text": "__CLAIM_8__".localize(),
-            "color": "69D5A1",
+            "text_color": "000000",
+            "background_color": "69D5A1",
             "image": "worker",
         ],
     ]
@@ -180,7 +188,8 @@ public class ConnectingViewController: XibViewController {
         let data = ConnectingViewController.claims[nextClaim]
 
         self.claimLb.text = data["text"]
-        self.view.backgroundColor = UIColor.init(hex: data["color"])
+        self.claimLb.textColor = UIColor.init(hex: data["text_color"])
+        self.view.backgroundColor = UIColor.init(hex: data["background_color"])
         self.image.image = UIImage.init(named: data["image"]!,
                                         in: XibViewController.getBundle(), compatibleWith: nil)
     }
