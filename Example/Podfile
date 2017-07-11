@@ -6,13 +6,4 @@ target 'POE_Example' do
   pod 'Localize', :git => 'https://github.com/tladesignz/Localize.git'
 
   pod 'POE', :path => '../'
-
-  target 'POE_Tests' do
-    inherit! :search_paths
-
-    pod 'Quick', '~> 1.0.0'
-    pod 'Nimble', '~> 5.1.1'
-    pod 'FBSnapshotTestCase'
-    pod 'Nimble-Snapshots'
-  end
 end
