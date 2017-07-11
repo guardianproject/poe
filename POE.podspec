@@ -18,7 +18,15 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+This pod contains all the stuff needed to enable a unified onboarding and connecting experience for
+official Tor enabled open source apps.
+
+It contains scenes to explain Tor a little, scenes to set up Tor bridges and a connecting scene,
+which rotates nice images together with claims about how Tor can help your users.
+
+This pod is prominently used in the OnionBrowser: https://github.com/mtigas/OnionBrowser
+
+Written in Swift 3.
                        DESC
 
   s.homepage         = 'https://github.com/guardianproject/poe'
