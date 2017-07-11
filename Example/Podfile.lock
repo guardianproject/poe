@@ -1,54 +1,25 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
   - KMPlaceholderTextView (1.3.0)
-  - Localize (1.3.0)
-  - Nimble (5.1.1)
-  - Nimble-Snapshots (4.4.0):
-    - Nimble-Snapshots/Core (= 4.4.0)
-  - Nimble-Snapshots/Core (4.4.0):
-    - FBSnapshotTestCase (~> 2.0)
-    - Nimble
-    - Quick
+  - Localize (1.4.0)
   - POE (0.1.0):
     - KMPlaceholderTextView (~> 1.3)
-    - Localize (~> 1.3)
+    - Localize (~> 1.4)
     - UIColor-HexRGB
-  - Quick (1.0.0)
   - UIColor-HexRGB (1.0.1)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase
-  - Localize (from `https://github.com/tladesignz/Localize.git`)
-  - Nimble (~> 5.1.1)
-  - Nimble-Snapshots
   - POE (from `../`)
-  - Quick (~> 1.0.0)
 
 EXTERNAL SOURCES:
-  Localize:
-    :git: https://github.com/tladesignz/Localize.git
   POE:
     :path: ../
 
-CHECKOUT OPTIONS:
-  Localize:
-    :commit: c45d994cae9b3b75db488b5a5302b7273520a12b
-    :git: https://github.com/tladesignz/Localize.git
-
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
-  Localize: eb2c8f13b06b162ccf3f6d63b8419921c166d2b1
-  Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
-  Nimble-Snapshots: e743439f26c2fa99d8f7e0d7c01c99bcb40aa6f2
-  POE: c03c46ab00a021872c4a6fee273de47447b92272
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
+  Localize: cb3a47c12ebcd7a530c4fe2135064d9655f04052
+  POE: 71992ddf6a358ca90f1755535e6ee4f3257abea8
   UIColor-HexRGB: daccfa7e936af664369734a164b0309087d7f970
 
-PODFILE CHECKSUM: 291b65006a7b1cfdd505ac704a3bbe4e30b89db4
+PODFILE CHECKSUM: 1d63bc8483d1f4164066f1d0cb1be6554f4ff39d
 
 COCOAPODS: 1.2.1
