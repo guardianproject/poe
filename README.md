@@ -26,4 +26,6 @@ Benjamin Erhart, be@benjaminerhart.com
 
 ## License
 
-POE is available under the BSD license. See the LICENSE file for more info.
+POE (without the artwork) is available under the BSD license. See the LICENSE file for more info.
+
+The ARTWORK in POE is available under [CC BY-NC 2.0](https://creativecommons.org/licenses/by-nc/2.0/).
