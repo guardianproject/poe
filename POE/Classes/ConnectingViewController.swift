@@ -78,7 +78,7 @@ public class ConnectingViewController: XibViewController {
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        progressView.isHidden = true
+        progressView.isHidden = false
 
         settingsBt.isHidden = false
 
