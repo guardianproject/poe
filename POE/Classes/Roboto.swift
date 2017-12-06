@@ -90,7 +90,7 @@ private func replaceFont(_ oldFont: UIFont?) -> UIFont? {
 
 
 extension UILabel {
-    var substituteFont: Bool {
+    @objc var substituteFont: Bool {
         get {
             return false
         }
@@ -101,7 +101,7 @@ extension UILabel {
 }
 
 extension UITextView {
-    var substituteFont : Bool {
+    @objc var substituteFont : Bool {
         get {
             return false
         }
@@ -112,7 +112,7 @@ extension UITextView {
 }
 
 extension UITextField {
-    var substituteFont : Bool {
+    @objc var substituteFont : Bool {
         get {
             return false
         }
