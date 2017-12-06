@@ -18,7 +18,7 @@ public class ConnectingViewController: XibViewController {
     @IBOutlet weak var startBrowsingBt: UIButton!
     @IBOutlet weak var image: UIImageView!
 
-    public var autoClose = false
+    @objc public var autoClose = false
 
     private var lastClaim: Int?
 
@@ -103,7 +103,7 @@ public class ConnectingViewController: XibViewController {
         Hide the info label, the "Start Browsing" button, update the progress view with 0
         progress and show the claims.
      */
-    public func connectingStarted() {
+    @objc public func connectingStarted() {
         infoLb.text = "We're connecting you.".localize()
 
         updateProgress(0)
@@ -115,7 +115,7 @@ public class ConnectingViewController: XibViewController {
      
         - parameter progress: The new progress value. See [UIProgressView#setProgress(_:animated:)](https://developer.apple.com/reference/uikit/uiprogressview/1619846-setprogress)
      */
-    public func updateProgress(_ progress: Float) {
+    @objc public func updateProgress(_ progress: Float) {
         progressView.setProgress(progress, animated: true)
         progressView.isHidden = false
 
@@ -133,7 +133,7 @@ public class ConnectingViewController: XibViewController {
         If `autoClose` is enabled and `presenter` implements `POEDelegate`, send 
         `userFinishedConnecting` immediately.
      */
-    public func connectingFinished() {
+    @objc public func connectingFinished() {
         if autoClose && (presentingViewController as? POEDelegate) != nil {
             startBrowsing()
 

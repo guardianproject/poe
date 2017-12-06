@@ -35,12 +35,12 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         if metadataObjects.count > 0 {
             let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
 
-            if metadataObj.type == AVMetadataObjectTypeQRCode {
+            if metadataObj.type == .qr {
                 captureSession?.stopRunning()
 
                 // They really had to use JSON for content encoding but with illegal single quotes instead
                 // of double quotes as per JSON standard. Srly?
-                if let data = metadataObj.stringValue.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
+                if let data = metadataObj.stringValue?.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
                     let newBridgesOpt = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
                     let newBridges = newBridgesOpt,
                     let vc = self.navigationController?.viewControllers,
@@ -64,31 +64,41 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     private func startReading() {
 
-        let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        if let captureDevice = AVCaptureDevice.default(for: .video) {
+            do {
+                let input = try AVCaptureDeviceInput.init(device: captureDevice)
 
-        do {
-            let input = try AVCaptureDeviceInput.init(device: captureDevice)
+                captureSession = AVCaptureSession()
 
-            captureSession = AVCaptureSession()
-            captureSession?.addInput(input)
+                if let captureSession = captureSession {
+                    captureSession.addInput(input)
 
-            let captureMetadataOutput = AVCaptureMetadataOutput()
-            captureSession?.addOutput(captureMetadataOutput)
-            captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-            captureMetadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+                    let captureMetadataOutput = AVCaptureMetadataOutput()
+                    captureSession.addOutput(captureMetadataOutput)
+                    captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+                    captureMetadataOutput.metadataObjectTypes = [.qr]
 
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = videoView.layer.bounds
-            videoView.layer.addSublayer(videoPreviewLayer!)
-            
-            captureSession?.startRunning()
-        } catch {
-            self.alert(
-                "Camera access was not granted or QR Code scanning is not supported by your device.".localize(),
-                handler: { UIAlertAction in
-                    self.navigationController?.popViewController(animated: true) })
+                    videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+
+                    if let videoPreviewLayer = videoPreviewLayer {
+                        videoPreviewLayer.videoGravity = .resizeAspectFill
+                        videoPreviewLayer.frame = videoView.layer.bounds
+                        videoView.layer.addSublayer(videoPreviewLayer)
+
+                        captureSession.startRunning()
+
+                        return
+                    }
+                }
+            } catch {
+                // Just fall thru to alert.
+            }
         }
+
+        alert(
+            "Camera access was not granted or QR Code scanning is not supported by your device.".localize(),
+            handler: { UIAlertAction in
+                self.navigationController?.popViewController(animated: true) })
     }
 
     private func stopReading() {

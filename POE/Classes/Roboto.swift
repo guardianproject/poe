@@ -132,7 +132,7 @@ private func registerFont(from url: URL) throws {
     }
     let font = CGFont(fontDataProvider)
     var error: Unmanaged<CFError>?
-    guard CTFontManagerRegisterGraphicsFont(font, &error) else {
+    guard CTFontManagerRegisterGraphicsFont(font!, &error) else {
         throw error!.takeUnretainedValue()
     }
 }

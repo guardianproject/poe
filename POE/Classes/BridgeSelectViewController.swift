@@ -24,7 +24,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
     var customBridges = [String]()
 
-    public static func `init`(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
+    @objc public static func `init`(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
                 customBridgeId: NSNumber?, customBridges: [String]?) -> UINavigationController {
 
         let storyboard = UIStoryboard.init(name: "Bridges", bundle: XibViewController.getBundle())

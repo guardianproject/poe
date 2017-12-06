@@ -104,11 +104,11 @@ public class XibViewController: UIViewController, POEDelegate {
     /**
         Selector as target to dismiss keyboard on outside taps.
     */
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         view.endEditing(true)
     }
 
-    func keyboardShown(_ notification: Notification) -> CGRect {
+    @objc func keyboardShown(_ notification: Notification) -> CGRect {
         var kbRect = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
 
         if let scrollView = self.scrollView {
@@ -126,7 +126,7 @@ public class XibViewController: UIViewController, POEDelegate {
         return kbRect
     }
 
-    func keyboardHidden(_ notification: Notification) {
+    @objc func keyboardHidden(_ notification: Notification) {
         if let scrollView = self.scrollView {
             var insets = scrollView.contentInset
             insets.bottom = 0
