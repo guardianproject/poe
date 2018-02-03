@@ -1,7 +1,7 @@
 PODS:
   - KMPlaceholderTextView (1.3.0)
   - Localize (1.5.2)
-  - POE (0.1.0):
+  - POE (0.2.5):
     - KMPlaceholderTextView (~> 1.3)
     - Localize (~> 1.5)
     - UIColor-HexRGB
@@ -17,9 +17,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
   Localize: fe7b9cbf3a9e2146d055d4782d8f810ecdf2de08
-  POE: 7970aa5417540e27c89854d3234ee0ccd93265b9
+  POE: f23ddae738059441868eebac3707194e6ff57255
   UIColor-HexRGB: daccfa7e936af664369734a164b0309087d7f970
 
 PODFILE CHECKSUM: 1d63bc8483d1f4164066f1d0cb1be6554f4ff39d
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0
