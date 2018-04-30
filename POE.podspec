@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'POE'
-  s.version          = '0.2.5'
+  s.version          = '0.3.0'
   s.summary          = 'POE Tor Onboarding Library'
 
 # This description is used to generate tags and improve search results.
@@ -36,7 +36,7 @@ Written in Swift 3.
   s.source           = { :git => 'https://github.com/guardianproject/poe.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/guardianproject'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'POE/Classes/**/*.swift'
   
@@ -52,7 +52,7 @@ Written in Swift 3.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Localize', '~> 1.5'
+  s.dependency 'Localize', '~> 2.0'
   s.dependency 'KMPlaceholderTextView', '~> 1.3'
   s.dependency 'UIColor-HexRGB'
 end

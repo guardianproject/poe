@@ -17,7 +17,7 @@ class HelloViewController: XibViewController {
         let actionSheet = UIAlertController(title: "Change Language".localize(),
                                                  message: nil, preferredStyle: .actionSheet)
 
-        for localeId in Localize.availableLanguages() {
+        for localeId in Localize.availableLanguages {
             let locale = NSLocale(localeIdentifier: localeId)
 
             actionSheet.addAction(UIAlertAction(
@@ -25,10 +25,6 @@ class HelloViewController: XibViewController {
                 style: .default,
                 handler: { (action: UIAlertAction) in
                     Localize.update(language: localeId)
-
-                    if let presenter = self.presentingViewController as? POEDelegate {
-                        presenter.localeUpdated(localeId)
-                    }
                 }))
         }
 

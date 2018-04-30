@@ -28,14 +28,6 @@
         self.conctVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         self.errorVC = [[ErrorViewController alloc] init];
         self.errorVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-
-        NSString *localeId = [NSUserDefaults.standardUserDefaults objectForKey:@"locale"];
-        NSString *currentId = [[NSLocale currentLocale] localeIdentifier];
-
-        if (localeId && ![currentId isEqualToString:localeId])
-        {
-            NSLog(@"Change locale in your app from '%@' to '%@'!", currentId, localeId);
-        }
     }
 
     return self;
@@ -126,14 +118,6 @@
 - (void)userFinishedConnecting
 {
     [self.conctVC presentViewController:self.errorVC animated:YES completion:nil];
-}
-
-/**
-    Callback, when the user changed the locale.
- */
-- (void)localeUpdated:(NSString *)localeId
-{
-    [NSUserDefaults.standardUserDefaults setObject:localeId forKey:@"locale"];
 }
 
 // MARK: - Private

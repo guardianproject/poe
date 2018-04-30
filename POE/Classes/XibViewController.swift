@@ -164,10 +164,4 @@ public class XibViewController: UIViewController, POEDelegate {
             presenter.userFinishedConnecting()
         }
     }
-
-    public func localeUpdated(_ localeId: String) {
-        if let presenter = presentingViewController as? POEDelegate {
-            presenter.localeUpdated(localeId)
-        }
-    }
 }
