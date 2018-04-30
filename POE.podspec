@@ -27,7 +27,7 @@ which rotates nice images together with claims about how Tor can help your users
 This pod is prominently used in the OnionBrowser: https://github.com/mtigas/OnionBrowser
 
 Written in Swift 3/4.
-                       DESC
+DESC
 
   s.homepage         = 'https://github.com/guardianproject/poe'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
