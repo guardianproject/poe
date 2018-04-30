@@ -6,4 +6,8 @@ file_filter = POE/Assets/<lang>.lproj/Localizable.strings
 source_file = POE/Assets/en.lproj/Localizable.strings
 source_lang = en
 type = STRINGSDICT
-
+trans.ar = POE/Assets/ar-001.lproj/Localizable.strings
+trans.ca = POE/Assets/ca-ES.lproj/Localizable.strings
+trans.hu_HU = POE/Assets/hu-HU.lproj/Localizable.strings
+trans.pt_BR = POE/Assets/pt-BR.lproj/Localizable.strings
+trans.pt_PT = POE/Assets/pt-PT.lproj/Localizable.strings
