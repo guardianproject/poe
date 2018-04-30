@@ -13,6 +13,14 @@ class HelloViewController: XibViewController {
     
     @IBOutlet weak var changeLangBt: UIButton!
     
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Bad UX: Disabled this, since the user isn't able to come back
+        // here, and OnionBrowser isn't influenced by this, anyway.
+        changeLangBt.isHidden = true
+    }
+
     @IBAction func changeLang() {
         let actionSheet = UIAlertController(title: "Change Language".localize(),
                                                  message: nil, preferredStyle: .actionSheet)
