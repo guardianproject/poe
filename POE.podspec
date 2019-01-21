@@ -52,7 +52,7 @@ DESC
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Localize', '~> 2.0'
-  s.dependency 'KMPlaceholderTextView', '~> 1.3'
+  s.dependency 'Localize', '~> 2.1'
+  s.dependency 'KMPlaceholderTextView', '~> 1.4'
   s.dependency 'UIColor-HexRGB'
 end

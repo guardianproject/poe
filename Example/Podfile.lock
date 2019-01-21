@@ -1,38 +1,31 @@
 PODS:
-  - KMPlaceholderTextView (1.3.0)
-  - Localize (2.0.1)
+  - KMPlaceholderTextView (1.4.0)
+  - Localize (2.1.0)
   - POE (0.3.0):
-    - KMPlaceholderTextView (~> 1.3)
-    - Localize (~> 2.0)
+    - KMPlaceholderTextView (~> 1.4)
+    - Localize (~> 2.1)
     - UIColor-HexRGB
   - UIColor-HexRGB (1.0.1)
 
 DEPENDENCIES:
-  - Localize (from `https://github.com/tladesignz/Localize.git`)
   - POE (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - KMPlaceholderTextView
+    - Localize
     - UIColor-HexRGB
 
 EXTERNAL SOURCES:
-  Localize:
-    :git: https://github.com/tladesignz/Localize.git
   POE:
     :path: "../"
 
-CHECKOUT OPTIONS:
-  Localize:
-    :commit: d12fd6c3edc2fba41b6bf2e4f42e3abe81c22640
-    :git: https://github.com/tladesignz/Localize.git
-
 SPEC CHECKSUMS:
-  KMPlaceholderTextView: 2bbcd19a273648a80a61e1e48f9743a24d8930e3
-  Localize: 5e278d8627b40d7f1da40e2b4ca7f027655ff18e
-  POE: 8fdbdfd2ca75afd852f6828debcd99a25f4667e3
+  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
+  Localize: f360a343abfac047be5b375c45be1059f5f625f3
+  POE: f3bdf92462ef433fa4722ffb4c230543cb346880
   UIColor-HexRGB: daccfa7e936af664369734a164b0309087d7f970
 
-PODFILE CHECKSUM: 67bad3443d5455cd8d51d302ecd97280460e9e0d
+PODFILE CHECKSUM: 1a0c048509b5376a758ca3a074b7777925e3df36
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
