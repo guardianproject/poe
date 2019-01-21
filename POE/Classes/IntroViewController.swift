@@ -30,7 +30,7 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
         pageViewController!.dataSource = modelController
 
-        addChildViewController(pageViewController!)
+        addChild(pageViewController!)
         view.addSubview(pageViewController!.view)
 
         // Set the page view controller's bounds using an inset rect so that self's view is visible
@@ -38,7 +38,7 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
         pageViewController!.view.frame = self.view.bounds
             .insetBy(dx: 0, dy: 25).offsetBy(dx: 0, dy: -25)
 
-        pageViewController!.didMove(toParentViewController: self)
+        pageViewController!.didMove(toParent: self)
 
         // Unfortunately, this has to be done programatically.
         if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
@@ -104,7 +104,7 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
     public func pageViewController(_ pageViewController: UIPageViewController,
                                    spineLocationFor orientation: UIInterfaceOrientation)
-        -> UIPageViewControllerSpineLocation {
+        -> UIPageViewController.SpineLocation {
 
         let currentViewController = self.pageViewController!.viewControllers![0]
         self.pageViewController!.setViewControllers([currentViewController], direction: .forward,
@@ -137,9 +137,9 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
         if let next = modelController.viewControllerAtIndex(index) {
             pageViewController(pageViewController!, willTransitionTo: [next])
 
-            let direction = current < index
-                ? UIPageViewControllerNavigationDirection.forward
-                : UIPageViewControllerNavigationDirection.reverse
+            let direction: UIPageViewController.NavigationDirection = current < index
+                ? .forward
+                : .reverse
 
             pageViewController?.setViewControllers([next],
                                                    direction: direction,
