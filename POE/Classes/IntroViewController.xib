@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="POE" customModuleProvider="target">
             <connections>
-                <outlet property="continueWithoutBt" destination="Np8-PE-elu" id="3dt-J5-rpx"/>
+                <outlet property="continueWithoutLb" destination="UrL-sf-Mog" id="z0C-83-7uD"/>
                 <outlet property="nextPageBt" destination="q4Q-eG-Eiq" id="nr2-gY-Cq1"/>
                 <outlet property="pageControl" destination="gir-r7-tLx" id="phO-7P-PI6"/>
-                <outlet property="useABridgeBt" destination="lq3-m5-wRi" id="hDW-ws-2Tt"/>
+                <outlet property="useABridgeLb" destination="dhU-oO-wtX" id="u3X-0l-Clr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="2J5-Yy-8wy"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFJ-iZ-yhb">
-                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="430" width="320" height="50"/>
                     <subviews>
                         <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="gir-r7-tLx">
-                            <rect key="frame" x="168" y="6.5" width="39" height="37"/>
+                            <rect key="frame" x="140.5" y="6.5" width="39" height="37"/>
                             <connections>
                                 <action selector="pageChanged" destination="-1" eventType="valueChanged" id="gba-0W-JFt"/>
                             </connections>
                         </pageControl>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q4Q-eG-Eiq">
-                            <rect key="frame" x="335" y="14" width="16" height="22"/>
+                            <rect key="frame" x="280" y="14" width="16" height="22"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="16" id="mBq-Tc-eYU"/>
                             </constraints>
@@ -43,54 +43,71 @@
                                 <action selector="nextPage" destination="-1" eventType="touchUpInside" id="Jnm-DD-1UP"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq3-m5-wRi">
-                            <rect key="frame" x="24" y="11" width="160" height="28"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                            <state key="normal" title="USE A BRIDGE">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="finish:" destination="-1" eventType="touchUpInside" id="PFu-U0-rkb"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Np8-PE-elu">
-                            <rect key="frame" x="191" y="11" width="160" height="28"/>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USE A BRIDGE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dhU-oO-wtX">
+                            <rect key="frame" x="24" y="11" width="132" height="28"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="160" id="FnT-aq-yHq"/>
+                                <constraint firstAttribute="height" constant="28" id="7y3-VE-duU"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                            <state key="normal" title="CONTINUE WITHOUT">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
                             <connections>
-                                <action selector="finish:" destination="-1" eventType="touchUpInside" id="8zb-lK-eAc"/>
+                                <outletCollection property="gestureRecognizers" destination="CTF-I4-UeO" appends="YES" id="Mw0-If-5HG"/>
                             </connections>
-                        </button>
+                        </label>
+                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTINUE WITHOUT" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-sf-Mog">
+                            <rect key="frame" x="164" y="11" width="132" height="28"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="NrE-Ey-ul7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                            <connections>
+                                <outletCollection property="gestureRecognizers" destination="buT-r0-94L" appends="YES" id="A5c-OL-fE4"/>
+                            </connections>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.20784313730000001" green="0.12941176469999999" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <gestureRecognizers/>
                     <constraints>
+                        <constraint firstItem="UrL-sf-Mog" firstAttribute="leading" secondItem="dhU-oO-wtX" secondAttribute="trailing" constant="8" id="0d1-Nb-Xdx"/>
                         <constraint firstItem="gir-r7-tLx" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="8LC-oR-OrL"/>
                         <constraint firstItem="q4Q-eG-Eiq" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="GWY-UD-h0a"/>
+                        <constraint firstItem="dhU-oO-wtX" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="KZD-CK-pNd"/>
+                        <constraint firstItem="dhU-oO-wtX" firstAttribute="leading" secondItem="NFJ-iZ-yhb" secondAttribute="leading" constant="24" id="Ms6-5X-NZH"/>
                         <constraint firstAttribute="trailing" secondItem="q4Q-eG-Eiq" secondAttribute="trailing" constant="24" id="P1w-Ki-nGl"/>
-                        <constraint firstItem="lq3-m5-wRi" firstAttribute="leading" secondItem="NFJ-iZ-yhb" secondAttribute="leading" constant="24" id="PRo-8v-BGC"/>
-                        <constraint firstAttribute="trailing" secondItem="Np8-PE-elu" secondAttribute="trailing" constant="24" id="cuA-yQ-QPu"/>
+                        <constraint firstItem="UrL-sf-Mog" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="bOK-pE-SF6"/>
+                        <constraint firstItem="UrL-sf-Mog" firstAttribute="width" secondItem="dhU-oO-wtX" secondAttribute="width" id="dbi-4w-Er1"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="fvH-kE-azr"/>
-                        <constraint firstItem="lq3-m5-wRi" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="htt-81-u0U"/>
                         <constraint firstAttribute="height" constant="50" id="iSf-KF-MXg"/>
-                        <constraint firstItem="Np8-PE-elu" firstAttribute="centerY" secondItem="NFJ-iZ-yhb" secondAttribute="centerY" id="rFc-JR-M4R"/>
+                        <constraint firstAttribute="trailing" secondItem="UrL-sf-Mog" secondAttribute="trailing" constant="24" id="k1f-u8-kzw"/>
                         <constraint firstItem="gir-r7-tLx" firstAttribute="centerX" secondItem="NFJ-iZ-yhb" secondAttribute="centerX" id="rjh-Mg-ic6"/>
-                        <constraint firstItem="Np8-PE-elu" firstAttribute="width" secondItem="lq3-m5-wRi" secondAttribute="width" id="y7H-JO-9No"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="NFJ-iZ-yhb" secondAttribute="trailing" id="lj5-DU-fG8"/>
                 <constraint firstItem="NFJ-iZ-yhb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="umO-oQ-LkM"/>
                 <constraint firstAttribute="bottom" secondItem="NFJ-iZ-yhb" secondAttribute="bottom" id="zKp-6d-pi7"/>
             </constraints>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="buT-r0-94L" appends="YES" id="C8G-7E-c5w"/>
+            </connections>
+            <point key="canvasLocation" x="24.375" y="51.25"/>
         </view>
+        <tapGestureRecognizer id="CTF-I4-UeO">
+            <connections>
+                <action selector="finishWithBridge" destination="-1" id="GpU-qI-cmj"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="buT-r0-94L">
+            <connections>
+                <action selector="finish" destination="-1" id="3br-fO-gKC"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="chevron-right" width="8" height="13"/>

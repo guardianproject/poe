@@ -14,8 +14,8 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nextPageBt: UIButton!
-    @IBOutlet weak var useABridgeBt: UIButton!
-    @IBOutlet weak var continueWithoutBt: UIButton!
+    @IBOutlet weak var useABridgeLb: UILabel!
+    @IBOutlet weak var continueWithoutLb: UILabel!
 
 
     override public func viewDidLoad() {
@@ -43,8 +43,6 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
         // Unfortunately, this has to be done programatically.
         if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
             nextPageBt.contentHorizontalAlignment = .left
-            useABridgeBt.contentHorizontalAlignment = .right
-            continueWithoutBt.contentHorizontalAlignment = .left
         }
     }
 
@@ -76,11 +74,20 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
     }
 
     /**
-        Callback for the "Use a Bridge" and "Continue Without" buttons.
+     Callback for the "Use a Bridge" pseudo-button.
      */
-    @IBAction func finish(_ sender: UIButton) {
+    @IBAction func finishWithBridge() {
         if let presenter = presentingViewController as? POEDelegate {
-            presenter.introFinished(sender == useABridgeBt)
+            presenter.introFinished(true)
+        }
+    }
+
+    /**
+        Callback for the "Continue Without" pseudo-button.
+     */
+    @IBAction func finish() {
+        if let presenter = presentingViewController as? POEDelegate {
+            presenter.introFinished(false)
         }
     }
 
@@ -97,8 +104,8 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
 
         pageControl.isHidden = isBridgePage
         nextPageBt.isHidden = isBridgePage
-        useABridgeBt.isHidden = !isBridgePage
-        continueWithoutBt.isHidden = !isBridgePage
+        useABridgeLb.isHidden = !isBridgePage
+        continueWithoutLb.isHidden = !isBridgePage
     }
 
 
