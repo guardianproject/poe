@@ -5,3 +5,10 @@
   Hebrew, Indonesian, Italian, Macedonian, Polish, Romanian, Turkish, Vietnamese
 - Updated to Swift 4.2.
 - Updated dependencies.
+
+# 0.4.1
+- Adapted to changed signature of `AVCaptureMetadataOutputObjectsDelegate` callback method.
+
+# 0.4.2
+- Allow an explicit delegate on `BridgeSelectViewController` to support situations, 
+  where the presentingViewController and the callback delegate are not the same.
