@@ -93,9 +93,6 @@
                 <constraint firstItem="NFJ-iZ-yhb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="umO-oQ-LkM"/>
                 <constraint firstAttribute="bottom" secondItem="NFJ-iZ-yhb" secondAttribute="bottom" id="zKp-6d-pi7"/>
             </constraints>
-            <connections>
-                <outletCollection property="gestureRecognizers" destination="buT-r0-94L" appends="YES" id="C8G-7E-c5w"/>
-            </connections>
             <point key="canvasLocation" x="24.375" y="51.25"/>
         </view>
         <tapGestureRecognizer id="CTF-I4-UeO">
