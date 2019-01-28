@@ -22,7 +22,8 @@
          noBridgeId:@0
          providedBridges:@{@1: @"obfs4", @2: @"meek-amazon", @3: @"meek-azure"}
          customBridgeId:@99
-         customBridges:[NSUserDefaults.standardUserDefaults stringArrayForKey:@"custom_bridges"]];
+         customBridges:[NSUserDefaults.standardUserDefaults stringArrayForKey:@"custom_bridges"]
+         delegate: self];
 
         self.conctVC = [[ConnectingViewController alloc] init];
         self.conctVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -37,7 +38,7 @@
 {
     [super viewDidAppear: animated];
 
-//    [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"did_intro"];
+    [NSUserDefaults.standardUserDefaults setBool:NO forKey:@"did_intro"];
     if ([NSUserDefaults.standardUserDefaults boolForKey:@"did_intro"]) {
         self.conctVC.autoClose = YES;
         [self presentViewController: self.conctVC animated: animated completion: nil];

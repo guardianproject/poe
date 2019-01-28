@@ -12,12 +12,7 @@ import POE
 class RootViewController: UIViewController, POEDelegate {
 
     let introVC = IntroViewController()
-    let bridgeVC = BridgeSelectViewController.init(
-        currentId: UserDefaults.standard.integer(forKey: "use_bridges"),
-        noBridgeId: 0,
-        providedBridges: [1: "obfs4", 2: "meek-amazon", 3: "meek-azure"],
-        customBridgeId: 99,
-        customBridges: UserDefaults.standard.stringArray(forKey: "custom_bridges"))
+    var bridgeVC: UINavigationController?
     let conctVC = ConnectingViewController()
     let errorVC = ErrorViewController()
 
@@ -26,6 +21,18 @@ class RootViewController: UIViewController, POEDelegate {
     public init() {
         super.init(nibName: "LaunchScreen",
                    bundle: Bundle(for: RootViewController.classForCoder()))
+
+        // You can register yourself here explicitly, or rely on the fact,
+        // that you're the presenting view controller, which is also supported.
+        // In that case you can simplify that code to a direct initialization
+        // without the need to make bridgeVC optional.
+        bridgeVC = BridgeSelectViewController.init(
+            currentId: UserDefaults.standard.integer(forKey: "use_bridges"),
+            noBridgeId: 0,
+            providedBridges: [1: "obfs4", 2: "meek-amazon", 3: "meek-azure"],
+            customBridgeId: 99,
+            customBridges: UserDefaults.standard.stringArray(forKey: "custom_bridges"),
+            delegate: self)
 
         introVC.modalTransitionStyle = .crossDissolve
         conctVC.modalTransitionStyle = .crossDissolve
@@ -61,7 +68,7 @@ class RootViewController: UIViewController, POEDelegate {
         UserDefaults.standard.set(true, forKey: "did_intro")
 
         if useBridge {
-            introVC.present(bridgeVC, animated: true)
+            introVC.present(bridgeVC!, animated: true)
             return
         }
 
@@ -104,7 +111,7 @@ class RootViewController: UIViewController, POEDelegate {
      */
     func changeSettings() {
         cancel()
-        conctVC.present(bridgeVC, animated: true)
+        conctVC.present(bridgeVC!, animated: true)
     }
 
     /**

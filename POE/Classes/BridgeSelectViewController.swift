@@ -24,8 +24,12 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
     var customBridges = [String]()
 
-    @objc public static func `init`(currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
-                customBridgeId: NSNumber?, customBridges: [String]?) -> UINavigationController {
+    var delegate: POEDelegate?
+
+    @objc public static func `init`(
+        currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
+        customBridgeId: NSNumber?, customBridges: [String]?,
+        delegate: POEDelegate? = nil) -> UINavigationController {
 
         let storyboard = UIStoryboard.init(name: "Bridges", bundle: XibViewController.getBundle())
         let navC = storyboard.instantiateInitialViewController() as! UINavigationController
@@ -56,6 +60,8 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         if customBridges != nil {
             bridgeVC.customBridges = customBridges!
         }
+
+        bridgeVC.delegate = delegate
 
         return navC
     }
@@ -100,8 +106,8 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
     @IBAction func changedBridge(_ sender: Any) {
         dismiss(animated: true, completion: nil)
 
-        if let presenter = presentingViewController as? POEDelegate {
-            presenter.bridgeConfigured(currentId, customBridges: customBridges)
+        if let delegate = delegate ?? presentingViewController as? POEDelegate {
+            delegate.bridgeConfigured(currentId, customBridges: customBridges)
         }
     }
 
