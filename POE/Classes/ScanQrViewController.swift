@@ -30,32 +30,38 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
     // MARK: - AVCaptureMetadataOutputObjectsDelegate
 
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    /**
+     BUGFIX: Signature of method changed in Swift 4, without notifications.
+     No migration assistance either.
 
-        if metadataObjects.count > 0 {
-            let metadataObj = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
+     See https://stackoverflow.com/questions/46639519/avcapturemetadataoutputobjectsdelegate-not-called-in-swift-4-for-qr-scanner
+    */
+    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput
+        metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
 
-            if metadataObj.type == .qr {
-                captureSession?.stopRunning()
+        if metadataObjects.count > 0,
+            let metadata = metadataObjects[0] as? AVMetadataMachineReadableCodeObject,
+            metadata.type == .qr {
 
-                // They really had to use JSON for content encoding but with illegal single quotes instead
-                // of double quotes as per JSON standard. Srly?
-                if let data = metadataObj.stringValue?.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
-                    let newBridgesOpt = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
-                    let newBridges = newBridgesOpt,
-                    let vc = self.navigationController?.viewControllers,
-                    let customVC = vc[(vc.count) - 2] as? CustomBridgeViewController {
-                    
-                    customVC.bridges = newBridges
+            captureSession?.stopRunning()
 
-                    navigationController?.popViewController(animated: true)
-                }
-                else {
-                    alert(
-                        "QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?".localize(),
-                          handler: { UIAlertAction in
-                            self.captureSession?.startRunning() })
-                }
+            // They really had to use JSON for content encoding but with illegal single quotes instead
+            // of double quotes as per JSON standard. Srly?
+            if let data = metadata.stringValue?.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
+                let newBridgesOpt = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
+                let newBridges = newBridgesOpt,
+                let vc = self.navigationController?.viewControllers,
+                let customVC = vc[(vc.count) - 2] as? CustomBridgeViewController {
+
+                customVC.bridges = newBridges
+
+                navigationController?.popViewController(animated: true)
+            }
+            else {
+                alert(
+                    "QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?".localize(),
+                      handler: { UIAlertAction in
+                        self.captureSession?.startRunning() })
             }
         }
     }
