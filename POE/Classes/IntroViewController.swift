@@ -46,16 +46,7 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
         }
     }
 
-    var modelController: ModelController {
-        // Return the model controller object, creating it if necessary.
-        // In more complex implementations, the model controller may be passed to the view controller.
-        if _modelController == nil {
-            _modelController = ModelController()
-        }
-        return _modelController!
-    }
-
-    var _modelController: ModelController? = nil
+    lazy var modelController = ModelController()
 
     // MARK: - Actions
 
@@ -94,32 +85,25 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
     // MARK: - UIPageViewController delegate methods
 
     public func pageViewController(_ pageViewController: UIPageViewController,
-                                   willTransitionTo pendingViewControllers: [UIViewController]) {
+                                   didFinishAnimating finished: Bool,
+                                   previousViewControllers: [UIViewController],
+                                   transitionCompleted completed: Bool) {
+        if completed,
+            let vc = pageViewController.viewControllers?.first {
 
-        let index = modelController.indexOfViewController(pendingViewControllers[0])
+            let index = modelController.indexOfViewController(vc)
 
-        pageControl.currentPage = index
+            pageControl.currentPage = index
 
-        let isBridgePage = index > 1
+            let isBridgePage = index > 1
 
-        pageControl.isHidden = isBridgePage
-        nextPageBt.isHidden = isBridgePage
-        useABridgeLb.isHidden = !isBridgePage
-        continueWithoutLb.isHidden = !isBridgePage
+            pageControl.isHidden = isBridgePage
+            nextPageBt.isHidden = isBridgePage
+            useABridgeLb.isHidden = !isBridgePage
+            continueWithoutLb.isHidden = !isBridgePage
+        }
     }
 
-
-    public func pageViewController(_ pageViewController: UIPageViewController,
-                                   spineLocationFor orientation: UIInterfaceOrientation)
-        -> UIPageViewController.SpineLocation {
-
-        let currentViewController = self.pageViewController!.viewControllers![0]
-        self.pageViewController!.setViewControllers([currentViewController], direction: .forward,
-                                                    animated: true, completion: {done in })
-
-        self.pageViewController!.isDoubleSided = false
-        return .min
-    }
 
     // MARK: - private methods
 
@@ -131,27 +115,23 @@ public class IntroViewController: XibViewController, UIPageViewControllerDelegat
     private func jumpToPage(_ index: Int) {
         var current :Int = 0
 
-        if let viewControllers = pageViewController?.viewControllers {
-            if viewControllers.count > 0 {
-                current = modelController.indexOfViewController(viewControllers[0])
+        if let viewController = pageViewController?.viewControllers?.first {
+            current = modelController.indexOfViewController(viewController)
 
-                if current == NSNotFound {
-                    current = 0
-                }
+            if current == NSNotFound {
+                current = 0
             }
         }
 
         if let next = modelController.viewControllerAtIndex(index) {
-            pageViewController(pageViewController!, willTransitionTo: [next])
-
             let direction: UIPageViewController.NavigationDirection = current < index
                 ? .forward
                 : .reverse
 
-            pageViewController?.setViewControllers([next],
-                                                   direction: direction,
-                                                   animated: true,
-                                                   completion: nil)
+            pageViewController?.setViewControllers([next], direction: direction, animated: true)
+
+            pageViewController(pageViewController!, didFinishAnimating: false,
+                               previousViewControllers: [], transitionCompleted: true)
         }
     }
 }
