@@ -272,7 +272,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-POE_Example/Pods-POE_Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-POE_Example/Pods-POE_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/Localize/Localize.framework",
 				"${BUILT_PRODUCTS_DIR}/POE/POE.framework",
@@ -287,7 +287,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-POE_Example/Pods-POE_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POE_Example/Pods-POE_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF835397264ED991498A2D9F /* [CP] Check Pods Manifest.lock */ = {

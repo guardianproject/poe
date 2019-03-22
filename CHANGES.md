@@ -12,3 +12,8 @@
 # 0.4.2
 - Allow an explicit delegate on `BridgeSelectViewController` to support situations, 
   where the presentingViewController and the callback delegate are not the same.
+
+# 0.4.3
+- Minor update to French translation.
+- Fixed CocoaPods Swift language configuration.
+- Use CocoaPods 1.6.1.
