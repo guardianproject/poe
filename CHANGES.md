@@ -17,3 +17,7 @@
 - Minor update to French translation.
 - Fixed CocoaPods Swift language configuration.
 - Use CocoaPods 1.6.1.
+
+# 0.5.0
+- Updated to Xcode 10.2/Swift 5.
+- Breaking change: `BridgeSelectViewController#init` renamed to `BridgeSelectViewController#instantiate`.
