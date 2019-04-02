@@ -48,8 +48,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             // They really had to use JSON for content encoding but with illegal single quotes instead
             // of double quotes as per JSON standard. Srly?
             if let data = metadata.stringValue?.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
-                let newBridgesOpt = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
-                let newBridges = newBridgesOpt,
+                let newBridges = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
                 let vc = self.navigationController?.viewControllers,
                 let customVC = vc[(vc.count) - 2] as? CustomBridgeViewController {
 

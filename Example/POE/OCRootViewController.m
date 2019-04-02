@@ -18,7 +18,7 @@
         self.introVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
 
         self.bridgeVC = [BridgeSelectViewController
-         initWithCurrentId:[NSUserDefaults.standardUserDefaults integerForKey:@"use_bridges"]
+         instantiateWithCurrentId:[NSUserDefaults.standardUserDefaults integerForKey:@"use_bridges"]
          noBridgeId:@0
          providedBridges:@{@1: @"obfs4", @2: @"meek-amazon", @3: @"meek-azure"}
          customBridgeId:@99

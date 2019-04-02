@@ -26,7 +26,7 @@ class RootViewController: UIViewController, POEDelegate {
         // that you're the presenting view controller, which is also supported.
         // In that case you can simplify that code to a direct initialization
         // without the need to make bridgeVC optional.
-        bridgeVC = BridgeSelectViewController.init(
+        bridgeVC = BridgeSelectViewController.instantiate(
             currentId: UserDefaults.standard.integer(forKey: "use_bridges"),
             noBridgeId: 0,
             providedBridges: [1: "obfs4", 2: "meek-amazon", 3: "meek-azure"],

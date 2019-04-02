@@ -39,7 +39,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     func indexOfViewController(_ viewController: UIViewController) -> Int {
         // Return the index of the given data view controller.
         // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-        return pages.index(of: viewController) ?? NSNotFound
+        return pages.firstIndex(of: viewController) ?? NSNotFound
     }
 
     // MARK: - Page View Controller Data Source

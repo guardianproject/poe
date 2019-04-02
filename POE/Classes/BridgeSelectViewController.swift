@@ -26,7 +26,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
 
     var delegate: POEDelegate?
 
-    @objc public static func `init`(
+    @objc public static func instantiate(
         currentId: Int, noBridgeId: NSNumber?, providedBridges: [Int : String]?,
         customBridgeId: NSNumber?, customBridges: [String]?,
         delegate: POEDelegate? = nil) -> UINavigationController {
@@ -134,7 +134,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         }
         else {
             let old = tableView.cellForRow(at:
-                IndexPath(row: ids.index(of: currentId)!, section: indexPath.section))
+                IndexPath(row: ids.firstIndex(of: currentId)!, section: indexPath.section))
             old?.accessoryType = .none
 
             currentId = ids[indexPath.row]

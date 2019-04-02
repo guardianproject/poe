@@ -26,7 +26,7 @@ which rotates nice images together with claims about how Tor can help your users
 
 This pod is prominently used in the OnionBrowser: https://github.com/mtigas/OnionBrowser
 
-Written in Swift 4.2.
+Written in Swift 5.
 DESC
 
   s.homepage         = 'https://github.com/guardianproject/poe'
@@ -38,7 +38,7 @@ DESC
 
   s.ios.deployment_target = '9.0'
 
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
 
   s.source_files = 'POE/Classes/**/*.swift'
   
@@ -52,9 +52,7 @@ DESC
     ]
   }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'Localize', '~> 2.1'
+  s.dependency 'Localize', '~> 2.2'
   s.dependency 'KMPlaceholderTextView', '~> 1.4'
   s.dependency 'UIColor-HexRGB'
 end

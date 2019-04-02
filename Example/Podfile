@@ -3,5 +3,6 @@ use_frameworks!
 target 'POE_Example' do
   platform :ios, '9.0'
 
+  pod 'Localize', :git => 'https://github.com/andresilvagomez/Localize.git'
   pod 'POE', :path => '../'
 end
