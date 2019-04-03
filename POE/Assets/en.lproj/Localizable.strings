@@ -66,6 +66,7 @@
 
 
 // ScanQrViewController.swift
+"Scan QR Code" = "Scan QR Code";
 "Error" = "Error";
 "Camera access was not granted or QR Code scanning is not supported by your device." = "Camera access was not granted or QR Code scanning is not supported by your device.";
 "QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?" = "QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?";
