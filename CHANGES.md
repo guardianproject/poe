@@ -1,3 +1,6 @@
+# 0.5.2
+- More translations (still incomplate) for "Scan QR Code".
+
 # 0.5.1
 - Updated dependency Localize to version 2.2.0 witch is now fully Swift 5 compliant.
 - Added missing translations (still incomplate) for "Scan QR Code".
