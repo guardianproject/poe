@@ -1,3 +1,8 @@
+# 0.5.4
+- Language updates to Greek and Catalan. 
+- New language: Czech.
+- Updated `Localize` dependency to 2.3.0. Not necessary, but doesn't hurt either.
+
 # 0.5.3
 - More translations (still incomplete) for "Scan QR Code".
 
