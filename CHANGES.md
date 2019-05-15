@@ -1,3 +1,6 @@
+# 0.5.5
+- Language updates to Hungarian.
+
 # 0.5.4
 - Language updates to Greek and Catalan. 
 - New language: Czech.
