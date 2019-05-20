@@ -1,3 +1,6 @@
+# 0.5.6
+- Updated Czech, Gaelic and Albanian translations.
+
 # 0.5.5
 - Language updates to Hungarian.
 
