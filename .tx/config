@@ -12,4 +12,4 @@ trans.pt_BR = POE/Assets/pt-BR.lproj/Localizable.strings
 trans.pt_PT = POE/Assets/pt-PT.lproj/Localizable.strings
 trans.tr_TR = POE/Assets/tr-TR.lproj/Localizable.strings
 type = STRINGSDICT
-
+minimum_perc = 75
