@@ -10,13 +10,13 @@
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		94AAECF7CC68913E55BF82B4 /* Pods_POE_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2467B5525C28DA7713AC006 /* Pods_POE_Example.framework */; };
 		A003C5A01E9691080007E7CE /* OCRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A003C59F1E9691080007E7CE /* OCRootViewController.m */; };
 		A009ACE41EE6CF7A00BA22FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A009ACE61EE6CF7A00BA22FE /* InfoPlist.strings */; };
 		A025F25221F604080034B947 /* CHANGES.md in Resources */ = {isa = PBXBuildFile; fileRef = A025F25121F604080034B947 /* CHANGES.md */; };
 		A07FBBDB1E952B8000469503 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07FBBDA1E952B8000469503 /* RootViewController.swift */; };
 		A08F6E3B1EB893E6007074ED /* 01-alt_Intro-Expect.png in Resources */ = {isa = PBXBuildFile; fileRef = A08F6E391EB893E6007074ED /* 01-alt_Intro-Expect.png */; };
 		A08F6E3C1EB893E6007074ED /* copy in Resources */ = {isa = PBXBuildFile; fileRef = A08F6E3A1EB893E6007074ED /* copy */; };
+		DB6C328B55334F48DBFB119C /* libPods-POE_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F74DF96FAE040933870B7CD0 /* libPods-POE_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,8 +56,8 @@
 		A08C6CCA1E93BCEB00CE980D /* style-guide */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "style-guide"; sourceTree = "<group>"; };
 		A08F6E391EB893E6007074ED /* 01-alt_Intro-Expect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "01-alt_Intro-Expect.png"; sourceTree = "<group>"; };
 		A08F6E3A1EB893E6007074ED /* copy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copy; sourceTree = "<group>"; };
-		B2467B5525C28DA7713AC006 /* Pods_POE_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_POE_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED2BDDC37F26F308779B2F48 /* Pods-POE_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POE_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-POE_Example/Pods-POE_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F74DF96FAE040933870B7CD0 /* libPods-POE_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-POE_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE60D3588C8652D803C492 /* Pods-POE_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-POE_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-POE_Tests/Pods-POE_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,7 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94AAECF7CC68913E55BF82B4 /* Pods_POE_Example.framework in Frameworks */,
+				DB6C328B55334F48DBFB119C /* libPods-POE_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,8 +152,8 @@
 		6F0DB0B9FA57D5ED88A77B6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B2467B5525C28DA7713AC006 /* Pods_POE_Example.framework */,
 				7CD4E8F303929E8FCB4CA503 /* Pods_POE_Tests.framework */,
+				F74DF96FAE040933870B7CD0 /* libPods-POE_Example.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -203,7 +203,7 @@
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				B830674EABD13B49FC89E617 /* [CP] Embed Pods Frameworks */,
+				5E0CA711B2CD89D10000E4C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -267,28 +267,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B830674EABD13B49FC89E617 /* [CP] Embed Pods Frameworks */ = {
+		5E0CA711B2CD89D10000E4C1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-POE_Example/Pods-POE_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
-				"${BUILT_PRODUCTS_DIR}/Localize/Localize.framework",
-				"${BUILT_PRODUCTS_DIR}/POE/POE.framework",
-				"${BUILT_PRODUCTS_DIR}/UIColor-HexRGB/UIColor_HexRGB.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-POE_Example/Pods-POE_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/POE/POE.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/POE.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_HexRGB.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/POE.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POE_Example/Pods-POE_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-POE_Example/Pods-POE_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EF835397264ED991498A2D9F /* [CP] Check Pods Manifest.lock */ = {

@@ -1,7 +1,6 @@
-use_frameworks!
+platform :ios, '9.0'
 
 target 'POE_Example' do
-  platform :ios, '9.0'
-
   pod 'POE', :path => '../'
+  pod 'UIColor-HexRGB', :modular_headers => true
 end
