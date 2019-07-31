@@ -1,3 +1,8 @@
+# 0.5.7
+- Updated Farsi translation.
+- Added Korean translation.
+- Updated example to use static library linking instead of dynamic frameworks.
+
 # 0.5.6
 - Updated Czech, Gaelic and Albanian translations.
 
