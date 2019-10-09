@@ -128,7 +128,7 @@ extension UITextField {
  */
 private func registerFont(from url: URL) throws {
     guard let fontDataProvider = CGDataProvider(url: url as CFURL) else {
-        throw NSError.init(domain: "Could not create font data provider for \(url).", code: -1, userInfo: nil)
+        throw NSError(domain: "Could not create font data provider for \(url).", code: -1, userInfo: nil)
     }
     let font = CGFont(fontDataProvider)
     var error: Unmanaged<CFError>?
