@@ -1,3 +1,10 @@
+# 0.6.0
+- Bumped minimum iOS version to 11.0.
+- Updated to latest CocoaPods 1.8.3.
+- Moved color definitions to named colors in assets.
+- Removed UIColor-HexRGB dependency.
+- Publish POE colors as property on UIColor class.
+
 # 0.5.7
 - Updated Farsi translation.
 - Added Korean translation.
