@@ -54,5 +54,4 @@ DESC
 
   s.dependency 'Localize', '~> 2.2'
   s.dependency 'KMPlaceholderTextView', '~> 1.4'
-  s.dependency 'UIColor-HexRGB'
 end

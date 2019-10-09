@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIColor_HexRGB
 
 public class ConnectingViewController: XibViewController {
 
@@ -27,50 +26,50 @@ public class ConnectingViewController: XibViewController {
     private static let claims = [
         [
             "text": "__CLAIM_1__".localize(),
-            "text_color": "FFFFFF",
-            "background_color": "7D4698",
+            "text_color": "white",
+            "background_color": "group_bg",
             "image": "group",
         ],
         [
             "text": "__CLAIM_2__".localize(),
-            "text_color": "000000",
-            "background_color": "CDEA52",
+            "text_color": "black",
+            "background_color": "people_bg",
             "image": "people",
         ],
         [
             "text": "__CLAIM_3__".localize(),
-            "text_color": "FFFFFF",
-            "background_color": "4A4A4A",
+            "text_color": "white",
+            "background_color": "facebook_bg",
             "image": "facebook",
         ],
         [
             "text": "__CLAIM_4__".localize(),
-            "text_color": "FFFFFF",
-            "background_color": "2196F3",
+            "text_color": "white",
+            "background_color": "activist_bg",
             "image": "activist",
         ],
         [
             "text": "__CLAIM_5__".localize(),
-            "text_color": "FFFFFF",
-            "background_color": "EE8B3C",
+            "text_color": "white",
+            "background_color": "blogger_bg",
             "image": "blogger",
         ],
         [
             "text": "__CLAIM_6__".localize(),
-            "text_color": "000000",
-            "background_color": "FFCFBF",
+            "text_color": "black",
+            "background_color": "journalist_bg",
             "image": "journalist",
         ],
         [
             "text": "__CLAIM_7__".localize(),
-            "text_color": "000000",
-            "background_color": "FFDE2A",
+            "text_color": "black",
+            "background_color": "business_bg",
             "image": "business",
         ],
         [
             "text": "__CLAIM_8__".localize(),
-            "text_color": "000000",
-            "background_color": "69D5A1",
+            "text_color": "black",
+            "background_color": "worker_bg",
             "image": "worker",
         ],
     ]
@@ -187,10 +186,10 @@ public class ConnectingViewController: XibViewController {
 
         let data = ConnectingViewController.claims[nextClaim]
 
-        self.claimLb.text = data["text"]
-        self.claimLb.textColor = UIColor.init(hex: data["text_color"])
-        self.view.backgroundColor = UIColor.init(hex: data["background_color"])
-        self.image.image = UIImage.init(named: data["image"]!,
+        claimLb.text = data["text"]
+        claimLb.textColor = data["text_color"] == "white" ? .white : .black
+        view.backgroundColor = UIColor(named: data["background_color"]!, in: XibViewController.getBundle(), compatibleWith: nil)
+        image.image = UIImage(named: data["image"]!,
                                         in: XibViewController.getBundle(), compatibleWith: nil)
     }
 }

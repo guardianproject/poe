@@ -2,5 +2,4 @@ platform :ios, '11.0'
 
 target 'POE_Example' do
   pod 'POE', :path => '../'
-  pod 'UIColor-HexRGB', :modular_headers => true
 end
