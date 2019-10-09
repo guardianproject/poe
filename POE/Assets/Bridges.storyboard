@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BOV-sf-kyf">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BOV-sf-kyf">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,9 +13,9 @@
             <objects>
                 <navigationController id="BOV-sf-kyf" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zkK-88-mdD">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.61741691830000001" green="0.23399114609999999" blue="0.55008697510000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" name="AccentLight"/>
                     </navigationBar>
                     <connections>
                         <segue destination="hSA-qe-fBP" kind="relationship" relationship="rootViewController" id="d9z-o6-Ib7"/>
@@ -53,7 +52,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oMm-Bp-I4O" id="B0d-IO-WdK">
-                                            <rect key="frame" x="0.0" y="0.0" width="281" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0v-nA-IgO">
@@ -77,8 +76,8 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.64705882349999999" green="0.46666666670000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Accent"/>
+                        <color key="tintColor" name="AccentLight"/>
                         <constraints>
                             <constraint firstItem="xCq-5d-C6X" firstAttribute="top" secondItem="TMb-Oq-Srl" secondAttribute="top" id="32c-n8-ifE"/>
                             <constraint firstAttribute="trailing" secondItem="xCq-5d-C6X" secondAttribute="trailing" constant="8" id="6U5-d7-JYz"/>
@@ -149,8 +148,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.64705882349999999" green="0.46666666670000001" blue="0.73333333329999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Accent"/>
+                        <color key="tintColor" name="AccentLight"/>
                         <constraints>
                             <constraint firstItem="EnN-gK-9ho" firstAttribute="top" secondItem="GcQ-0c-e1H" secondAttribute="bottom" id="4gs-qT-fAx"/>
                             <constraint firstItem="GcQ-0c-e1H" firstAttribute="leading" secondItem="dFk-py-Btj" secondAttribute="leading" id="Awk-8S-hXd"/>
@@ -189,11 +188,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uac-eO-t4x">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Accent"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uac-eO-t4x" secondAttribute="trailing" id="4ao-Ar-dLW"/>
                             <constraint firstItem="uac-eO-t4x" firstAttribute="leading" secondItem="mdF-Sn-8Ql" secondAttribute="leading" id="9Eq-Uc-c0f"/>
@@ -211,4 +210,12 @@
             <point key="canvasLocation" x="2383" y="113"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Accent">
+            <color red="0.24705882352941178" green="0.16862745098039217" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AccentLight">
+            <color red="0.6470588235294118" green="0.46666666666666667" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

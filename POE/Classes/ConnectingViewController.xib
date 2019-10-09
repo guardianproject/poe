@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,7 +29,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="4" id="dd9-Ih-pQu"/>
                     </constraints>
-                    <color key="progressTintColor" red="0.49411764705882355" green="0.82745098039215681" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="progressTintColor" name="Ok"/>
                     <color key="trackTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.23999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                 </progressView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="We're connecting you." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7CD-vG-4SV">
@@ -76,7 +75,6 @@
                     <rect key="frame" x="16" y="277" width="288" height="183"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="0.6470588235294118" green="0.46666666666666667" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="HXk-i0-WK8" firstAttribute="top" secondItem="M4t-LI-ONS" secondAttribute="bottom" constant="8" id="0tJ-3u-cKR"/>
                 <constraint firstItem="nsT-H2-oIL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="1Aa-hV-8Y6"/>
@@ -103,5 +101,8 @@
     <resources>
         <image name="activist" width="1080" height="1284"/>
         <image name="gear" width="20" height="20"/>
+        <namedColor name="Ok">
+            <color red="0.49411764705882355" green="0.82745098039215681" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

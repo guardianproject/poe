@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +40,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.2470588235" green="0.16862745100000001" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="Accent"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="S8s-jM-wah" secondAttribute="trailing" id="20U-hg-Hpc"/>
                 <constraint firstItem="S8s-jM-wah" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="S6g-An-9QG"/>
@@ -50,4 +49,9 @@
             <point key="canvasLocation" x="23.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <namedColor name="Accent">
+            <color red="0.24705882352941178" green="0.16862745098039217" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

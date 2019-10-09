@@ -36,7 +36,7 @@ DESC
   s.source           = { :git => 'https://github.com/guardianproject/poe.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/guardianproject'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
 
   s.swift_version = '5.0'
 

@@ -126,6 +126,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             message: message,
             preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel".localize(), style: .cancel, handler: handler))
+        alert.view.tintColor = .poeAccentLight
         present(alert, animated: true, completion: nil)
     }
 }
