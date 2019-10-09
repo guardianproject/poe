@@ -29,27 +29,27 @@ Benjamin Erhart, be@benjaminerhart.com
 
 These people helped with translations. Thank you so much, folks!
 
-Arabic: AboShanab, mada19
-Bengali: codesmite, Al_Shahrior
-Chinese (Simplified): Selinaf, feeblebiscuit, tsaizb, Lafrenze
-Chinese (Traditional): Selinaf, s8321414, jxtsai
-Catalán: Ecron, pau.selles
-Dutch: SilverXp, biancahey, kwadronaut, pljmn
-French: yahoe.001
-German: Atalanttore, beonex1, nautilusx
-Hindi: balapandu222, drashti4, umkdikshit
-Hungarian: benewfy, vargaviktor
-Icelandic: anarchodin, sveinki
-Irish: kscanne
-Japanese: Naofumi, Songbogong, TokumeiNanashi, pluto987, jpanonowl
-Norwegian (Bokmål): kingu
-Persian: ariaa, arminoza, nariman, sabs
-Portuguese (Brazil): flaviove, CypherZnnb
-Russian: anm, ifti
-Spanish: arielbarbosa, Maria_Jose, emmapeel, strel
-Tamil: balapandu222, Selva_Makilan
-Telugu: balapandu222, sonusandeep
-Ukrainian: Herenko, lyubomyr
+- Arabic: AboShanab, mada19
+- Bengali: codesmite, Al_Shahrior
+- Chinese (Simplified): Selinaf, feeblebiscuit, tsaizb, Lafrenze
+- Chinese (Traditional): Selinaf, s8321414, jxtsai
+- Catalán: Ecron, pau.selles
+- Dutch: SilverXp, biancahey, kwadronaut, pljmn
+- French: yahoe.001
+- German: Atalanttore, beonex1, nautilusx
+- Hindi: balapandu222, drashti4, umkdikshit
+- Hungarian: benewfy, vargaviktor
+- Icelandic: anarchodin, sveinki
+- Irish: kscanne
+- Japanese: Naofumi, Songbogong, TokumeiNanashi, pluto987, jpanonowl
+- Norwegian (Bokmål): kingu
+- Persian: ariaa, arminoza, nariman, sabs
+- Portuguese (Brazil): flaviove, CypherZnnb
+- Russian: anm, ifti
+- Spanish: arielbarbosa, Maria_Jose, emmapeel, strel
+- Tamil: balapandu222, Selva_Makilan
+- Telugu: balapandu222, sonusandeep
+- Ukrainian: Herenko, lyubomyr
 
 ## License
 
