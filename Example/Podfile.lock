@@ -1,7 +1,7 @@
 PODS:
   - KMPlaceholderTextView (1.4.0)
   - Localize (2.3.0)
-  - POE (0.6.0):
+  - POE (0.6.1):
     - KMPlaceholderTextView (~> 1.4)
     - Localize (~> 2.2)
 
@@ -27,7 +27,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   KMPlaceholderTextView: de2b477654954b0707ada35335c3635259511297
   Localize: cb1ae53ed73decaad0dce217806ed983091913f5
-  POE: b5c8a0524a55701a3215c6acaf501cc82dd4ec32
+  POE: 8ffeeef873250bd972414734eab6df727de35847
 
 PODFILE CHECKSUM: 5793d1abb341f240ff36794f3b7284da4b92fc1d
 

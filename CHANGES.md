@@ -1,3 +1,8 @@
+# 0.6.1
+- Fixed iOS 13 dark mode.
+- Updated to latest CocoaPods 1.8.4.
+- Updated Chinese (Simplified) translation.
+
 # 0.6.0
 - Bumped minimum iOS version to 11.0.
 - Updated to latest CocoaPods 1.8.3.
