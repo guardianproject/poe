@@ -31,7 +31,7 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         customBridgeId: NSNumber?, customBridges: [String]?,
         delegate: POEDelegate? = nil) -> UINavigationController {
 
-        let storyboard = UIStoryboard.init(name: "Bridges", bundle: XibViewController.getBundle())
+        let storyboard = UIStoryboard(name: "Bridges", bundle: XibViewController.getBundle())
         let navC = storyboard.instantiateInitialViewController() as! UINavigationController
         let bridgeVC = navC.topViewController as! BridgeSelectViewController
 

@@ -6,22 +6,29 @@ PODS:
     - Localize (~> 2.2)
 
 DEPENDENCIES:
+  - KMPlaceholderTextView (from `https://github.com/tladesignz/KMPlaceholderTextView.git`)
   - POE (from `../`)
 
 SPEC REPOS:
   trunk:
-    - KMPlaceholderTextView
     - Localize
 
 EXTERNAL SOURCES:
+  KMPlaceholderTextView:
+    :git: https://github.com/tladesignz/KMPlaceholderTextView.git
   POE:
     :path: "../"
 
+CHECKOUT OPTIONS:
+  KMPlaceholderTextView:
+    :commit: c9fb46117820ae80ff561fe185ee20f3b998a193
+    :git: https://github.com/tladesignz/KMPlaceholderTextView.git
+
 SPEC CHECKSUMS:
-  KMPlaceholderTextView: 2206c3df39979e9396e2d96fa9f427a8951121b0
+  KMPlaceholderTextView: de2b477654954b0707ada35335c3635259511297
   Localize: cb1ae53ed73decaad0dce217806ed983091913f5
   POE: b5c8a0524a55701a3215c6acaf501cc82dd4ec32
 
-PODFILE CHECKSUM: 443da6f70c8c1b7854dfdceec88ae059e6c70a44
+PODFILE CHECKSUM: 5793d1abb341f240ff36794f3b7284da4b92fc1d
 
-COCOAPODS: 1.8.3
+COCOAPODS: 1.8.4

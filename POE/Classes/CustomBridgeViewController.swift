@@ -13,7 +13,13 @@ class CustomBridgeViewController: XibViewController {
 
     @IBOutlet weak var explanationTV: UITextView!
 
-    @IBOutlet weak var bridgesTV: KMPlaceholderTextView!
+    @IBOutlet weak var bridgesTV: KMPlaceholderTextView! {
+        didSet {
+            if #available(iOS 13, *) {
+                bridgesTV.placeholderColor = .systemGray3
+            }
+        }
+    }
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var bottom: NSLayoutConstraint!

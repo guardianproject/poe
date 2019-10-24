@@ -2,4 +2,7 @@ platform :ios, '11.0'
 
 target 'POE_Example' do
   pod 'POE', :path => '../'
+
+  pod 'KMPlaceholderTextView', :git => 'https://github.com/tladesignz/KMPlaceholderTextView.git'
+
 end
