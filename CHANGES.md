@@ -1,3 +1,6 @@
+# 0.7.0
+- Bridges QR codes can now be read from the gallery, too.
+
 # 0.6.1
 - Fixed iOS 13 dark mode.
 - Updated to latest CocoaPods 1.8.4.
