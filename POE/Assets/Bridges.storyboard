@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BOV-sf-kyf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BOV-sf-kyf">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -29,10 +30,6 @@
         <scene sceneID="Ayn-RP-ngw">
             <objects>
                 <viewController storyboardIdentifier="BridgeSelectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hSA-qe-fBP" customClass="BridgeSelectViewController" customModule="POE" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="0Ag-P8-EkM"/>
-                        <viewControllerLayoutGuide type="bottom" id="Lnp-vG-HFw"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TMb-Oq-Srl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,14 +77,15 @@
                         <color key="tintColor" name="AccentLight"/>
                         <constraints>
                             <constraint firstItem="xCq-5d-C6X" firstAttribute="top" secondItem="TMb-Oq-Srl" secondAttribute="top" id="32c-n8-ifE"/>
-                            <constraint firstAttribute="trailing" secondItem="xCq-5d-C6X" secondAttribute="trailing" constant="8" id="6U5-d7-JYz"/>
-                            <constraint firstItem="Lnp-vG-HFw" firstAttribute="top" secondItem="2lh-dN-jPd" secondAttribute="bottom" id="BKx-5F-vwm"/>
-                            <constraint firstItem="xCq-5d-C6X" firstAttribute="leading" secondItem="TMb-Oq-Srl" secondAttribute="leading" constant="8" id="F9X-Hr-dpF"/>
-                            <constraint firstAttribute="trailing" secondItem="2lh-dN-jPd" secondAttribute="trailing" id="NQm-sa-Da7"/>
+                            <constraint firstItem="qz2-Na-PoH" firstAttribute="trailing" secondItem="xCq-5d-C6X" secondAttribute="trailing" constant="8" id="6U5-d7-JYz"/>
+                            <constraint firstItem="qz2-Na-PoH" firstAttribute="bottom" secondItem="2lh-dN-jPd" secondAttribute="bottom" id="BKx-5F-vwm"/>
+                            <constraint firstItem="xCq-5d-C6X" firstAttribute="leading" secondItem="qz2-Na-PoH" secondAttribute="leading" constant="8" id="F9X-Hr-dpF"/>
+                            <constraint firstItem="qz2-Na-PoH" firstAttribute="trailing" secondItem="2lh-dN-jPd" secondAttribute="trailing" id="NQm-sa-Da7"/>
                             <constraint firstItem="2lh-dN-jPd" firstAttribute="height" secondItem="xCq-5d-C6X" secondAttribute="height" id="nJ5-yv-iXC"/>
-                            <constraint firstItem="2lh-dN-jPd" firstAttribute="leading" secondItem="TMb-Oq-Srl" secondAttribute="leading" id="xOD-1V-dbz"/>
+                            <constraint firstItem="2lh-dN-jPd" firstAttribute="leading" secondItem="qz2-Na-PoH" secondAttribute="leading" id="xOD-1V-dbz"/>
                             <constraint firstItem="2lh-dN-jPd" firstAttribute="top" secondItem="xCq-5d-C6X" secondAttribute="bottom" constant="8" id="yrA-Av-bzE"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qz2-Na-PoH"/>
                     </view>
                     <navigationItem key="navigationItem" title="Bridge Configuration" id="tJc-Qt-aaa">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="Ynm-wd-58M">
@@ -110,10 +108,6 @@
         <scene sceneID="0gE-ia-iwi">
             <objects>
                 <viewController storyboardIdentifier="CustomBridgeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="53y-7N-QV8" customClass="CustomBridgeViewController" customModule="POE" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iku-wC-iM3"/>
-                        <viewControllerLayoutGuide type="bottom" id="EnN-gK-9ho"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dFk-py-Btj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,11 +146,12 @@
                         <color key="backgroundColor" name="Accent"/>
                         <color key="tintColor" name="AccentLight"/>
                         <constraints>
-                            <constraint firstItem="EnN-gK-9ho" firstAttribute="top" secondItem="GcQ-0c-e1H" secondAttribute="bottom" id="4gs-qT-fAx"/>
-                            <constraint firstItem="GcQ-0c-e1H" firstAttribute="leading" secondItem="dFk-py-Btj" secondAttribute="leading" id="Awk-8S-hXd"/>
+                            <constraint firstItem="QGT-hG-edi" firstAttribute="bottom" secondItem="GcQ-0c-e1H" secondAttribute="bottom" id="4gs-qT-fAx"/>
+                            <constraint firstItem="GcQ-0c-e1H" firstAttribute="leading" secondItem="QGT-hG-edi" secondAttribute="leading" id="Awk-8S-hXd"/>
                             <constraint firstItem="GcQ-0c-e1H" firstAttribute="top" secondItem="dFk-py-Btj" secondAttribute="top" id="MDW-Pb-Hk9"/>
-                            <constraint firstAttribute="trailing" secondItem="GcQ-0c-e1H" secondAttribute="trailing" id="iKX-W7-nrT"/>
+                            <constraint firstItem="QGT-hG-edi" firstAttribute="trailing" secondItem="GcQ-0c-e1H" secondAttribute="trailing" id="iKX-W7-nrT"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="QGT-hG-edi"/>
                     </view>
                     <navigationItem key="navigationItem" title="Custom Bridges" id="ycD-2i-Jow">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="U3R-75-HQ5">
@@ -180,10 +175,6 @@
         <scene sceneID="BE2-kE-gzS">
             <objects>
                 <viewController id="j5e-gl-6Wb" customClass="ScanQrViewController" customModule="POE" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="knJ-Hy-qHY"/>
-                        <viewControllerLayoutGuide type="bottom" id="rMT-qH-w04"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mdF-Sn-8Ql">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -195,13 +186,20 @@
                         </subviews>
                         <color key="backgroundColor" name="Accent"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="uac-eO-t4x" secondAttribute="trailing" id="4ao-Ar-dLW"/>
-                            <constraint firstItem="uac-eO-t4x" firstAttribute="leading" secondItem="mdF-Sn-8Ql" secondAttribute="leading" id="9Eq-Uc-c0f"/>
-                            <constraint firstItem="uac-eO-t4x" firstAttribute="top" secondItem="knJ-Hy-qHY" secondAttribute="bottom" id="faB-ba-7AC"/>
-                            <constraint firstItem="rMT-qH-w04" firstAttribute="top" secondItem="uac-eO-t4x" secondAttribute="bottom" id="zEy-t4-eTt"/>
+                            <constraint firstItem="4bh-Ii-GfT" firstAttribute="trailing" secondItem="uac-eO-t4x" secondAttribute="trailing" id="4ao-Ar-dLW"/>
+                            <constraint firstItem="uac-eO-t4x" firstAttribute="leading" secondItem="4bh-Ii-GfT" secondAttribute="leading" id="9Eq-Uc-c0f"/>
+                            <constraint firstItem="uac-eO-t4x" firstAttribute="top" secondItem="4bh-Ii-GfT" secondAttribute="top" id="faB-ba-7AC"/>
+                            <constraint firstItem="4bh-Ii-GfT" firstAttribute="bottom" secondItem="uac-eO-t4x" secondAttribute="bottom" id="zEy-t4-eTt"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="4bh-Ii-GfT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Scan QR Code" id="uFE-Jo-BnH"/>
+                    <navigationItem key="navigationItem" title="Scan QR Code" id="uFE-Jo-BnH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="0er-TT-eDe">
+                            <connections>
+                                <action selector="pickImage:" destination="j5e-gl-6Wb" id="qWr-cS-zQW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="videoView" destination="uac-eO-t4x" id="GeE-j4-0MX"/>
                     </connections>

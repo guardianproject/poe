@@ -9,13 +9,26 @@
 import UIKit
 import AVFoundation
 
-class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate,
+    UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var videoView: UIView!
 
     private var captureSession: AVCaptureSession?
     private var videoPreviewLayer: AVCaptureVideoPreviewLayer?
-    
+
+    private lazy var picker: UIImagePickerController = {
+        let picker = UIImagePickerController()
+
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+
+        return picker
+    }()
+
+    private lazy var detector = CIDetector(ofType: CIDetectorTypeQRCode, context: nil, options: [CIDetectorAccuracy: CIDetectorAccuracyHigh])
+
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -45,33 +58,56 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
 
             captureSession?.stopRunning()
 
-            // They really had to use JSON for content encoding but with illegal single quotes instead
-            // of double quotes as per JSON standard. Srly?
-            if let data = metadata.stringValue?.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
-                let newBridges = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
-                let vc = self.navigationController?.viewControllers,
-                let customVC = vc[(vc.count) - 2] as? CustomBridgeViewController {
-
-                customVC.bridges = newBridges
-
-                navigationController?.popViewController(animated: true)
-            }
-            else {
-                alert(
-                    "QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?".localize(),
-                      handler: { UIAlertAction in
-                        self.captureSession?.startRunning() })
-            }
+            tryDecode(metadata.stringValue)
         }
     }
 
-    // MARK: - Private methods
+
+    // MARK: Actions
+
+    @IBAction func pickImage(_ sender: UIBarButtonItem) {
+        captureSession?.stopRunning()
+
+        picker.popoverPresentationController?.barButtonItem = sender
+
+        present(picker, animated: true)
+    }
+
+
+    // MARK: UIImagePickerControllerDelegate
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+
+        var raw = ""
+
+        if let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage,
+            let ciImage = image.ciImage ?? (image.cgImage != nil ? CIImage(cgImage: image.cgImage!) : nil) {
+
+            let features = detector?.features(in: ciImage)
+
+            for feature in features as? [CIQRCodeFeature] ?? [] {
+                raw += feature.messageString ?? ""
+            }
+        }
+
+        tryDecode(raw)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+
+        captureSession?.startRunning()
+    }
+
+
+    // MARK: Private methods
 
     private func startReading() {
 
         if let captureDevice = AVCaptureDevice.default(for: .video) {
             do {
-                let input = try AVCaptureDeviceInput.init(device: captureDevice)
+                let input = try AVCaptureDeviceInput(device: captureDevice)
 
                 captureSession = AVCaptureSession()
 
@@ -100,10 +136,17 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
             }
         }
 
-        alert(
-            "Camera access was not granted or QR Code scanning is not supported by your device.".localize(),
-            handler: { UIAlertAction in
-                self.navigationController?.popViewController(animated: true) })
+        let warning = UILabel(frame: .zero)
+        warning.text = "Camera access was not granted or QR Code scanning is not supported by your device.".localize()
+        warning.translatesAutoresizingMaskIntoConstraints = false
+        warning.numberOfLines = 0
+        warning.textAlignment = .center
+
+        videoView.addSubview(warning)
+        warning.leadingAnchor.constraint(equalTo: videoView.leadingAnchor, constant: 16).isActive = true
+        warning.trailingAnchor.constraint(equalTo: videoView.trailingAnchor, constant: -16).isActive = true
+        warning.topAnchor.constraint(equalTo: videoView.topAnchor, constant: 16).isActive = true
+        warning.bottomAnchor.constraint(equalTo: videoView.bottomAnchor, constant: -16).isActive = true
     }
 
     private func stopReading() {
@@ -118,7 +161,25 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         }
     }
 
-    // MARK: - Internal methods
+    private func tryDecode(_ raw: String?) {
+        // They really had to use JSON for content encoding but with illegal single quotes instead
+        // of double quotes as per JSON standard. Srsly?
+        if let data = raw?.replacingOccurrences(of: "'", with: "\"").data(using: .utf8),
+            let newBridges = try? JSONSerialization.jsonObject(with: data, options: []) as? [String],
+            let vc = self.navigationController?.viewControllers,
+            let customVC = vc[(vc.count) - 2] as? CustomBridgeViewController {
+
+            customVC.bridges = newBridges
+
+            navigationController?.popViewController(animated: true)
+        }
+        else {
+            alert("QR Code could not be decoded! Are you sure you scanned a QR code from bridges.torproject.org?".localize())
+            { _ in
+                self.captureSession?.startRunning()
+            }
+        }
+    }
 
     private func alert(_ message: String, handler: ((UIAlertAction) -> Void)? = nil) {
         let alert = UIAlertController(
