@@ -141,6 +141,7 @@ class ScanQrViewController: UIViewController, AVCaptureMetadataOutputObjectsDele
         warning.translatesAutoresizingMaskIntoConstraints = false
         warning.numberOfLines = 0
         warning.textAlignment = .center
+        warning.textColor = .white // hard white, will always look better on dark purple.
 
         videoView.addSubview(warning)
         warning.leadingAnchor.constraint(equalTo: videoView.leadingAnchor, constant: 16).isActive = true
