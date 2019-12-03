@@ -74,6 +74,10 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         Need to do localization here, so if user goes back and changes it, the change will propagate.
      */
     public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        isModalInPresentation = false
+
         explanationTV.text = "__BRIDGES_EXPLANATION__".localize(value: "bridges.torproject.org")
 
         labels.removeAll()
@@ -91,8 +95,6 @@ public class BridgeSelectViewController: XibViewController, UITableViewDataSourc
         }
 
         tableView.reloadData()
-
-        super.viewWillAppear(animated)
     }
 
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

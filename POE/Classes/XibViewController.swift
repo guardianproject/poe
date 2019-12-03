@@ -40,6 +40,19 @@ public class XibViewController: UIViewController, POEDelegate {
 
     // MARK: - UIViewController
 
+    private var _isModalInPresentation = true
+    /**
+     Users are not allowed to swipe our controllers away. Otherwise, they would get stuck in the flow.
+     */
+    public override var isModalInPresentation: Bool {
+        get {
+            return _isModalInPresentation
+        }
+        set {
+            _isModalInPresentation = newValue
+        }
+    }
+
     public init() {
         let bundle = XibViewController.getBundle()
 
