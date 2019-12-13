@@ -1,3 +1,6 @@
+# 0.7.2
+- Added Vietnamese translation.
+
 # 0.7.1
 - Fixed issue where users could swipe away view controllers on iOS 13 and get stuck because of it.
 - Updated translator list.
