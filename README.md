@@ -58,6 +58,7 @@ These people helped with translations. Thank you so much, folks!
 - Telugu: balapandu222, sonusandeep
 - Turkish: Kaya Zeren, falcontr06
 - Ukrainian: Herenko, lyubomyr
+- Vietnamese: AshCopper, PMinhDuc, Shinigami, ppanhh
 
 ## License
 
