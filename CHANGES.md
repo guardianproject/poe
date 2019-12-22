@@ -1,3 +1,6 @@
+# 0.7.3
+- Expose POE colors to Objective-C.
+
 # 0.7.2
 - Added Vietnamese translation.
 
